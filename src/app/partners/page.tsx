@@ -37,7 +37,7 @@ const partners = [
 
 export default function PartnersPage() {
   return (
-    <main className="min-h-screen bg-white w-full overflow-hidden">
+    <main className="min-h-screen bg-slate-900 w-full overflow-hidden">
       <Navbar />
       
       <section className="hero-gradient pt-32 pb-40 px-6 relative overflow-hidden">
@@ -78,7 +78,7 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      <section className="py-24 max-w-[1400px] mx-auto px-6 lg:px-12 bg-white text-center">
+      <section className="py-24 max-w-[1400px] mx-auto px-6 lg:px-12 bg-slate-950 text-center">
          
          <motion.div 
             initial={{ opacity: 0, y: 30 }}
@@ -91,17 +91,17 @@ export default function PartnersPage() {
                <span className="text-[0.65rem] font-bold text-brand-purple uppercase tracking-[0.2em]">Ecosystem</span>
                <div className="h-[1px] w-8 bg-brand-purple/30" />
             </div>
-            <h2 className="text-4xl md:text-5xl font-display font-black text-slate-900 tracking-tight mb-4">
+            <h2 className="text-4xl md:text-5xl font-display font-black text-white tracking-tight mb-4">
                Built on Verified Collaboration
             </h2>
-            <p className="text-slate-500 font-medium text-sm max-w-xl mx-auto leading-relaxed">
+            <p className="text-slate-400 font-medium text-sm max-w-xl mx-auto leading-relaxed">
                Each partnership is strategic — chosen because it adds direct value to the clients we serve.
             </p>
          </motion.div>
 
       </section>
 
-      <section className="pb-24 max-w-[1200px] mx-auto px-6 lg:px-12 bg-white relative z-20">
+      <section className="pb-24 max-w-[1200px] mx-auto px-6 lg:px-12 bg-slate-950 relative z-20">
          <div className="flex flex-col gap-8">
             {partners.map((partner, idx) => (
                <motion.div 
@@ -110,19 +110,19 @@ export default function PartnersPage() {
                  whileInView={{ opacity: 1, x: 0 }}
                  viewport={{ once: true }}
                  transition={{ duration: 0.6, delay: idx * 0.1 }}
-                 className="bg-white border border-slate-100 p-8 md:p-12 rounded-[2.5rem] shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all flex flex-col md:flex-row items-center gap-10 group"
+                 className="bg-white/5 backdrop-blur-md border border-white/10 p-8 md:p-12 rounded-[2.5rem] shadow-sm hover:shadow-neon-purple hover:border-brand-purple/30 hover:-translate-y-2 transition-all duration-300 flex flex-col md:flex-row items-center gap-10 group"
                >
                   <div className={`w-36 h-36 ${partner.color} rounded-[2rem] flex items-center justify-center shrink-0 shadow-sm transition-transform duration-500 group-hover:scale-105 group-hover:-rotate-3`}>
                      <span className="text-4xl font-black text-white mix-blend-overlay tracking-tighter shadow-sm">{partner.initial}</span>
                   </div>
                   
                   <div className="flex-1 flex flex-col items-start">
-                     <h3 className="text-xl font-display font-black text-slate-900 mb-3 tracking-tight">{partner.name}</h3>
-                     <p className="text-slate-500 text-[0.85rem] font-medium leading-relaxed mb-6 flex-1">
+                     <h3 className="text-xl font-display font-black text-white mb-3 tracking-tight">{partner.name}</h3>
+                     <p className="text-slate-400 text-[0.85rem] font-medium leading-relaxed mb-6 flex-1">
                         {partner.desc}
                      </p>
                      
-                     <span className="px-5 py-2 bg-emerald-50 text-emerald-600 text-[0.65rem] font-black uppercase tracking-widest rounded-full">
+                     <span className="px-5 py-2 bg-emerald-500/10 text-emerald-400 text-[0.65rem] font-black uppercase tracking-widest rounded-full">
                         {partner.tag}
                      </span>
                   </div>

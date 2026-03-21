@@ -22,22 +22,22 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="w-full bg-white border-b border-slate-100 z-50 relative">
+      <nav className="w-full bg-slate-900/95 backdrop-blur-md border-b border-slate-800 z-50 sticky top-0">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 py-4">
           <div className="flex items-center justify-between">
             
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3">
               <svg viewBox="0 15 100 90" className="w-[3rem] h-[2.7rem] shrink-0">
-                <path d="M 0,20 L 23,43 L 23,83 C 23,100 10,105 0,105 Z" fill="#5B2B82" />
-                <path d="M 37,85 C 55,65 75,75 100,105 L 70,105 C 55,95 45,95 37,97 Z" fill="#5B2B82" />
+                <path d="M 0,20 L 23,43 L 23,83 C 23,100 10,105 0,105 Z" fill="#7C3AED" />
+                <path d="M 37,85 C 55,65 75,75 100,105 L 70,105 C 55,95 45,95 37,97 Z" fill="#7C3AED" />
                 <path d="M 100,20 L 100,60 L 87,47 L 37,97 L 23,83 L 73,33 L 60,20 Z" fill="#A4C639" />
               </svg>
               <div className="flex flex-col justify-center">
-                <span className="font-display font-black text-[#5B2B82] text-[1.15rem] leading-none tracking-wide">
+                <span className="font-display font-black text-white text-[1.15rem] leading-none tracking-wide drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
                   DIGITALS <span className="text-[0.65em] uppercase relative -top-0.5">and</span> FINANCIAL
                 </span>
-                <span className="font-display font-black text-[#A4C639] text-[0.95rem] leading-[1.1] tracking-[0.12em] mt-[3px]">
+                <span className="font-display font-black text-[#A4C639] text-[0.95rem] leading-[1.1] tracking-[0.12em] mt-[3px] drop-shadow-[0_0_8px_rgba(164,198,57,0.4)]">
                   SERVICES
                 </span>
               </div>
@@ -55,14 +55,14 @@ export default function Navbar() {
                   >
                     <span className={cn(
                       "font-semibold text-sm transition-colors",
-                      isActive ? "text-brand-purple" : "text-slate-600 hover:text-brand-purple"
+                      isActive ? "text-brand-purple drop-shadow-[0_0_8px_rgba(124,58,237,0.5)]" : "text-slate-400 hover:text-white"
                     )}>
                       {link.name}
                     </span>
                     {isActive && (
                       <motion.div
                         layoutId="nav-underline"
-                        className="absolute bottom-0 left-0 w-full h-[2px] bg-brand-purple"
+                        className="absolute bottom-0 left-0 w-full h-[2px] bg-brand-purple shadow-[0_0_10px_rgba(124,58,237,0.8)]"
                       />
                     )}
                   </Link>
@@ -74,13 +74,13 @@ export default function Navbar() {
             <div className="hidden lg:flex items-center gap-3">
               <Link 
                 href="/about" 
-                className="px-6 py-2.5 bg-white border border-brand-purple text-brand-purple text-sm font-bold rounded-full hover:bg-brand-gray transition-colors"
+                className="px-6 py-2.5 bg-transparent border border-white/20 text-white text-sm font-bold rounded-full hover:border-brand-purple hover:text-brand-purple transition-colors"
               >
                 Our Story
               </Link>
               <Link 
                 href="/contact" 
-                className="px-6 py-2.5 bg-brand-purple text-white text-sm font-bold rounded-full hover:bg-brand-violet transition-colors shadow-md shadow-brand-purple/20"
+                className="px-6 py-2.5 bg-brand-purple text-white text-sm font-bold rounded-full hover:bg-brand-violet transition-all hover:shadow-neon-purple"
               >
                 Get in Touch
               </Link>
@@ -88,7 +88,7 @@ export default function Navbar() {
 
             {/* Mobile Toggle */}
             <button 
-              className="lg:hidden text-slate-900 p-2"
+              className="lg:hidden text-white p-2"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -104,7 +104,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-b border-slate-100 overflow-hidden absolute w-full z-40"
+            className="lg:hidden bg-slate-900 border-b border-slate-800 overflow-hidden absolute w-full z-40 shadow-xl"
           >
             <div className="flex flex-col px-6 py-8 gap-4">
               {navLinks.map((link) => {
@@ -116,7 +116,7 @@ export default function Navbar() {
                     onClick={() => setMobileMenuOpen(false)}
                     className={cn(
                       "text-xl font-display font-black tracking-tight",
-                      isActive ? "text-brand-purple" : "text-slate-900"
+                      isActive ? "text-brand-purple drop-shadow-[0_0_8px_rgba(124,58,237,0.5)]" : "text-white"
                     )}
                   >
                     {link.name}
@@ -127,14 +127,14 @@ export default function Navbar() {
                 <Link 
                   href="/about"
                   onClick={() => setMobileMenuOpen(false)} 
-                  className="px-6 py-3 border border-brand-purple text-brand-purple text-center font-bold rounded-full"
+                  className="px-6 py-3 border border-white/20 text-white text-center font-bold rounded-full"
                 >
                   Our Story
                 </Link>
                 <Link 
                   href="/contact"
                   onClick={() => setMobileMenuOpen(false)} 
-                  className="px-6 py-3 bg-brand-purple text-white text-center font-bold rounded-full shadow-md shadow-brand-purple/20"
+                  className="px-6 py-3 bg-brand-purple text-white text-center font-bold rounded-full shadow-neon-purple"
                 >
                   Get in Touch
                 </Link>

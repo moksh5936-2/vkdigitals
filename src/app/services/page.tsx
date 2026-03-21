@@ -11,8 +11,8 @@ export default function ServicesPage() {
       id: 'digital-branding',
       title: 'Digital Marketing & Branding',
       description: 'Strategy-first marketing that builds real audiences and durable brand equity.',
-      bg: 'bg-slate-50',
-      color: 'text-brand-indigo',
+      bg: 'bg-brand-indigo/10',
+      color: 'text-indigo-400',
       items: [
         { icon: Search, title: 'SEO & Performance', desc: 'Optimize your online presence and drive targeted traffic with our expert SEO and performance marketing strategies.' },
         { icon: BarChart3, title: 'Brand Strategy', desc: 'Develop a compelling brand identity and messaging that resonates with your audience and sets you apart.' },
@@ -24,8 +24,8 @@ export default function ServicesPage() {
       id: 'it-services',
       title: 'IT Services',
       description: 'Modern technology solutions for a professional, high-performance digital presence.',
-      bg: 'bg-emerald-50/50',
-      color: 'text-emerald-500',
+      bg: 'bg-emerald-500/10',
+      color: 'text-emerald-400',
       items: [
         { icon: MonitorSmartphone, title: 'Web Development', desc: 'Build responsive, high-performance websites and e-commerce solutions tailored to your business needs.' },
         { icon: PenTool, title: 'UI/UX Design', desc: 'Craft intuitive and engaging user interfaces that provide exceptional user experiences.' },
@@ -37,8 +37,8 @@ export default function ServicesPage() {
       id: 'creative-media',
       title: 'Creative & Media',
       description: 'Visual storytelling and high-impact media production that turns brand messages into memory.',
-      bg: 'bg-amber-50/50',
-      color: 'text-amber-500',
+      bg: 'bg-amber-500/10',
+      color: 'text-amber-400',
       items: [
         { icon: PenTool, title: 'Video Production', desc: 'From corporate brand films to hyper-engaging short-form content for social platforms.' },
         { icon: PenTool, title: 'Graphic Design', desc: 'Systematized visual design languages, marketing collateral, and digital assets.' },
@@ -50,8 +50,8 @@ export default function ServicesPage() {
       id: 'financial-advisory',
       title: 'Financial Advisory',
       description: 'Professional financial guidance to help businesses plan, manage capital, and scale with clarity.',
-      bg: 'bg-purple-50/50',
-      color: 'text-purple-600',
+      bg: 'bg-purple-500/10',
+      color: 'text-purple-400',
       items: [
         { icon: TrendingUp, title: 'Capital Structuring', desc: 'Optimize your business financial structures for long-term sustainable growth.' },
         { icon: ShieldCheck, title: 'Compliance & Tax', desc: 'Navigate complex regulatory environments and structure tax-efficient models.' },
@@ -62,7 +62,7 @@ export default function ServicesPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white w-full overflow-hidden">
+    <main className="min-h-screen bg-slate-900 w-full overflow-hidden">
       <Navbar />
       
       {/* Light Theme Purple Hero */}
@@ -105,58 +105,79 @@ export default function ServicesPage() {
       </section>
 
       {/* Navigation Tabs */}
-      <div className="border-b border-slate-200 sticky top-0 bg-white/80 backdrop-blur-md z-40">
-         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 flex items-center gap-8 overflow-x-auto whitespace-nowrap scrollbar-hide">
-            <button className="py-6 text-sm font-bold text-brand-purple border-b-2 border-brand-green">Digital & Branding</button>
-            <button className="py-6 text-sm font-bold text-slate-500 hover:text-slate-900 transition-colors">IT Services</button>
-            <button className="py-6 text-sm font-bold text-slate-500 hover:text-slate-900 transition-colors">Creative & Media</button>
-            <button className="py-6 text-sm font-bold text-slate-500 hover:text-slate-900 transition-colors">Financial Advisory</button>
+      <div className="border-b border-white/10 sticky top-0 bg-slate-900/90 backdrop-blur-xl z-40 py-4 shadow-sm">
+         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 flex items-center gap-3 overflow-x-auto whitespace-nowrap scrollbar-hide py-1">
+            {servicesData.map((service) => (
+              <a 
+                href={`#${service.id}`} 
+                key={`nav-${service.id}`}
+                className="px-6 py-2.5 rounded-full text-sm font-bold transition-all bg-white/5 border border-white/10 text-slate-300 hover:border-brand-purple/50 hover:text-white hover:shadow-neon-purple focus:bg-brand-purple focus:text-white focus:border-brand-purple"
+              >
+                {service.title}
+              </a>
+            ))}
          </div>
       </div>
 
       {/* Services Content Mapping */}
-      <section className="py-24 max-w-[1400px] mx-auto px-6 lg:px-12 bg-white">
+      <div className="w-full pb-24">
         {servicesData.map((service, sectionIdx) => (
-         <div key={service.id} id={service.id} className="mb-24 scroll-mt-48">
-            <motion.h2 
-               initial={{ opacity: 0, y: 20 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true }}
-               className="text-3xl font-display font-black text-slate-900 tracking-tight leading-none mb-2"
-            >
-               {service.title}
-            </motion.h2>
-            <motion.p 
-               initial={{ opacity: 0, y: 20 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true }}
-               className="text-brand-green font-bold text-sm mb-12"
-            >
-               {service.description}
-            </motion.p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 gap-y-12 mb-16">
-              {service.items.map((item, idx) => (
-                <motion.div 
-                   key={idx}
-                   initial={{ opacity: 0, y: 30 }}
-                   whileInView={{ opacity: 1, y: 0 }}
-                   viewport={{ once: true }}
-                   transition={{ duration: 0.5, delay: idx * 0.1 }}
-                   whileHover={{ scale: 1.02, y: -4, boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.1)' }}
-                   className="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm group transition-colors"
-                >
-                  <div className={`w-12 h-12 rounded-2xl ${service.bg} ${service.color} flex items-center justify-center mb-6 shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3`}>
-                    <item.icon size={20} strokeWidth={2.5} />
-                  </div>
-                  <h4 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-brand-purple transition-colors">{item.title}</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
-                </motion.div>
-              ))}
+         <section 
+            key={service.id} 
+            id={service.id} 
+            className={`py-24 w-full scroll-mt-[5rem] border-b border-white/5 ${sectionIdx % 2 === 0 ? 'bg-slate-900' : 'bg-[#13111C]'}`}
+         >
+            <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+               <div className="max-w-3xl mb-16">
+                  <motion.div
+                     initial={{ opacity: 0, y: 20 }}
+                     whileInView={{ opacity: 1, y: 0 }}
+                     viewport={{ once: true }}
+                     className="px-3 py-1 bg-brand-purple/10 border border-brand-purple/20 text-[0.65rem] font-bold uppercase tracking-widest rounded-full inline-block mb-6 text-brand-purple shadow-sm"
+                  >
+                     Pillar 0{sectionIdx + 1}
+                  </motion.div>
+                  <motion.h2 
+                     initial={{ opacity: 0, y: 20 }}
+                     whileInView={{ opacity: 1, y: 0 }}
+                     viewport={{ once: true }}
+                     className="text-4xl md:text-5xl font-display font-black text-white tracking-tight leading-none mb-6"
+                  >
+                     {service.title}
+                  </motion.h2>
+                  <motion.p 
+                     initial={{ opacity: 0, y: 20 }}
+                     whileInView={{ opacity: 1, y: 0 }}
+                     viewport={{ once: true }}
+                     className="text-slate-400 text-lg leading-relaxed font-medium"
+                  >
+                     {service.description}
+                  </motion.p>
+               </div>
+               
+               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                 {service.items.map((item, idx) => (
+                   <motion.div 
+                      key={idx}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: idx * 0.1 }}
+                      whileHover={{ scale: 1.02, y: -4 }}
+                      className="bg-white/5 backdrop-blur-md border border-white/10 rounded-[2rem] p-8 shadow-sm group hover:border-brand-purple/30 hover:shadow-neon-purple transition-all duration-300"
+                   >
+                     <div className={`w-14 h-14 rounded-2xl ${service.bg} ${service.color} flex items-center justify-center mb-6 shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3`}>
+                       <item.icon size={24} strokeWidth={2.5} />
+                     </div>
+                     <h4 className="text-xl font-bold text-white mb-3 group-hover:text-brand-purple transition-colors">{item.title}</h4>
+                     <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+                   </motion.div>
+                 ))}
+               </div>
             </div>
-         </div>
+         </section>
         ))}
-      </section>
+      </div>
 
       <CTASection />
       

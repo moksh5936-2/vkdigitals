@@ -21,6 +21,10 @@ export default {
         display: ['Poppins', 'sans-serif'],
         serif: ['Georgia', 'serif'],
       },
+      boxShadow: {
+        'neon-purple': '0 0 25px -4px rgba(124, 58, 237, 0.4), 0 0 15px -2px rgba(124, 58, 237, 0.3)',
+        'neon-green': '0 0 25px -4px rgba(16, 185, 129, 0.4), 0 0 15px -2px rgba(16, 185, 129, 0.3)',
+      },
       animation: {
         'marquee': 'marquee 40s linear infinite',
       },

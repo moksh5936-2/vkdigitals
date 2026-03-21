@@ -19,7 +19,7 @@ export default function BlogPage() {
   );
 
   return (
-    <main className="min-h-screen bg-white w-full overflow-hidden">
+    <main className="min-h-screen bg-slate-900 w-full overflow-hidden">
       <Navbar />
       
       {/* Light Theme Purple Hero matching Image 2 */}
@@ -62,7 +62,7 @@ export default function BlogPage() {
       </section>
 
       {/* Main Blog Area matching Image 2 */}
-      <section className="py-12 max-w-[1400px] mx-auto px-6 lg:px-12 bg-white">
+      <section className="py-12 max-w-[1400px] mx-auto px-6 lg:px-12 bg-slate-900">
         
         {/* Fill Pill Toggles */}
         <div className="flex flex-wrap items-center gap-4 mb-16">
@@ -74,7 +74,7 @@ export default function BlogPage() {
                  "px-6 py-2.5 rounded-full text-sm font-bold transition-all border",
                  activeTab === cat 
                    ? "bg-brand-purple border-brand-purple text-white shadow-md shadow-brand-purple/20" 
-                   : "bg-white border-slate-200 text-slate-600 hover:border-brand-purple/30 hover:text-brand-purple"
+                   : "bg-transparent border-white/20 text-slate-300 hover:border-brand-purple/50 hover:text-white hover:shadow-neon-purple"
                )}
              >
                {cat}
@@ -93,7 +93,7 @@ export default function BlogPage() {
                    viewport={{ once: true }}
                    transition={{ duration: 0.5, delay: idx * 0.1 }}
                    whileHover={{ y: -8, boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.1)' }}
-                   className="bg-white border border-slate-100 rounded-3xl shadow-sm overflow-hidden flex flex-col group cursor-pointer"
+                   className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl shadow-sm overflow-hidden flex flex-col group cursor-pointer hover:shadow-neon-purple hover:border-brand-purple/30 transition-all duration-300"
                 >
                    {/* Top Image Section */}
                    <div className={`h-48 ${post.headerBg} w-full flex items-center justify-center transition-colors group-hover:bg-opacity-80`}>
@@ -108,14 +108,14 @@ export default function BlogPage() {
                    <div className="p-8 flex-1 flex flex-col">
                       <span className={cn(
                          "px-3 py-1 text-[0.6rem] font-black uppercase tracking-widest rounded-md self-start mb-4",
-                         post.category === 'DIGITAL' ? 'bg-blue-50 text-blue-600' :
-                         post.category === 'FINANCIAL' ? 'bg-emerald-50 text-emerald-600' :
-                         'bg-amber-50 text-amber-600'
+                         post.category === 'DIGITAL' ? 'bg-blue-500/10 text-blue-400' :
+                         post.category === 'FINANCIAL' ? 'bg-emerald-500/10 text-emerald-400' :
+                         'bg-amber-500/10 text-amber-400'
                       )}>
                          {post.category}
                       </span>
                       
-                      <h2 className="text-xl font-display font-black text-slate-900 mb-6 leading-tight group-hover:text-brand-purple transition-colors">
+                      <h2 className="text-xl font-display font-black text-white mb-6 leading-tight group-hover:text-brand-purple transition-colors">
                          {post.title}
                       </h2>
                       
@@ -129,12 +129,12 @@ export default function BlogPage() {
              ))}
           </div>
         ) : (
-          <div className="flex flex-col items-center justify-center py-24 mb-32 text-center rounded-3xl border border-slate-100 bg-slate-50/50">
-            <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-slate-100">
-              <Sparkles className="text-brand-purple/40" size={32} />
+          <div className="flex flex-col items-center justify-center py-24 mb-32 text-center rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md">
+            <div className="w-16 h-16 bg-brand-purple/10 rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-brand-purple/20">
+              <Sparkles className="text-brand-purple" size={32} />
             </div>
-            <h3 className="text-2xl font-display font-black text-slate-800 mb-2">Articles Coming Soon</h3>
-            <p className="text-slate-500 font-medium max-w-sm">We're currently writing fresh, structured insights. Check back shortly.</p>
+            <h3 className="text-2xl font-display font-black text-white mb-2">Articles Coming Soon</h3>
+            <p className="text-slate-400 font-medium max-w-sm">We're currently writing fresh, structured insights. Check back shortly.</p>
           </div>
         )}
 

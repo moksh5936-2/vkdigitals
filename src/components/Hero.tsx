@@ -66,7 +66,7 @@ export default function Hero() {
             <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
                <Link 
                  href="/services" 
-                 className="block px-8 py-3.5 bg-brand-green text-white font-bold rounded-full hover:bg-emerald-400 transition-colors shadow-lg shadow-brand-green/30"
+                 className="block px-8 py-3.5 bg-brand-green text-white font-bold rounded-full hover:bg-emerald-400 transition-all shadow-neon-green"
                >
                  Explore Services
                </Link>

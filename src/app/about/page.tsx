@@ -7,7 +7,7 @@ import { BarChart3, Clapperboard, TrendingUp } from 'lucide-react';
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-white w-full overflow-hidden">
+    <main className="min-h-screen bg-slate-900 w-full overflow-hidden">
       <Navbar />
       
       {/* Light Theme Purple Hero */}
@@ -50,7 +50,7 @@ export default function AboutPage() {
       </section>
 
       {/* About Content from Image 4 */}
-      <section className="py-24 bg-white relative">
+      <section className="py-24 bg-slate-950 relative">
          <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
             <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 mb-32">
                
@@ -66,13 +66,13 @@ export default function AboutPage() {
                      <div className="h-[1px] w-8 bg-brand-purple/30" />
                      <span className="text-[0.65rem] font-bold text-brand-purple uppercase tracking-[0.2em]">Who We Are</span>
                   </div>
-                  <h2 className="text-4xl font-display font-black text-slate-900 tracking-tight leading-tight mb-8">
+                  <h2 className="text-4xl font-display font-black text-white tracking-tight leading-tight mb-8">
                      A multi-disciplinary firm built for purposeful growth
                   </h2>
-                  <p className="text-slate-600 text-sm leading-relaxed mb-6 font-medium">
+                  <p className="text-slate-400 text-sm leading-relaxed mb-6 font-medium">
                      VK Digitals was founded on the belief that sustainable brand growth requires more than campaigns — it requires structure. In an era of viral trends and fragmented tactics, we provide the integrated foundation businesses need to grow with intention.
                   </p>
-                  <p className="text-slate-600 text-sm leading-relaxed font-medium">
+                  <p className="text-slate-400 text-sm leading-relaxed font-medium">
                      Our evolution into Financial Services & Advisory reflects a simple truth: a brand's story cannot be separated from its financial foundations. True, lasting growth needs both powerful communication and sound economic decisions.
                   </p>
                </motion.div>
@@ -85,10 +85,10 @@ export default function AboutPage() {
                      viewport={{ once: true }}
                      transition={{ duration: 0.5, delay: 0.1 }}
                      whileHover={{ x: -10 }}
-                     className="p-8 border-l-4 border-brand-purple bg-white border border-slate-100 rounded-r-3xl shadow-sm"
+                     className="p-8 border-l-4 border-brand-purple bg-white/5 backdrop-blur-md border border-white/10 rounded-r-3xl shadow-sm hover:shadow-neon-purple transition-all duration-300"
                   >
-                     <h3 className="font-bold text-slate-900 mb-2">Our Mission</h3>
-                     <p className="text-slate-500 font-medium text-xs leading-relaxed">
+                     <h3 className="font-bold text-white mb-2">Our Mission</h3>
+                     <p className="text-slate-400 font-medium text-xs leading-relaxed">
                         Empower businesses with structured strategies that drive measurable, sustainable growth — digitally and financially.
                      </p>
                   </motion.div>
@@ -98,10 +98,10 @@ export default function AboutPage() {
                      viewport={{ once: true }}
                      transition={{ duration: 0.5, delay: 0.2 }}
                      whileHover={{ x: -10 }}
-                     className="p-8 border-l-4 border-brand-green bg-white border border-slate-100 rounded-r-3xl shadow-sm"
+                     className="p-8 border-l-4 border-brand-green bg-white/5 backdrop-blur-md border border-white/10 rounded-r-3xl shadow-sm hover:shadow-neon-green transition-all duration-300"
                   >
-                     <h3 className="font-bold text-slate-900 mb-2">Our Vision</h3>
-                     <p className="text-slate-500 font-medium text-xs leading-relaxed">
+                     <h3 className="font-bold text-white mb-2">Our Vision</h3>
+                     <p className="text-slate-400 font-medium text-xs leading-relaxed">
                         Become India's most trusted integrated digital-financial growth partner for emerging and scaling brands.
                      </p>
                   </motion.div>
@@ -111,10 +111,10 @@ export default function AboutPage() {
                      viewport={{ once: true }}
                      transition={{ duration: 0.5, delay: 0.3 }}
                      whileHover={{ x: -10 }}
-                     className="p-8 border-l-4 border-amber-400 bg-white border border-slate-100 rounded-r-3xl shadow-sm"
+                     className="p-8 border-l-4 border-amber-400 bg-white/5 backdrop-blur-md border border-white/10 rounded-r-3xl shadow-sm hover:shadow-[0_0_20px_rgba(251,191,36,0.2)] transition-all duration-300"
                   >
-                     <h3 className="font-bold text-slate-900 mb-2">Our Values</h3>
-                     <p className="text-slate-500 font-medium text-xs leading-relaxed">
+                     <h3 className="font-bold text-white mb-2">Our Values</h3>
+                     <p className="text-slate-400 font-medium text-xs leading-relaxed">
                         Structure over shortcuts. Clarity over chaos. Long-term thinking over short-term wins. Accountability in every engagement.
                      </p>
                   </motion.div>
@@ -128,8 +128,8 @@ export default function AboutPage() {
                  <span className="text-[0.65rem] font-bold text-brand-purple uppercase tracking-[0.2em]">Our Expertise</span>
                  <div className="h-[1px] w-8 bg-brand-purple/30" />
                </div>
-               <h2 className="text-4xl md:text-5xl font-display font-black text-slate-900 tracking-tight mb-4">Three Integrated Pillars</h2>
-               <p className="text-slate-500 font-medium text-sm">Working in sync — designed to accelerate your growth at every dimension.</p>
+               <h2 className="text-4xl md:text-5xl font-display font-black text-white tracking-tight mb-4">Three Integrated Pillars</h2>
+               <p className="text-slate-400 font-medium text-sm">Working in sync — designed to accelerate your growth at every dimension.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -138,14 +138,14 @@ export default function AboutPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  whileHover={{ y: -8, boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.1)' }}
-                  className="bg-white border border-slate-100 rounded-3xl p-10 shadow-lg shadow-black/5 text-center flex flex-col items-center"
+                  whileHover={{ y: -8, boxShadow: '0 20px 40px -10px rgba(124, 58, 237, 0.4)' }}
+                  className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-10 shadow-lg text-center flex flex-col items-center hover:border-brand-purple/30 transition-all duration-300"
                >
-                  <div className="w-12 h-12 bg-blue-50 text-blue-500 rounded-2xl flex items-center justify-center mb-6">
+                  <div className="w-12 h-12 bg-blue-500/10 text-blue-400 rounded-2xl flex items-center justify-center mb-6">
                      <BarChart3 size={24} />
                   </div>
-                  <h3 className="text-lg font-black text-slate-900 mb-4">Digital Marketing & Branding</h3>
-                  <p className="text-slate-500 text-[0.8rem] leading-relaxed">
+                  <h3 className="text-lg font-black text-white mb-4">Digital Marketing & Branding</h3>
+                  <p className="text-slate-400 text-[0.8rem] leading-relaxed">
                      Strategy-first execution that builds real audiences. Brand identities that carry authority and campaigns that convert.
                   </p>
                </motion.div>
@@ -155,14 +155,14 @@ export default function AboutPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  whileHover={{ y: -8, boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.1)' }}
-                  className="bg-white border border-slate-100 rounded-3xl p-10 shadow-lg shadow-black/5 text-center flex flex-col items-center"
+                  whileHover={{ y: -8, boxShadow: '0 20px 40px -10px rgba(251, 191, 36, 0.3)' }}
+                  className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-10 shadow-lg text-center flex flex-col items-center hover:border-amber-400/30 transition-all duration-300"
                >
-                  <div className="w-12 h-12 bg-amber-50 text-amber-500 rounded-2xl flex items-center justify-center mb-6">
+                  <div className="w-12 h-12 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center mb-6">
                      <Clapperboard size={24} />
                   </div>
-                  <h3 className="text-lg font-black text-slate-900 mb-4">Creative & Media</h3>
-                  <p className="text-slate-500 text-[0.8rem] leading-relaxed">
+                  <h3 className="text-lg font-black text-white mb-4">Creative & Media</h3>
+                  <p className="text-slate-400 text-[0.8rem] leading-relaxed">
                      Creative storytelling combined with data-driven performance — ensuring clients are seen, heard, and remembered.
                   </p>
                </motion.div>
@@ -172,14 +172,14 @@ export default function AboutPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  whileHover={{ y: -8, boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.1)' }}
-                  className="bg-white border border-slate-100 rounded-3xl p-10 shadow-lg shadow-black/5 text-center flex flex-col items-center"
+                  whileHover={{ y: -8, boxShadow: '0 20px 40px -10px rgba(16, 185, 129, 0.3)' }}
+                  className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-10 shadow-lg text-center flex flex-col items-center hover:border-brand-green/30 transition-all duration-300"
                >
-                  <div className="w-12 h-12 bg-emerald-50 text-emerald-500 rounded-2xl flex items-center justify-center mb-6">
+                  <div className="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center mb-6">
                      <TrendingUp size={24} />
                   </div>
-                  <h3 className="text-lg font-black text-slate-900 mb-4">Financial Advisory</h3>
-                  <p className="text-slate-500 text-[0.8rem] leading-relaxed">
+                  <h3 className="text-lg font-black text-white mb-4">Financial Advisory</h3>
+                  <p className="text-slate-400 text-[0.8rem] leading-relaxed">
                      Credible registered LLP advisory from business planning and compliance to investment-readiness and capital strategy.
                   </p>
                </motion.div>

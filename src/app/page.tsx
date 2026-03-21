@@ -8,7 +8,7 @@ import CTASection from '@/components/CTASection';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white w-full overflow-hidden">
+    <main className="min-h-screen bg-slate-900 w-full overflow-hidden">
       <Navbar />
       <Hero />
       <BrandTicker />
@@ -32,7 +32,7 @@ export default function Home() {
       </section>
 
       {/* Client Stories Section from Image 5 */}
-      <section className="py-24 bg-white relative">
+      <section className="py-24 bg-slate-950 relative">
          <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
             <div className="text-center mb-16">
                <div className="flex justify-center items-center gap-4 mb-4">
@@ -40,50 +40,50 @@ export default function Home() {
                  <span className="text-[0.65rem] font-bold text-brand-purple uppercase tracking-[0.2em]">CLIENT STORIES</span>
                  <div className="h-[1px] w-8 bg-brand-purple/30" />
                </div>
-               <h2 className="text-4xl md:text-5xl font-display font-black text-slate-900 tracking-tight">
+               <h2 className="text-4xl md:text-5xl font-display font-black text-white tracking-tight">
                  Brands That Chose Structure
                </h2>
             </div>
             
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-               <div className="bg-white border border-slate-100 rounded-3xl p-10 shadow-sm relative overflow-hidden group">
+               <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-10 shadow-sm relative overflow-hidden group hover:border-brand-purple/30 transition-colors">
                   <div className="flex text-brand-green mb-6 text-sm">★★★★★</div>
-                  <p className="text-slate-600 leading-relaxed font-medium mb-8">
+                  <p className="text-slate-300 leading-relaxed font-medium mb-8">
                      "VK Digitals helped us restructure our entire brand identity. The approach was methodical — no fluff, just results. Our digital presence improved dramatically within 3 months."
                   </p>
                   <div className="flex items-center gap-4 mt-auto">
                      <div className="w-10 h-10 rounded-full bg-brand-purple text-white flex items-center justify-center font-bold text-xs">RS</div>
                      <div>
-                        <div className="text-slate-900 font-bold text-sm">Rohit Sharma</div>
-                        <div className="text-slate-500 text-xs text-[0.65rem] uppercase tracking-wider">Founder, RetailPro India</div>
+                        <div className="text-white font-bold text-sm">Rohit Sharma</div>
+                        <div className="text-slate-400 text-xs text-[0.65rem] uppercase tracking-wider">Founder, RetailPro India</div>
                      </div>
                   </div>
                </div>
 
-               <div className="bg-white border border-slate-100 rounded-3xl p-10 shadow-sm relative overflow-hidden group">
+               <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-10 shadow-sm relative overflow-hidden group hover:border-brand-green/30 transition-colors">
                   <div className="flex text-brand-green mb-6 text-sm">★★★★★</div>
-                  <p className="text-slate-600 leading-relaxed font-medium mb-8">
+                  <p className="text-slate-300 leading-relaxed font-medium mb-8">
                      "Their financial advisory gave us clarity we never had. They helped us plan our business capital better and connected us to the right financial instruments for direct growth."
                   </p>
                   <div className="flex items-center gap-4 mt-auto">
                      <div className="w-10 h-10 rounded-full bg-brand-green text-white flex items-center justify-center font-bold text-xs">PM</div>
                      <div>
-                        <div className="text-slate-900 font-bold text-sm">Priya Mehta</div>
-                        <div className="text-slate-500 text-xs text-[0.65rem] uppercase tracking-wider">Director, Mehta Exports</div>
+                        <div className="text-white font-bold text-sm">Priya Mehta</div>
+                        <div className="text-slate-400 text-xs text-[0.65rem] uppercase tracking-wider">Director, Mehta Exports</div>
                      </div>
                   </div>
                </div>
 
-               <div className="bg-white border border-slate-100 rounded-3xl p-10 shadow-sm relative overflow-hidden group">
+               <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-10 shadow-sm relative overflow-hidden group hover:border-brand-purple/30 transition-colors">
                   <div className="flex text-brand-green mb-6 text-sm">★★★★★</div>
-                  <p className="text-slate-600 leading-relaxed font-medium mb-8">
+                  <p className="text-slate-300 leading-relaxed font-medium mb-8">
                      "Their creative team produced our brand film and the response was phenomenal. Combined with robust strategy, we saw a 4x increase in inquiries within 60 days."
                   </p>
                   <div className="flex items-center gap-4 mt-auto">
                      <div className="w-10 h-10 rounded-full bg-brand-purple text-white flex items-center justify-center font-bold text-xs">AG</div>
                      <div>
-                        <div className="text-slate-900 font-bold text-sm">Amit Goyal</div>
-                        <div className="text-slate-500 text-xs text-[0.65rem] uppercase tracking-wider">CEO, Growth Solutions</div>
+                        <div className="text-white font-bold text-sm">Amit Goyal</div>
+                        <div className="text-slate-400 text-xs text-[0.65rem] uppercase tracking-wider">CEO, Growth Solutions</div>
                      </div>
                   </div>
                </div>
