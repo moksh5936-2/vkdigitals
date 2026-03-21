@@ -125,7 +125,7 @@ export default function ServicesPage() {
          <section 
             key={service.id} 
             id={service.id} 
-            className={`py-24 w-full scroll-mt-[5rem] border-b border-white/5 ${sectionIdx % 2 === 0 ? 'bg-slate-900' : 'bg-[#13111C]'}`}
+            className={`py-24 w-full scroll-mt-[5rem] border-b border-white/5 ${sectionIdx % 2 === 0 ? 'bg-slate-900' : 'bg-slate-950'}`}
          >
             <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
                <div className="max-w-3xl mb-16">

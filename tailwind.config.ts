@@ -7,6 +7,14 @@ export default {
   theme: {
     extend: {
       colors: {
+        white: "#FDFBF7",
+        slate: {
+          400: "#A19BBF",
+          500: "#77719E",
+          800: "#2E2A66",
+          900: "#1E1B4B",
+          950: "#0B081A",
+        },
         brand: {
           purple: "#7C3AED",
           indigo: "#4F46E5",
@@ -14,6 +22,7 @@ export default {
           green: "#10B981",
           dark: "#1E1B4B",
           gray: "#F8FAFC",
+          cream: "#FDFBF7",
         },
       },
       fontFamily: {
