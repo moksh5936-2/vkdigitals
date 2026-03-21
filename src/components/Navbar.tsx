@@ -49,7 +49,7 @@ export default function Navbar() {
                 {isActive && (
                   <motion.div
                     layoutId="nav-underline"
-                    className="absolute bottom-0 left-0 w-full h-0.5 bg-purple rounded-full"
+                    className="absolute bottom-0 left-0 w-full h-1 bg-green rounded-full"
                   />
                 )}
               </Link>

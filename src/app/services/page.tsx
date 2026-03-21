@@ -8,7 +8,7 @@ const pillars = [
     title: 'Digital Marketing & Branding',
     icon: Megaphone,
     desc: 'Precision targeting and brand authority systems designed to convert modern audiences.',
-    tags: ['Organic', 'ROI', 'Strategy', 'Logo'],
+    tags: ['Organic', 'ROI', 'PPC', 'Analytics'],
     color: 'text-blue-500',
     bg: 'bg-blue-500/10'
   },
@@ -17,20 +17,21 @@ const pillars = [
     title: 'Creative Media & Production',
     icon: PencilRuler,
     desc: 'Visual storytelling and high-fidelity output that makes your brand visually unforgettable.',
-    tags: ['4K Story', 'UI/UX', 'Print'],
+    tags: ['4K', 'Brand Film', 'Corporate', 'Post-Prod'],
     color: 'text-green',
     bg: 'bg-green/10'
   },
   {
     id: '03',
-    title: 'Financial Advisory & Compliance',
+    title: 'Financial Services & Advisory',
     icon: TrendingUp,
     desc: 'Strategic financial planning and compliance frameworks designed for scalable growth.',
-    tags: ['Legal', 'GST', 'Cashflow', 'Scale'],
+    tags: ['Legal', 'GST', 'Compliance', 'Funding'],
     color: 'text-orange-500',
     bg: 'bg-orange-500/10'
   }
 ];
+
 
 export default function ServicesPage() {
   return (

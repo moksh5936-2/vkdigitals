@@ -4,39 +4,35 @@ import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import CTASection from '@/components/CTASection';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Filter, ArrowRight } from 'lucide-react';
+import { ArrowRight, Milestone } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-const categories = ['All', 'Digital', 'Financial', 'Creative', 'Strategy'];
+const categories = ['All', 'Digital', 'Financial', 'Creative'];
 
 const posts = [
   {
-    title: 'Precision Branding in the Age of AI',
+    title: '5 SEO Strategies That Work for Indian Businesses in 2026',
     category: 'Digital',
-    date: 'March 20, 2026',
+    date: 'Mar 15, 2026',
+    readTime: '6 min',
     image: 'bg-lavender',
     desc: 'How structured brand frameworks outlive fleeting digital trends. We explore the intersection of machine logic and human emotion.'
   },
   {
-    title: 'Financial Logic: Scaling Beyond the First Crore',
+    title: 'How to Structure Business Capital for Sustainable Growth',
     category: 'Financial',
-    date: 'March 18, 2026',
+    date: 'Mar 8, 2026',
+    readTime: '8 min',
     image: 'bg-mint',
     desc: 'The internal financial structures every founder needs to master. A deep dive into cashflow management and tax strategy.'
   },
   {
-    title: 'The Viral Flywheel: Creative Systems That Convert',
+    title: 'Why Brand Films Generate 3x More Leads Than Static Ads',
     category: 'Creative',
-    date: 'March 15, 2026',
+    date: 'Feb 28, 2026',
+    readTime: '5 min',
     image: 'bg-peach-cream',
     desc: 'Case studies on high-production content that drives measurable ROI. Why structure is the secret ingredient to viral success.'
-  },
-  {
-    title: 'Structural Integrity: Why We Built VK Digitals',
-    category: 'Strategy',
-    date: 'March 10, 2026',
-    image: 'bg-lavender',
-    desc: 'Our founding principles and why we believe every business needs a domain-integrated approach to growth.'
   }
 ];
 
@@ -51,41 +47,35 @@ export default function BlogPage() {
     <main className="min-h-screen bg-peach-cream">
       <Navbar />
       
-      {/* Header */}
-      <section className="bg-white pt-40 pb-20 px-6 border-b border-slate-100">
-        <div className="container mx-auto">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-block px-4 py-1.5 bg-purple/10 text-purple text-[0.65rem] font-black uppercase tracking-widest rounded-full mb-8">Perspectives</div>
-            <h1 className="text-5xl md:text-8xl font-display font-black text-ink-dark mb-12 tracking-tighter leading-tight">
-              Logic & <span className="text-purple italic">Creativity.</span>
-            </h1>
-            
-            {/* Search Placeholder */}
-            <div className="relative max-w-xl mx-auto">
-               <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-ink-dark/20" size={20} />
-               <input 
-                 type="text" 
-                 placeholder="Search articles..." 
-                 className="w-full py-5 pl-16 pr-8 bg-slate-50 border border-slate-200 rounded-full text-sm font-medium focus:bg-white focus:border-purple/30 transition-all outline-none"
-               />
+      {/* Header - Gradient Hero per Fix 6 */}
+      <section className="bg-gradient-to-br from-[#5D2FE2] via-[#5D2FE2] to-[#009277] pt-48 pb-32 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/10" />
+        <div className="container mx-auto relative z-10">
+          <div className="max-w-4xl">
+             <div className="inline-flex items-center gap-3 px-5 py-2 bg-white/10 backdrop-blur-md border border-white/20 text-white text-[0.65rem] font-bold uppercase tracking-widest rounded-full mb-10 shadow-xl">
+               <Milestone size={14} className="text-green" />
+               Digital • Creative • Financial Insights
             </div>
+            <h1 className="text-6xl md:text-8xl font-display font-black text-white mb-10 tracking-tighter leading-tight">
+               Ideas That Drive <br/> <span className="opacity-90">Structured Growth</span>
+            </h1>
           </div>
         </div>
       </section>
 
       {/* Filters */}
-      <section className="py-12 px-6 border-b border-slate-100 bg-white/50 backdrop-blur-md sticky top-28 z-30">
+      <section className="py-12 px-6 border-b border-slate-100 bg-white sticky top-28 z-40 shadow-sm">
         <div className="container mx-auto">
-           <div className="flex flex-wrap items-center justify-center gap-4">
+           <div className="flex flex-wrap items-center gap-4">
               {categories.map(cat => (
                 <button
                   key={cat}
                   onClick={() => setActiveTab(cat)}
                   className={cn(
-                    "px-6 py-2.5 rounded-full text-[0.6rem] font-black uppercase tracking-widest transition-all",
+                    "px-8 py-3 rounded-full text-[0.65rem] font-black uppercase tracking-widest transition-all shadow-sm",
                     activeTab === cat 
-                      ? "bg-ink-dark text-white shadow-xl scale-110" 
-                      : "bg-white text-ink-dark/40 hover:text-ink-dark border border-slate-200"
+                      ? "bg-purple text-white scale-105" 
+                      : "bg-slate-50 text-ink-dark/40 hover:text-ink-dark border border-slate-100"
                   )}
                 >
                   {cat}
@@ -98,9 +88,9 @@ export default function BlogPage() {
       {/* Grid */}
       <section className="py-24 px-6 md:px-12 lg:px-24">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             <AnimatePresence mode="popLayout">
-              {filteredPosts.map((post, idx) => (
+              {filteredPosts.map((post) => (
                 <motion.div
                   key={post.title}
                   layout
@@ -108,37 +98,35 @@ export default function BlogPage() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.4 }}
-                  className="group"
+                  className="group flex flex-col"
                 >
-                  <div className={`aspect-[16/9] ${post.image} rounded-[3.5rem] p-12 mb-10 relative overflow-hidden transition-transform group-hover:scale-[1.01] duration-500 shadow-sm group-hover:shadow-2xl`}>
-                     <div className="absolute top-10 left-10 px-5 py-2 bg-white/90 backdrop-blur-md rounded-full text-[0.65rem] font-black uppercase tracking-widest text-ink-dark shadow-sm">
-                        {post.category}
+                  <div className={`aspect-[4/3] ${post.image} rounded-[3rem] p-8 mb-8 relative overflow-hidden transition-transform group-hover:scale-[1.02] duration-500 shadow-sm`}>
+                     <div className="absolute top-8 left-8 p-3 bg-white/90 backdrop-blur-md rounded-2xl shadow-sm">
+                        {/* Placeholder for small icon from image */}
+                        <div className="w-6 h-4 bg-slate-200 rounded-sm" />
                      </div>
                   </div>
-                  <div className="flex items-center gap-4 mb-6">
-                     <div className="text-[0.7rem] font-black text-purple uppercase tracking-widest">{post.date}</div>
-                     <div className="w-1 h-1 rounded-full bg-slate-200" />
-                     <div className="text-[0.7rem] font-black text-ink-dark/40 uppercase tracking-widest">5 min read</div>
+                  <div className="flex items-center gap-3 mb-4">
+                     <span className="px-3 py-1 bg-purple/10 text-purple text-[0.6rem] font-black uppercase tracking-widest rounded-full">{post.category}</span>
                   </div>
-                  <h2 className="text-3xl md:text-4xl font-display font-black text-ink-dark mb-6 leading-tight group-hover:text-purple transition-colors">
+                  <h2 className="text-2xl font-display font-black text-ink-dark mb-4 leading-tight group-hover:text-purple transition-colors">
                     {post.title}
                   </h2>
-                  <p className="text-ink-dark/60 text-lg leading-relaxed font-medium mb-10">
+                  <div className="flex items-center gap-3 text-[0.65rem] font-bold text-ink-dark/30 uppercase tracking-widest mb-6">
+                     <span>{post.date}</span>
+                     <div className="w-1 h-1 rounded-full bg-slate-200" />
+                     <span>{post.readTime}</span>
+                  </div>
+                  <p className="text-ink-dark/60 text-md leading-relaxed font-medium mb-8 line-clamp-2">
                     {post.desc}
                   </p>
-                  <button className="flex items-center gap-3 text-ink-dark font-black tracking-tighter group-hover:text-purple transition-colors">
-                    Read Article <div className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center group-hover:bg-purple group-hover:text-white group-hover:border-purple transition-all"><ArrowRight size={18} /></div>
+                  <button className="mt-auto flex items-center gap-2 text-ink-dark font-black text-xs uppercase tracking-widest hover:text-purple transition-colors">
+                    Read Full Case Study <ArrowRight size={14} />
                   </button>
                 </motion.div>
               ))}
             </AnimatePresence>
           </div>
-          
-          {filteredPosts.length === 0 && (
-            <div className="py-40 text-center">
-               <h3 className="text-2xl font-display font-black text-ink-dark/20 uppercase tracking-widest">No articles found in this category.</h3>
-            </div>
-          )}
         </div>
       </section>
 
