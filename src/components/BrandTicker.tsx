@@ -11,7 +11,7 @@ const words = [
   "•",
   "IT SERVICES & PLATFORMS",
   "•",
-  "LLP & COMPLIANCE",
+  "LLP & COMPLIANCE CONSULTING",
   "•",
   "INVESTMENT ADVISORY",
   "•"
@@ -19,19 +19,16 @@ const words = [
 
 export default function BrandTicker() {
   return (
-    <div className="py-6 border-b border-t border-white/[0.05] bg-[#12101C] overflow-hidden flex whitespace-nowrap relative">
-      <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-[#0B0914] to-transparent z-10" />
-      <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-[#0B0914] to-transparent z-10" />
-      
+    <div className="py-4 bg-brand-green overflow-hidden flex whitespace-nowrap">
       <motion.div 
         className="flex gap-8 items-center"
         animate={{ x: [0, -2000] }}
-        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
       >
         {[...words, ...words, ...words].map((word, idx) => (
           <span 
             key={idx} 
-            className={`font-display font-black text-2xl uppercase tracking-widest ${word === '•' ? 'text-neon-green' : 'text-slate-500 hover:text-white transition-colors'}`}
+            className={`font-semibold text-[0.8rem] ${word === '•' ? 'text-white/50' : 'text-white'} uppercase tracking-widest`}
           >
             {word}
           </span>

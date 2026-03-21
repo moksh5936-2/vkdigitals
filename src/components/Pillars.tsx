@@ -1,98 +1,112 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Megaphone, PencilRuler, TrendingUp, Cpu } from 'lucide-react';
-import Link from 'next/link';
+import { BarChart3, MonitorSmartphone, Clapperboard, TrendingUp, ArrowUpRight } from 'lucide-react';
 
 const pillars = [
   {
     title: 'Digital Marketing & Branding',
-    icon: Megaphone,
-    desc: 'Performance-driven strategies that scale brand authority.',
-    tags: ['SEO', 'Performance', 'Brand Identity'],
-    color: 'text-neon-blue',
-    bg: 'bg-neon-blue/10',
-    border: 'group-hover:border-neon-blue/50',
-    shadow: 'hover:shadow-[0_0_40px_rgba(59,130,246,0.15)]'
+    icon: BarChart3,
+    desc: 'Data-driven campaigns and brand systems that build authority and convert modern audiences.',
+    tags: [{name: 'SEO', color: 'text-blue-600 bg-blue-50'}, {name: 'Performance', color: 'text-blue-600 bg-blue-50'}, {name: 'Brand', color: 'text-blue-600 bg-blue-50'}],
+    color: 'text-blue-600',
+    bg: 'bg-blue-50'
   },
   {
-    title: 'IT Services & Platforms',
-    icon: Cpu,
-    desc: 'High-performance web platforms built for scalability.',
-    tags: ['Web Dev', 'UI/UX', 'Hosting & Cloud'],
-    color: 'text-neon-purple',
-    bg: 'bg-neon-purple/10',
-    border: 'group-hover:border-neon-purple/50',
-    shadow: 'hover:shadow-[0_0_40px_rgba(147,51,234,0.15)]'
+    title: 'IT Services',
+    icon: MonitorSmartphone,
+    desc: 'High-performance web platforms and custom digital products built for scalability and speed.',
+    tags: [{name: 'Web Apps', color: 'text-emerald-600 bg-emerald-50'}, {name: 'UI/UX', color: 'text-emerald-600 bg-emerald-50'}, {name: 'Hosting', color: 'text-emerald-600 bg-emerald-50'}],
+    color: 'text-emerald-600',
+    bg: 'bg-emerald-50'
   },
   {
-    title: 'Creative Media Production',
-    icon: PencilRuler,
-    desc: 'Visual storytelling that turns messages into memory.',
-    tags: ['Video', 'Design', 'Motion Graphics'],
-    color: 'text-neon-pink',
-    bg: 'bg-neon-pink/10',
-    border: 'group-hover:border-neon-pink/50',
-    shadow: 'hover:shadow-[0_0_40px_rgba(236,72,153,0.15)]'
+    title: 'Creative & Media',
+    icon: Clapperboard,
+    desc: 'Visual storytelling and high-impact media production that turns brand messages into memory.',
+    tags: [{name: 'Video', color: 'text-amber-600 bg-amber-50'}, {name: 'Design', color: 'text-amber-600 bg-amber-50'}, {name: 'Motion', color: 'text-amber-600 bg-amber-50'}],
+    color: 'text-amber-600',
+    bg: 'bg-amber-50'
   },
   {
-    title: 'Financial Advisory & Tax',
+    title: 'Financial Advisory',
     icon: TrendingUp,
-    desc: 'Strategic guidance to help businesses plan and restructure.',
-    tags: ['Funding', 'Compliance', 'Tax Planning'],
-    color: 'text-neon-green',
-    bg: 'bg-neon-green/10',
-    border: 'group-hover:border-neon-green/50',
-    shadow: 'hover:shadow-[0_0_40px_rgba(16,185,129,0.15)]'
+    desc: 'Professional financial guidance to help businesses plan, manage capital, and scale with clarity.',
+    tags: [{name: 'Funding', color: 'text-purple-600 bg-purple-50'}, {name: 'Compliance', color: 'text-purple-600 bg-purple-50'}, {name: 'Planning', color: 'text-purple-600 bg-purple-50'}],
+    color: 'text-purple-600',
+    bg: 'bg-purple-50'
   }
 ];
 
 export default function Pillars() {
   return (
-    <section className="py-24 px-6 md:px-12 lg:px-24 bg-dark">
-      <div className="container mx-auto">
-        <div className="mb-20 text-center md:text-left flex flex-col md:flex-row justify-between items-end gap-8">
-          <div>
-            <div className="inline-block px-4 py-1.5 frosted-dark text-slate-300 text-[0.65rem] font-bold uppercase tracking-widest rounded-full mb-6">What We Do</div>
-            <h2 className="text-4xl md:text-6xl font-display font-black text-white tracking-tight">Structured <span className="text-neon-purple">Growth</span></h2>
-            <p className="text-slate-400 mt-4 max-w-xl text-lg font-medium">Integrated expertise across domains — designed to work in sync, not in silos.</p>
+    <section className="py-24 bg-white relative">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+        
+        {/* Header */}
+        <div className="mb-16 max-w-2xl">
+          <div className="flex items-center gap-4 mb-4">
+             <div className="h-[1px] w-8 bg-brand-purple/30" />
+             <span className="text-[0.65rem] font-bold text-brand-purple uppercase tracking-[0.2em]">What We Do</span>
+             <div className="h-[1px] w-8 bg-brand-purple/30 hidden sm:block" />
           </div>
-          <Link href="/services" className="px-8 py-4 bg-white/5 border border-white/10 rounded-full text-white text-sm font-bold hover:bg-white hover:text-dark transition-all">
-            View All Services
-          </Link>
+          <h2 className="text-4xl md:text-5xl font-display font-black text-slate-900 tracking-tight mb-4">
+            Three Pillars of <br />
+            Structured Growth
+          </h2>
+          <p className="text-slate-500 text-lg leading-relaxed">
+            Integrated expertise across digital, creative, and financial domains — designed to work in sync, not in silos.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
           {pillars.map((pillar, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className={`group p-10 bg-card rounded-[2.5rem] border border-white/5 transition-all hover:-translate-y-2 ${pillar.border} ${pillar.shadow} relative overflow-hidden flex flex-col h-full`}
-            >
-              <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
-                 <pillar.icon size={120} className={pillar.color} />
+            <div key={idx} className="bg-white border border-slate-100 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow relative group flex flex-col">
+              <div className={`w-12 h-12 ${pillar.bg} ${pillar.color} rounded-2xl flex items-center justify-center mb-8 shadow-sm`}>
+                <pillar.icon size={20} strokeWidth={2.5} />
               </div>
               
-              <div className={`w-16 h-16 ${pillar.bg} ${pillar.color} rounded-2xl flex items-center justify-center shrink-0 mb-8`}>
-                <pillar.icon size={28} />
-              </div>
+              <h3 className="text-xl font-black text-slate-900 mb-3 leading-tight">{pillar.title}</h3>
+              <p className="text-slate-500 text-sm leading-relaxed mb-8 flex-1">{pillar.desc}</p>
               
-              <h3 className="text-2xl font-display font-black text-white mb-4 leading-tight">{pillar.title}</h3>
-              <p className="text-slate-400 text-lg font-medium leading-relaxed mb-10 flex-1">{pillar.desc}</p>
-              
-              <div className="flex flex-wrap gap-2 mt-auto">
-                {pillar.tags.map(tag => (
-                  <span key={tag} className="px-4 py-1.5 bg-white/5 border border-white/10 text-slate-300 text-[0.65rem] font-black uppercase tracking-widest rounded-full">
-                    {tag}
+              <div className="flex flex-wrap gap-2 mb-8">
+                {pillar.tags.map((tag, i) => (
+                  <span key={i} className={`px-3 py-1 ${tag.color} text-[0.65rem] font-bold uppercase tracking-widest rounded-full`}>
+                    {tag.name}
                   </span>
                 ))}
               </div>
-            </motion.div>
+              
+              <div className="mt-auto">
+                 <ArrowUpRight size={20} className={`${pillar.color} group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform`} />
+              </div>
+            </div>
           ))}
         </div>
+
+        {/* 4 Stats Footer (150+, 3, 4+, 24hr) */}
+        <div className="border-t border-slate-100 pt-16">
+           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+              <div>
+                <div className="text-4xl md:text-5xl font-black text-brand-purple mb-2">150+</div>
+                <div className="text-[0.65rem] text-slate-500 font-bold uppercase tracking-[0.1em]">Brands Served</div>
+              </div>
+              <div>
+                <div className="text-4xl md:text-5xl font-black text-brand-purple mb-2">3</div>
+                <div className="text-[0.65rem] text-slate-500 font-bold uppercase tracking-[0.1em]">Core Pillars</div>
+              </div>
+              <div>
+                <div className="text-4xl md:text-5xl font-black text-brand-purple mb-2">4+</div>
+                <div className="text-[0.65rem] text-slate-500 font-bold uppercase tracking-[0.1em]">Strategic Partners</div>
+              </div>
+              <div>
+                <div className="text-4xl md:text-5xl font-black text-brand-purple mb-2">24hr</div>
+                <div className="text-[0.65rem] text-slate-500 font-bold uppercase tracking-[0.1em]">Response Pledge</div>
+              </div>
+           </div>
+        </div>
+
       </div>
     </section>
   );

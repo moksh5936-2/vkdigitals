@@ -1,145 +1,135 @@
 'use client';
 
 import Navbar from '@/components/Navbar';
-import { Mail, Phone, MapPin, Send, ArrowUpRight, Zap } from 'lucide-react';
+import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 
 export default function ContactPage() {
-  const contactInfo = [
-    { label: 'General Enquiries', value: 'Sales@VKdigitals.in', icon: Mail, href: 'mailto:Sales@VKdigitals.in' },
-    { label: 'Primary Support', value: '+91 85710 41192', icon: Phone, href: 'tel:+918571041192' },
-    { label: 'Registered Office', value: '1st Floor, Above HealthKart, Near Nehru Park, Yamunanagar, Haryana 135001', icon: MapPin, href: '#' }
-  ];
-
   return (
-    <main className="min-h-screen bg-dark w-full overflow-hidden">
+    <main className="min-h-screen bg-white w-full overflow-hidden">
       <Navbar />
       
-      {/* Hero */}
-      <section className="bg-dark pt-48 pb-20 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20 mix-blend-overlay pointer-events-none" />
-        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-neon-purple/20 rounded-full blur-[150px] pointer-events-none" />
-        <div className="container mx-auto relative z-10 hidden md:block">
-          <div className="flex items-center gap-3 text-sm font-bold text-slate-500 uppercase tracking-widest mb-6">
-            <a href="/" className="hover:text-white transition-colors">Home</a>
-            <span>/</span>
-            <span className="text-white">Contact</span>
+      {/* Light Theme Purple Hero */}
+      <section className="hero-gradient pt-32 pb-40 px-6 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-white/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10 text-center">
+          <div className="inline-block px-4 py-1.5 bg-white/10 border border-white/20 text-white text-[0.65rem] font-bold uppercase tracking-widest rounded-full mb-8">
+            Contact Our Team
           </div>
-        </div>
-      </section>
-
-      {/* Main Content */}
-      <section className="py-12 px-6 md:px-12 lg:px-24 mb-32">
-        <div className="container mx-auto flex flex-col lg:flex-row gap-16">
-          
-          {/* Info Side */}
-          <div className="flex-1">
-            <div className="inline-block px-4 py-1.5 frosted-dark border border-white/10 text-slate-300 text-[0.65rem] font-bold uppercase tracking-widest rounded-full mb-8">Reach Out</div>
-            <h1 className="text-5xl md:text-7xl font-display font-black text-white mb-8 tracking-tighter leading-none">
-              Where Strategy Meets <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-purple to-neon-blue italic">Connection.</span>
-            </h1>
-            <p className="text-slate-400 text-lg md:text-xl font-medium leading-relaxed max-w-xl mb-16">
-              Whether you're starting a new brand or scaling an existing one, our integrated team is ready to design your growth framework.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
-              {contactInfo.map((item, i) => (
-                <div key={i} className={`p-8 bg-card rounded-[2.5rem] border border-white/5 shadow-xl hover:-translate-y-1 transition-all ${i === 2 ? 'sm:col-span-2' : ''}`}>
-                  <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center mb-6 text-neon-blue shadow-inner">
-                    <item.icon size={24} />
-                  </div>
-                  <div className="text-[0.65rem] font-black text-slate-500 uppercase tracking-widest mb-2">{item.label}</div>
-                  <a href={item.href} className="text-lg font-bold text-slate-300 hover:text-white transition-colors break-words">
-                    {item.value}
-                  </a>
-                </div>
-              ))}
-            </div>
-
-            {/* Restored Response Pledge Timings */}
-            <div className="p-10 frosted-dark rounded-[3rem] border border-neon-purple/20 relative overflow-hidden group mb-8">
-               <div className="absolute inset-0 bg-gradient-to-r from-neon-purple/5 to-transparent opacity-100" />
-               <h3 className="text-xl font-display font-black text-white mb-4 uppercase tracking-widest flex items-center gap-3 relative z-10">
-                 <Zap className="text-neon-green" size={24}/> Response Pledge
-               </h3>
-               <p className="text-slate-400 text-sm font-medium leading-relaxed relative z-10">
-                 We aim to respond to all structured enquiries within <strong>24 business hours</strong>. For urgent partnership discussions, please call us directly.
-               </p>
-            </div>
-
-            <button className="w-full p-6 frosted-dark border border-white/10 text-slate-300 font-black rounded-[2rem] hover:bg-white hover:text-dark transition-all flex items-center justify-center gap-3">
-               Open in Google Maps <ArrowUpRight size={18} />
-            </button>
-          </div>
-
-          {/* Form Side */}
-          <div className="flex-1">
-             <div className="p-12 md:p-16 bg-card rounded-[3.5rem] shadow-2xl relative overflow-hidden border border-white/10">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-neon-purple/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-                
-                <h3 className="text-3xl font-display font-black text-white mb-4 tracking-tight">Start a Project</h3>
-                <p className="text-slate-400 text-sm font-medium mb-12">Tell us about your goals and we'll design the right path.</p>
-                
-                <form className="space-y-8 relative z-10">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                    <div className="flex flex-col gap-3">
-                      <label className="text-[0.65rem] font-black text-slate-400 uppercase tracking-widest">First Name</label>
-                      <input type="text" placeholder="John" className="p-5 bg-dark border border-white/10 rounded-2xl text-white placeholder-slate-600 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-all" />
-                    </div>
-                    <div className="flex flex-col gap-3">
-                      <label className="text-[0.65rem] font-black text-slate-400 uppercase tracking-widest">Last Name</label>
-                      <input type="text" placeholder="Doe" className="p-5 bg-dark border border-white/10 rounded-2xl text-white placeholder-slate-600 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-all" />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                    <div className="flex flex-col gap-3">
-                      <label className="text-[0.65rem] font-black text-slate-400 uppercase tracking-widest">Email Address</label>
-                      <input type="email" placeholder="john@company.com" className="p-5 bg-dark border border-white/10 rounded-2xl text-white placeholder-slate-600 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-all" />
-                    </div>
-                    <div className="flex flex-col gap-3">
-                      <label className="text-[0.65rem] font-black text-slate-400 uppercase tracking-widest">Phone Number <span className="text-slate-600">(Optional)</span></label>
-                      <input type="tel" placeholder="+91 98765 43210" className="p-5 bg-dark border border-white/10 rounded-2xl text-white placeholder-slate-600 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-all" />
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col gap-3">
-                    <label className="text-[0.65rem] font-black text-slate-400 uppercase tracking-widest">Service Interested In</label>
-                    <div className="relative">
-                      <select className="w-full p-5 bg-dark border border-white/10 rounded-2xl text-white appearance-none focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-all cursor-pointer">
-                        <option>Digital Marketing & Branding</option>
-                        <option>Creative Media Production</option>
-                        <option>Financial Advisory & Tax</option>
-                        <option>IT Services & Platforms</option>
-                        <option>Not Sure Yet</option>
-                      </select>
-                      <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-500">▼</div>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col gap-3">
-                    <label className="text-[0.65rem] font-black text-slate-400 uppercase tracking-widest">Your Message</label>
-                    <textarea 
-                      placeholder="Tell us about your goals..." 
-                      className="p-5 bg-dark border border-white/10 rounded-2xl text-white placeholder-slate-600 min-h-[160px] resize-y focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-all"
-                    ></textarea>
-                  </div>
-
-                  <button type="button" className="w-full p-6 bg-neon-purple text-white font-black rounded-full hover:bg-neon-blue transition-all duration-300 flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(147,51,234,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.5)]">
-                    Send Message <Send size={18} />
-                  </button>
-                </form>
-             </div>
-          </div>
-        </div>
-      </section>
-      
-      <footer className="bg-[#0B0914] border-t border-white/5 py-20 px-6 mt-20">
-        <div className="container mx-auto text-center">
-          <div className="text-white font-display font-black text-xl mb-2 tracking-tighter">VK DIGITALS</div>
-          <p className="text-slate-500 text-[0.65rem] uppercase tracking-widest text-center">
-            © {new Date().getFullYear()} VK Digitals & Financial Services LLP. All rights reserved.
+          <h1 className="text-5xl md:text-7xl font-display font-black text-white mb-6 tracking-tighter">
+            Let's Build Something<br />Meaningful
+          </h1>
+          <p className="text-white/80 text-xl font-medium max-w-2xl mx-auto leading-relaxed">
+            Reach out to discuss your digital, creative, or financial goals.
           </p>
+        </div>
+      </section>
+
+      {/* Main Contact Section */}
+      <section className="py-24 max-w-[1400px] mx-auto px-6 lg:px-12 bg-white -mt-20 relative z-20">
+         <div className="flex flex-col lg:flex-row gap-8">
+            
+            {/* Left Info Column */}
+            <div className="lg:w-1/3 flex flex-col gap-6">
+               <div className="bg-white border border-slate-100 p-10 rounded-[2.5rem] shadow-sm">
+                  <div className="w-12 h-12 bg-brand-purple/10 text-brand-purple rounded-2xl flex items-center justify-center mb-6">
+                     <Mail size={24} />
+                  </div>
+                  <h3 className="text-lg font-black text-slate-900 mb-2">Email Us</h3>
+                  <p className="text-slate-500 text-sm mb-4">For general inquiries and partnerships.</p>
+                  <a href="mailto:Sales@VKdigitals.in" className="text-brand-purple font-bold hover:text-brand-indigo transition-colors flex items-center gap-2 text-sm">
+                     Sales@VKdigitals.in <ArrowRight size={16} />
+                  </a>
+               </div>
+
+               <div className="bg-white border border-slate-100 p-10 rounded-[2.5rem] shadow-sm">
+                  <div className="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-6">
+                     <Phone size={24} />
+                  </div>
+                  <h3 className="text-lg font-black text-slate-900 mb-2">Call Us</h3>
+                  <p className="text-slate-500 text-sm mb-4">Mon-Fri from 10am to 6pm.</p>
+                  <a href="tel:+918571041192" className="text-emerald-600 font-bold hover:text-emerald-700 transition-colors flex items-center gap-2 text-sm">
+                     +91 85710 41192 <ArrowRight size={16} />
+                  </a>
+               </div>
+
+               <div className="bg-white border border-slate-100 p-10 rounded-[2.5rem] shadow-sm">
+                  <div className="w-12 h-12 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center mb-6">
+                     <MapPin size={24} />
+                  </div>
+                  <h3 className="text-lg font-black text-slate-900 mb-2">Visit Us</h3>
+                  <p className="text-slate-500 text-sm mb-4 leading-relaxed">
+                     VK Digitals & Financial Services LLP<br />
+                     Yamunanagar, Haryana 135001<br />
+                     India
+                  </p>
+               </div>
+            </div>
+
+            {/* Right Form Column */}
+            <div className="lg:w-2/3 bg-white border border-slate-100 p-10 md:p-16 rounded-[2.5rem] shadow-sm">
+               
+               {/* 24hr Response Pledge Box */}
+               <div className="bg-emerald-50 border border-emerald-100 p-6 rounded-2xl mb-12 flex items-start gap-4">
+                  <div className="text-2xl mt-1">⚡</div>
+                  <div>
+                     <h4 className="font-bold text-emerald-900 mb-1">24hr Response Pledge</h4>
+                     <p className="text-emerald-700 text-sm font-medium leading-relaxed">
+                        We aim to respond to all qualified inquiries within 24 business hours. No automated deflection, just real strategy.
+                     </p>
+                  </div>
+               </div>
+
+               <form className="flex flex-col gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                     <div className="flex flex-col gap-2">
+                        <label className="text-xs font-bold text-slate-500 uppercase tracking-widest">First Name</label>
+                        <input type="text" className="w-full bg-slate-50 border border-slate-200 p-4 rounded-2xl focus:outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition-shadow" placeholder="Jane" />
+                     </div>
+                     <div className="flex flex-col gap-2">
+                        <label className="text-xs font-bold text-slate-500 uppercase tracking-widest">Last Name</label>
+                        <input type="text" className="w-full bg-slate-50 border border-slate-200 p-4 rounded-2xl focus:outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition-shadow" placeholder="Doe" />
+                     </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                     <div className="flex flex-col gap-2">
+                        <label className="text-xs font-bold text-slate-500 uppercase tracking-widest">Email Address</label>
+                        <input type="email" className="w-full bg-slate-50 border border-slate-200 p-4 rounded-2xl focus:outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition-shadow" placeholder="jane@company.com" />
+                     </div>
+                     <div className="flex flex-col gap-2">
+                        <label className="text-xs font-bold text-slate-500 uppercase tracking-widest">Phone Number</label>
+                        <input type="tel" className="w-full bg-slate-50 border border-slate-200 p-4 rounded-2xl focus:outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition-shadow" placeholder="+1 (555) 000-0000" />
+                     </div>
+                  </div>
+
+                  <div className="flex flex-col gap-2">
+                     <label className="text-xs font-bold text-slate-500 uppercase tracking-widest">Inquiry Type</label>
+                     <select className="w-full bg-slate-50 border border-slate-200 p-4 rounded-2xl focus:outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition-shadow appearance-none text-slate-900">
+                        <option>Digital Marketing & Branding</option>
+                        <option>Creative & Media</option>
+                        <option>Financial Advisory</option>
+                        <option>IT Services & Platforms</option>
+                        <option>Other</option>
+                     </select>
+                  </div>
+
+                  <div className="flex flex-col gap-2">
+                     <label className="text-xs font-bold text-slate-500 uppercase tracking-widest">Message</label>
+                     <textarea rows={5} className="w-full bg-slate-50 border border-slate-200 p-4 rounded-2xl focus:outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition-shadow resize-none" placeholder="Tell us about your project..."></textarea>
+                  </div>
+
+                  <button type="submit" className="mt-4 px-8 py-4 bg-brand-purple text-white font-bold rounded-full hover:bg-brand-indigo transition-colors shadow-lg shadow-brand-purple/20">
+                     Submit Inquiry
+                  </button>
+               </form>
+            </div>
+         </div>
+      </section>
+
+      {/* Basic Dark Footer */}
+      <footer className="bg-brand-dark py-12 text-sm text-center border-t border-white/5 mt-24">
+        <div className="container mx-auto">
+          <p className="text-white/40 text-xs">© {new Date().getFullYear()} VK Digitals and Financial Services LLP. All rights reserved.</p>
         </div>
       </footer>
     </main>

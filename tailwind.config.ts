@@ -7,13 +7,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        dark: "#0B0914",
-        card: "#12101C",
-        neon: {
-          purple: "#9333EA",
-          blue: "#3B82F6",
+        brand: {
+          purple: "#7C3AED",
+          indigo: "#4F46E5",
+          violet: "#6D28D9",
           green: "#10B981",
-          pink: "#EC4899"
+          dark: "#1E1B4B",
+          gray: "#F8FAFC",
         },
       },
       fontFamily: {

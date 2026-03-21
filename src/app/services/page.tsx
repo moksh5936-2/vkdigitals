@@ -1,97 +1,138 @@
 import Navbar from '@/components/Navbar';
 import CTASection from '@/components/CTASection';
-import { Megaphone, PencilRuler, TrendingUp } from 'lucide-react';
-
-const pillars = [
-  {
-    id: '01',
-    title: 'Digital Marketing & Branding',
-    icon: Megaphone,
-    desc: 'Precision targeting and brand authority systems designed to convert modern audiences.',
-    tags: ['Organic', 'ROI', 'PPC', 'Analytics'],
-    color: 'text-neon-blue',
-    bg: 'bg-neon-blue/10',
-    border: 'group-hover:border-neon-blue/50'
-  },
-  {
-    id: '02',
-    title: 'Creative Media & Production',
-    icon: PencilRuler,
-    desc: 'Visual storytelling and high-fidelity output that makes your brand visually unforgettable.',
-    tags: ['4K', 'Brand Film', 'Corporate', 'Post-Prod'],
-    color: 'text-neon-pink',
-    bg: 'bg-neon-pink/10',
-    border: 'group-hover:border-neon-pink/50'
-  },
-  {
-    id: '03',
-    title: 'Financial Services & Advisory',
-    icon: TrendingUp,
-    desc: 'Strategic financial planning and compliance frameworks designed for scalable growth.',
-    tags: ['Legal', 'GST', 'Compliance', 'Funding'],
-    color: 'text-neon-green',
-    bg: 'bg-neon-green/10',
-    border: 'group-hover:border-neon-green/50'
-  }
-];
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen bg-dark w-full overflow-hidden">
+    <main className="min-h-screen bg-white w-full overflow-hidden">
       <Navbar />
       
-      <section className="bg-dark pt-48 pb-32 px-6 relative overflow-hidden text-center md:text-left">
-        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay pointer-events-none" />
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-neon-blue/10 rounded-full blur-[150px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-        <div className="container mx-auto relative z-10">
-          <div className="flex flex-col md:flex-row items-end justify-between gap-12">
-            <div className="flex-1">
-              <div className="inline-block px-4 py-1.5 frosted-dark border border-white/10 text-slate-300 text-[0.65rem] font-bold uppercase tracking-widest rounded-full mb-8">Our Capabilities</div>
-              <h1 className="text-5xl md:text-7xl font-display font-black text-white leading-[1.1] tracking-tighter">
-                High-Fidelity <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-purple to-neon-blue italic">Solutions</span>.
-              </h1>
-            </div>
-            <p className="flex-1 text-slate-400 text-xl leading-relaxed max-w-xl pb-4 font-medium">
-              We provide the tools and expertise to turn complex business challenges into structured growth opportunities. Choose your pillar.
-            </p>
+      {/* Light Theme Purple Hero */}
+      <section className="hero-gradient pt-32 pb-40 px-6 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-white/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
+          <div className="flex items-center gap-3 text-xs font-bold text-white/50 mb-6 uppercase tracking-widest">
+            <a href="/" className="hover:text-white transition-colors">Home</a>
+            <span>/</span>
+            <span className="text-white">Services</span>
           </div>
+          <div className="inline-block px-4 py-1.5 bg-white/10 border border-white/20 text-white text-[0.65rem] font-bold uppercase tracking-widest rounded-full mb-8">
+            3 Integrated Pillars • Built for Results
+          </div>
+          <h1 className="text-5xl md:text-7xl font-display font-black text-white mb-6 tracking-tighter">
+            Services That Move the Needle
+          </h1>
+          <p className="text-white/80 text-xl font-medium max-w-2xl leading-relaxed">
+            Digital, creative, IT, and financial — all under one structured roof, working in sync.
+          </p>
         </div>
       </section>
 
-      <section className="py-24 px-6 md:px-12 lg:px-24 bg-card border-y border-white/5">
-        <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-          {pillars.map((s, i) => (
-            <div key={i} className={`group bg-dark transition-all duration-300 hover:-translate-y-2 border border-white/5 ${s.border} rounded-[3rem] p-12 flex flex-col h-full relative overflow-hidden shadow-xl`}>
-              <div className={`w-16 h-16 ${s.bg} rounded-2xl flex items-center justify-center mb-10 group-hover:scale-110 transition-transform shadow-inner`}>
-                <s.icon size={32} className={s.color} />
-              </div>
-              <div className="text-[0.65rem] font-black text-slate-500 uppercase tracking-[0.3em] mb-4">Pillar {s.id}</div>
-              <h3 className="text-3xl font-display font-black text-white mb-6 tracking-tight leading-tight">{s.title}</h3>
-              <p className="text-slate-400 text-lg leading-relaxed mb-8 font-medium flex-1">{s.desc}</p>
-              
-              <div className="flex flex-wrap gap-2 mb-10">
-                {s.tags.map((tag, j) => (
-                  <span key={j} className="px-4 py-1.5 bg-white/5 border border-white/10 text-slate-300 text-[0.65rem] font-black uppercase tracking-widest rounded-full whitespace-nowrap">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <button className="w-full p-5 frosted-dark text-white font-black rounded-2xl transition-all hover:bg-white hover:text-dark hover:scale-[1.02] active:scale-95 text-center mt-auto border border-white/10">
-                Learn More
-              </button>
+      {/* Navigation Tabs */}
+      <div className="border-b border-slate-200 sticky top-0 bg-white/80 backdrop-blur-md z-40">
+         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 flex items-center gap-8 overflow-x-auto whitespace-nowrap scrollbar-hide">
+            <button className="py-6 text-sm font-bold text-brand-purple border-b-2 border-brand-green">Digital & Branding</button>
+            <button className="py-6 text-sm font-bold text-slate-500 hover:text-slate-900 transition-colors">IT Services</button>
+            <button className="py-6 text-sm font-bold text-slate-500 hover:text-slate-900 transition-colors">Creative & Media</button>
+            <button className="py-6 text-sm font-bold text-slate-500 hover:text-slate-900 transition-colors">Financial Advisory</button>
+         </div>
+      </div>
+
+      {/* Services Content Mapping exactly to Image 3 */}
+      <section className="py-24 max-w-[1400px] mx-auto px-6 lg:px-12 bg-white">
+         
+         <div className="mb-24">
+            <h2 className="text-3xl font-display font-black text-slate-900 tracking-tight leading-none mb-2">Digital Marketing & Branding</h2>
+            <p className="text-brand-green font-bold text-sm mb-12">Pillar 01 — Strategy-first marketing that builds real audiences and durable brand equity.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+               <div className="p-8 bg-slate-50 rounded-3xl border border-slate-100">
+                  <h3 className="text-brand-purple font-black text-sm mb-6">SEO & Performance</h3>
+                  <ul className="space-y-3 text-slate-600 text-sm leading-relaxed">
+                     <li className="flex items-start gap-2"><span className="text-brand-indigo mt-1">•</span> Search Engine Optimization</li>
+                     <li className="flex items-start gap-2"><span className="text-brand-indigo mt-1">•</span> Performance Marketing & PPC</li>
+                     <li className="flex items-start gap-2"><span className="text-brand-indigo mt-1">•</span> Google Ads Management</li>
+                     <li className="flex items-start gap-2"><span className="text-brand-indigo mt-1">•</span> Analytics & Reporting</li>
+                  </ul>
+               </div>
+               <div className="p-8 bg-slate-50 rounded-3xl border border-slate-100">
+                  <h3 className="text-brand-purple font-black text-sm mb-6">Brand Strategy</h3>
+                  <ul className="space-y-3 text-slate-600 text-sm leading-relaxed">
+                     <li className="flex items-start gap-2"><span className="text-brand-indigo mt-1">•</span> Brand Identity Design</li>
+                     <li className="flex items-start gap-2"><span className="text-brand-indigo mt-1">•</span> Brand Guidelines</li>
+                     <li className="flex items-start gap-2"><span className="text-brand-indigo mt-1">•</span> Positioning & Messaging</li>
+                     <li className="flex items-start gap-2"><span className="text-brand-indigo mt-1">•</span> Competitor Analysis</li>
+                  </ul>
+               </div>
+               <div className="p-8 bg-slate-50 rounded-3xl border border-slate-100">
+                  <h3 className="text-brand-purple font-black text-sm mb-6">Social Media</h3>
+                  <ul className="space-y-3 text-slate-600 text-sm leading-relaxed">
+                     <li className="flex items-start gap-2"><span className="text-brand-indigo mt-1">•</span> Social Media Strategy</li>
+                     <li className="flex items-start gap-2"><span className="text-brand-indigo mt-1">•</span> Account Management</li>
+                     <li className="flex items-start gap-2"><span className="text-brand-indigo mt-1">•</span> Community Building</li>
+                     <li className="flex items-start gap-2"><span className="text-brand-indigo mt-1">•</span> Influencer Outreach</li>
+                  </ul>
+               </div>
+               <div className="p-8 bg-slate-50 rounded-3xl border border-slate-100">
+                  <h3 className="text-brand-purple font-black text-sm mb-6">Content Marketing</h3>
+                  <ul className="space-y-3 text-slate-600 text-sm leading-relaxed">
+                     <li className="flex items-start gap-2"><span className="text-brand-indigo mt-1">•</span> Content Strategy</li>
+                     <li className="flex items-start gap-2"><span className="text-brand-indigo mt-1">•</span> Blog & Article Writing</li>
+                     <li className="flex items-start gap-2"><span className="text-brand-indigo mt-1">•</span> Email Campaigns</li>
+                     <li className="flex items-start gap-2"><span className="text-brand-indigo mt-1">•</span> Lead Generation</li>
+                  </ul>
+               </div>
             </div>
-          ))}
-        </div>
+         </div>
+
+         <div>
+            <h2 className="text-3xl font-display font-black text-slate-900 tracking-tight leading-none mb-2">IT Services</h2>
+            <p className="text-brand-green font-bold text-sm mb-12">Modern technology solutions for a professional, high-performance digital presence.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+               <div className="p-8 bg-emerald-50/50 rounded-3xl border border-emerald-100/50">
+                  <h3 className="text-brand-purple font-black text-sm mb-6">Web Development</h3>
+                  <ul className="space-y-3 text-slate-600 text-sm leading-relaxed">
+                     <li className="flex items-start gap-2"><span className="text-emerald-500 mt-1">•</span> Website Development</li>
+                     <li className="flex items-start gap-2"><span className="text-emerald-500 mt-1">•</span> E-commerce Solutions</li>
+                     <li className="flex items-start gap-2"><span className="text-emerald-500 mt-1">•</span> CMS Development</li>
+                     <li className="flex items-start gap-2"><span className="text-emerald-500 mt-1">•</span> API Integration</li>
+                  </ul>
+               </div>
+               <div className="p-8 bg-emerald-50/50 rounded-3xl border border-emerald-100/50">
+                  <h3 className="text-brand-purple font-black text-sm mb-6">UI/UX Design</h3>
+                  <ul className="space-y-3 text-slate-600 text-sm leading-relaxed">
+                     <li className="flex items-start gap-2"><span className="text-emerald-500 mt-1">•</span> Web Designing</li>
+                     <li className="flex items-start gap-2"><span className="text-emerald-500 mt-1">•</span> UI/UX Prototyping</li>
+                     <li className="flex items-start gap-2"><span className="text-emerald-500 mt-1">•</span> Responsive Design</li>
+                     <li className="flex items-start gap-2"><span className="text-emerald-500 mt-1">•</span> Design Systems</li>
+                  </ul>
+               </div>
+               <div className="p-8 bg-emerald-50/50 rounded-3xl border border-emerald-100/50">
+                  <h3 className="text-brand-purple font-black text-sm mb-6">Custom Applications</h3>
+                  <ul className="space-y-3 text-slate-600 text-sm leading-relaxed">
+                     <li className="flex items-start gap-2"><span className="text-emerald-500 mt-1">•</span> Custom Web Apps</li>
+                     <li className="flex items-start gap-2"><span className="text-emerald-500 mt-1">•</span> Dashboard Development</li>
+                     <li className="flex items-start gap-2"><span className="text-emerald-500 mt-1">•</span> Business Automation</li>
+                     <li className="flex items-start gap-2"><span className="text-emerald-500 mt-1">•</span> SaaS Platforms</li>
+                  </ul>
+               </div>
+               <div className="p-8 bg-emerald-50/50 rounded-3xl border border-emerald-100/50">
+                  <h3 className="text-brand-purple font-black text-sm mb-6">Infrastructure</h3>
+                  <ul className="space-y-3 text-slate-600 text-sm leading-relaxed">
+                     <li className="flex items-start gap-2"><span className="text-emerald-500 mt-1">•</span> Domain Registration</li>
+                     <li className="flex items-start gap-2"><span className="text-emerald-500 mt-1">•</span> Hosting Management</li>
+                     <li className="flex items-start gap-2"><span className="text-emerald-500 mt-1">•</span> SSL & Security</li>
+                     <li className="flex items-start gap-2"><span className="text-emerald-500 mt-1">•</span> Performance Optimization</li>
+                  </ul>
+               </div>
+            </div>
+         </div>
       </section>
 
       <CTASection />
       
-      <footer className="bg-[#0B0914] border-t border-white/5 py-20 px-6">
-        <div className="container mx-auto text-center">
-          <div className="text-white font-display font-black text-xl mb-2 tracking-tighter">VK DIGITALS</div>
-          <p className="text-slate-500 text-[0.65rem] uppercase tracking-widest text-center">
-            © {new Date().getFullYear()} VK Digitals & Financial Services LLP. All rights reserved.
-          </p>
+      {/* Shortened basic dark footer from image 5 applied to all */}
+      <footer className="bg-brand-dark py-12 text-sm text-center border-t border-white/5">
+        <div className="container mx-auto">
+          <p className="text-white/40 text-xs">© {new Date().getFullYear()} VK Digitals and Financial Services LLP. All rights reserved.</p>
         </div>
       </footer>
     </main>
