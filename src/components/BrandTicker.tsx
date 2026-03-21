@@ -1,30 +1,40 @@
-"use client";
+'use client';
+
 import { motion } from 'framer-motion';
-import { LineChart, Camera, HandCoins, Code, Scale, PiggyBank } from 'lucide-react';
 
-const tickerItems = [
-  { icon: LineChart, text: 'Digital Marketing & Branding' },
-  { icon: Camera, text: 'Creative & Media Production' },
-  { icon: HandCoins, text: 'Financial Advisory' },
-
-  { icon: Code, text: 'IT Services & Platforms' },
-  { icon: Scale, text: 'LLP & Compliance' },
-  { icon: PiggyBank, text: 'Investment Advisory' },
+const words = [
+  "DIGITAL MARKETING & BRANDING",
+  "•",
+  "CREATIVE & MEDIA PRODUCTION",
+  "•",
+  "FINANCIAL ADVISORY",
+  "•",
+  "IT SERVICES & PLATFORMS",
+  "•",
+  "LLP & COMPLIANCE",
+  "•",
+  "INVESTMENT ADVISORY",
+  "•"
 ];
 
 export default function BrandTicker() {
   return (
-    <div className="bg-white/5 border-b border-white/5 py-12 overflow-hidden whitespace-nowrap relative">
+    <div className="py-6 border-b border-t border-white/[0.05] bg-[#12101C] overflow-hidden flex whitespace-nowrap relative">
+      <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-[#0B0914] to-transparent z-10" />
+      <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-[#0B0914] to-transparent z-10" />
+      
       <motion.div 
-        className="flex gap-12 items-center"
-        animate={{ x: [0, -1000] }}
-        transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+        className="flex gap-8 items-center"
+        animate={{ x: [0, -2000] }}
+        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
       >
-        {[...tickerItems, ...tickerItems].map((item, idx) => (
-          <div key={idx} className="flex items-center gap-4 px-6 text-ink-dark group hover:text-green transition-colors">
-            <item.icon size={20} className="text-purple group-hover:text-green transition-colors" />
-            <span className="font-display font-medium text-sm uppercase tracking-widest">{item.text}</span>
-          </div>
+        {[...words, ...words, ...words].map((word, idx) => (
+          <span 
+            key={idx} 
+            className={`font-display font-black text-2xl uppercase tracking-widest ${word === '•' ? 'text-neon-green' : 'text-slate-500 hover:text-white transition-colors'}`}
+          >
+            {word}
+          </span>
         ))}
       </motion.div>
     </div>

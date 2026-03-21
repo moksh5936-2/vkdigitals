@@ -1,50 +1,42 @@
-"use client";
-import { motion } from 'framer-motion';
+'use client';
+
+import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 
 export default function CTASection() {
   return (
-    <section className="px-6 md:px-12 py-20 bg-peach-cream">
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        className="container mx-auto rounded-[3.5rem] bg-gradient-to-br from-[#064E3B] to-[#065F46] p-12 md:p-24 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-12 overflow-hidden relative shadow-2xl shadow-forest-green/20"
-      >
-        {/* Orb Decorations */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-green/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
-        <div className="absolute top-1/2 left-1/2 w-48 h-48 bg-white/5 rounded-full blur-2xl -translate-x-1/2 -translate-y-1/2" />
-        
-        <div className="relative z-10 max-w-2xl">
-          <h2 className="text-4xl md:text-7xl font-display font-black text-white mb-8 leading-[1.05] tracking-tighter">
-            Ready to <span className="text-green italic">Structure</span> <br /> Your Next Era?
-          </h2>
-          <p className="text-white/80 text-lg md:text-xl font-medium max-w-lg mb-12 leading-relaxed">
-            Brands without structure fail by default. Scale your brand with precision and purpose.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center gap-6">
-            <button className="px-10 py-5 bg-white text-forest-green font-black rounded-full transition-all hover:scale-105 flex items-center gap-3 shadow-xl">
-              Book a Strategy Call <ArrowUpRight size={20} />
-            </button>
-            <button className="text-white font-bold border-b-2 border-white/20 hover:border-white transition-all uppercase tracking-widest text-xs">
-              View Case Studies
-            </button>
-          </div>
+    <section className="py-32 px-6 md:px-12 lg:px-24 bg-dark relative overflow-hidden">
+      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-neon-purple/20 rounded-full blur-[150px] pointer-events-none" />
+      
+      <div className="container mx-auto relative z-10">
+        <div className="max-w-5xl mx-auto text-center p-16 md:p-24 rounded-[3.5rem] bg-card/60 backdrop-blur-2xl border border-white/5 shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+           <div className="inline-block px-4 py-1.5 frosted-dark text-neon-green text-[0.65rem] font-bold uppercase tracking-widest rounded-full mb-8">
+             Let's Build Together
+           </div>
+           <h2 className="text-4xl md:text-7xl font-display font-black text-white mb-8 tracking-tighter leading-tight">
+             Structured Growth <br /> <span className="text-gradient">Starts Here.</span>
+           </h2>
+           <p className="text-slate-400 text-lg md:text-xl font-medium max-w-2xl mx-auto mb-12">
+             Partner with the agency that brings digital ambition and financial logic into one unified framework.
+           </p>
+           
+           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+             <Link 
+               href="/contact" 
+               className="w-full sm:w-auto px-10 py-5 bg-neon-purple text-white font-black rounded-full hover:scale-105 hover:bg-white hover:text-dark transition-all shadow-[0_0_30px_rgba(147,51,234,0.3)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] flex items-center justify-center gap-2"
+             >
+               Start a Conversation <ArrowUpRight size={18} />
+             </Link>
+             <Link 
+               href="/services" 
+               className="w-full sm:w-auto px-10 py-5 bg-transparent border-2 border-slate-700 text-white font-black rounded-full hover:bg-white/5 transition-all flex items-center justify-center"
+             >
+               Explore Our Work
+             </Link>
+           </div>
         </div>
-
-        <div className="relative z-10 flex flex-col gap-6 w-full md:w-auto">
-          <div className="p-10 bg-white/10 backdrop-blur-xl rounded-[2.5rem] border border-white/10 shadow-lg">
-            <div className="text-white text-4xl font-black mb-1">94%</div>
-            <div className="text-white/60 text-[0.65rem] font-black uppercase tracking-widest">Client Retention</div>
-          </div>
-          <div className="p-10 bg-white/10 backdrop-blur-xl rounded-[2.5rem] border border-white/10 shadow-lg">
-            <div className="text-white text-4xl font-black mb-1">12+</div>
-            <div className="text-white/60 text-[0.65rem] font-black uppercase tracking-widest">Global Partners</div>
-          </div>
-        </div>
-      </motion.div>
+      </div>
     </section>
-
   );
 }

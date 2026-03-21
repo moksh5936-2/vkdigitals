@@ -1,117 +1,143 @@
+'use client';
+
 import Navbar from '@/components/Navbar';
-import { Mail, Phone, MapPin, Linkedin, Send, ArrowUpRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, ArrowUpRight, Zap } from 'lucide-react';
 
 export default function ContactPage() {
   const contactInfo = [
-    { icon: Mail, label: 'Email', value: 'hello@vkdigitals.com', href: 'mailto:hello@vkdigitals.com' },
-    { icon: Phone, label: 'Phone', value: '+91 94160-50201', href: 'tel:+919416050201' },
-    { icon: MapPin, label: 'Office', value: 'Yamunanagar, Haryana, India', href: '#' },
-    { icon: Linkedin, label: 'Connect', value: 'VK Digitals & Financial Services LLP', href: 'https://linkedin.com' },
+    { label: 'General Enquiries', value: 'Sales@VKdigitals.in', icon: Mail, href: 'mailto:Sales@VKdigitals.in' },
+    { label: 'Primary Support', value: '+91 85710 41192', icon: Phone, href: 'tel:+918571041192' },
+    { label: 'Registered Office', value: '1st Floor, Above HealthKart, Near Nehru Park, Yamunanagar, Haryana 135001', icon: MapPin, href: '#' }
   ];
 
   return (
-    <main className="min-h-screen bg-peach-cream">
+    <main className="min-h-screen bg-dark w-full overflow-hidden">
       <Navbar />
       
-      <section className="bg-lavender pt-40 pb-20 px-6 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple/5 to-transparent" />
-        <div className="container mx-auto text-center relative z-10">
-          <div className="inline-block px-4 py-1.5 bg-white/40 border border-white/20 text-purple/60 text-[0.65rem] font-black uppercase tracking-widest rounded-full mb-8 backdrop-blur-sm">Get In Touch</div>
-          <h1 className="text-5xl md:text-8xl font-display font-black text-ink-dark leading-tight mb-8 tracking-tighter">
-            Start a <span className="text-purple uppercase italic">Conversation</span>.
-          </h1>
-          <p className="text-ink-dark/60 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-medium">
-            Ready to structure your Next era? Drop us a line or visit our office. We respond to all inquiries within 24 hours.
-          </p>
+      {/* Hero */}
+      <section className="bg-dark pt-48 pb-20 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20 mix-blend-overlay pointer-events-none" />
+        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-neon-purple/20 rounded-full blur-[150px] pointer-events-none" />
+        <div className="container mx-auto relative z-10 hidden md:block">
+          <div className="flex items-center gap-3 text-sm font-bold text-slate-500 uppercase tracking-widest mb-6">
+            <a href="/" className="hover:text-white transition-colors">Home</a>
+            <span>/</span>
+            <span className="text-white">Contact</span>
+          </div>
         </div>
       </section>
 
-      <section className="py-24 px-6 md:px-12 lg:px-24">
-        <div className="container mx-auto flex flex-col lg:flex-row gap-20">
-          {/* Contact Details */}
-          <div className="flex-1 flex flex-col gap-12">
-            <h2 className="text-4xl font-display font-black text-ink-dark uppercase tracking-tight">Direct Channels</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+      {/* Main Content */}
+      <section className="py-12 px-6 md:px-12 lg:px-24 mb-32">
+        <div className="container mx-auto flex flex-col lg:flex-row gap-16">
+          
+          {/* Info Side */}
+          <div className="flex-1">
+            <div className="inline-block px-4 py-1.5 frosted-dark border border-white/10 text-slate-300 text-[0.65rem] font-bold uppercase tracking-widest rounded-full mb-8">Reach Out</div>
+            <h1 className="text-5xl md:text-7xl font-display font-black text-white mb-8 tracking-tighter leading-none">
+              Where Strategy Meets <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-purple to-neon-blue italic">Connection.</span>
+            </h1>
+            <p className="text-slate-400 text-lg md:text-xl font-medium leading-relaxed max-w-xl mb-16">
+              Whether you're starting a new brand or scaling an existing one, our integrated team is ready to design your growth framework.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
               {contactInfo.map((item, i) => (
-                <div key={i} className="p-8 bg-white rounded-[2.5rem] hover:bg-lavender transition-all border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1">
-                  <div className="w-12 h-12 bg-lavender-input rounded-xl flex items-center justify-center mb-6 text-purple shadow-inner">
+                <div key={i} className={`p-8 bg-card rounded-[2.5rem] border border-white/5 shadow-xl hover:-translate-y-1 transition-all ${i === 2 ? 'sm:col-span-2' : ''}`}>
+                  <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center mb-6 text-neon-blue shadow-inner">
                     <item.icon size={24} />
                   </div>
-                  <div className="text-[0.6rem] font-black text-slate-400 uppercase tracking-widest mb-1">{item.label}</div>
-                  <a href={item.href} className="text-lg font-bold text-ink-dark hover:text-purple transition-colors break-words">
+                  <div className="text-[0.65rem] font-black text-slate-500 uppercase tracking-widest mb-2">{item.label}</div>
+                  <a href={item.href} className="text-lg font-bold text-slate-300 hover:text-white transition-colors break-words">
                     {item.value}
                   </a>
                 </div>
               ))}
             </div>
 
-            {/* Business Hours */}
-            <div className="p-10 bg-lavender/30 rounded-[3rem] border border-lavender/40">
-               <h3 className="text-xl font-display font-black text-ink-dark mb-6 uppercase tracking-tight">Business Hours</h3>
-               <div className="space-y-4">
-                  <div className="flex justify-between items-center text-sm font-medium">
-                     <span className="text-ink-dark/60">Monday — Friday</span>
-                     <span className="text-ink-dark">10:00 AM — 06:00 PM</span>
-                  </div>
-                  <div className="flex justify-between items-center text-sm font-medium">
-                     <span className="text-ink-dark/60">Saturday</span>
-                     <span className="text-ink-dark">11:00 AM — 03:00 PM</span>
-                  </div>
-                  <div className="flex justify-between items-center text-sm font-medium">
-                     <span className="text-ink-dark/60">Sunday</span>
-                     <span className="text-purple font-bold">Closed</span>
-                  </div>
-               </div>
+            {/* Restored Response Pledge Timings */}
+            <div className="p-10 frosted-dark rounded-[3rem] border border-neon-purple/20 relative overflow-hidden group mb-8">
+               <div className="absolute inset-0 bg-gradient-to-r from-neon-purple/5 to-transparent opacity-100" />
+               <h3 className="text-xl font-display font-black text-white mb-4 uppercase tracking-widest flex items-center gap-3 relative z-10">
+                 <Zap className="text-neon-green" size={24}/> Response Pledge
+               </h3>
+               <p className="text-slate-400 text-sm font-medium leading-relaxed relative z-10">
+                 We aim to respond to all structured enquiries within <strong>24 business hours</strong>. For urgent partnership discussions, please call us directly.
+               </p>
             </div>
 
-            <button className="w-full p-5 border-2 border-slate-100 text-ink-dark/60 font-black rounded-2xl hover:bg-slate-50 transition-all flex items-center justify-center gap-3">
-               View on Google Maps <ArrowUpRight size={18} />
+            <button className="w-full p-6 frosted-dark border border-white/10 text-slate-300 font-black rounded-[2rem] hover:bg-white hover:text-dark transition-all flex items-center justify-center gap-3">
+               Open in Google Maps <ArrowUpRight size={18} />
             </button>
           </div>
 
+          {/* Form Side */}
+          <div className="flex-1">
+             <div className="p-12 md:p-16 bg-card rounded-[3.5rem] shadow-2xl relative overflow-hidden border border-white/10">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-neon-purple/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+                
+                <h3 className="text-3xl font-display font-black text-white mb-4 tracking-tight">Start a Project</h3>
+                <p className="text-slate-400 text-sm font-medium mb-12">Tell us about your goals and we'll design the right path.</p>
+                
+                <form className="space-y-8 relative z-10">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                    <div className="flex flex-col gap-3">
+                      <label className="text-[0.65rem] font-black text-slate-400 uppercase tracking-widest">First Name</label>
+                      <input type="text" placeholder="John" className="p-5 bg-dark border border-white/10 rounded-2xl text-white placeholder-slate-600 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-all" />
+                    </div>
+                    <div className="flex flex-col gap-3">
+                      <label className="text-[0.65rem] font-black text-slate-400 uppercase tracking-widest">Last Name</label>
+                      <input type="text" placeholder="Doe" className="p-5 bg-dark border border-white/10 rounded-2xl text-white placeholder-slate-600 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-all" />
+                    </div>
+                  </div>
 
-          {/* Form */}
-          <div className="flex-1 p-12 bg-white frosted-glass !rounded-[3.5rem] shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-purple/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-            <h3 className="text-3xl font-display font-black text-ink-dark mb-8 uppercase tracking-tight relative z-10">Send an Enquiry</h3>
-            <form className="space-y-6 relative z-10">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label className="text-[0.65rem] font-black text-ink-dark/40 uppercase tracking-widest mb-2 block">First Name</label>
-                  <input type="text" className="input-pastel w-full" placeholder="John" />
-                </div>
-                <div>
-                  <label className="text-[0.65rem] font-black text-ink-dark/40 uppercase tracking-widest mb-2 block">Last Name</label>
-                  <input type="text" className="input-pastel w-full" placeholder="Doe" />
-                </div>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label className="text-[0.65rem] font-black text-ink-dark/40 uppercase tracking-widest mb-2 block">Email Address</label>
-                  <input type="email" className="input-pastel w-full" placeholder="john@example.com" />
-                </div>
-                <div>
-                  <label className="text-[0.65rem] font-black text-ink-dark/40 uppercase tracking-widest mb-2 block">Phone Number (Optional)</label>
-                  <input type="tel" className="input-pastel w-full" placeholder="+91 98765 43210" />
-                </div>
-              </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                    <div className="flex flex-col gap-3">
+                      <label className="text-[0.65rem] font-black text-slate-400 uppercase tracking-widest">Email Address</label>
+                      <input type="email" placeholder="john@company.com" className="p-5 bg-dark border border-white/10 rounded-2xl text-white placeholder-slate-600 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-all" />
+                    </div>
+                    <div className="flex flex-col gap-3">
+                      <label className="text-[0.65rem] font-black text-slate-400 uppercase tracking-widest">Phone Number <span className="text-slate-600">(Optional)</span></label>
+                      <input type="tel" placeholder="+91 98765 43210" className="p-5 bg-dark border border-white/10 rounded-2xl text-white placeholder-slate-600 focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-all" />
+                    </div>
+                  </div>
 
-              <div>
-                <label className="text-[0.65rem] font-black text-ink-dark/40 uppercase tracking-widest mb-2 block">Tell us about your brand</label>
-                <textarea className="input-pastel w-full min-h-[160px]" placeholder="Briefly describe your goals..."></textarea>
-              </div>
-              <button className="w-full p-5 bg-purple hover:bg-purple-dark text-white font-black rounded-2xl transition-all hover:scale-[1.02] flex items-center justify-center gap-3 shadow-xl shadow-purple/10">
-                Submit Enquiry <Send size={20} />
-              </button>
-            </form>
+                  <div className="flex flex-col gap-3">
+                    <label className="text-[0.65rem] font-black text-slate-400 uppercase tracking-widest">Service Interested In</label>
+                    <div className="relative">
+                      <select className="w-full p-5 bg-dark border border-white/10 rounded-2xl text-white appearance-none focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-all cursor-pointer">
+                        <option>Digital Marketing & Branding</option>
+                        <option>Creative Media Production</option>
+                        <option>Financial Advisory & Tax</option>
+                        <option>IT Services & Platforms</option>
+                        <option>Not Sure Yet</option>
+                      </select>
+                      <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-500">▼</div>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-3">
+                    <label className="text-[0.65rem] font-black text-slate-400 uppercase tracking-widest">Your Message</label>
+                    <textarea 
+                      placeholder="Tell us about your goals..." 
+                      className="p-5 bg-dark border border-white/10 rounded-2xl text-white placeholder-slate-600 min-h-[160px] resize-y focus:outline-none focus:border-neon-purple focus:ring-1 focus:ring-neon-purple transition-all"
+                    ></textarea>
+                  </div>
+
+                  <button type="button" className="w-full p-6 bg-neon-purple text-white font-black rounded-full hover:bg-neon-blue transition-all duration-300 flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(147,51,234,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.5)]">
+                    Send Message <Send size={18} />
+                  </button>
+                </form>
+             </div>
           </div>
         </div>
       </section>
-
-      <footer className="bg-ink-dark py-20 px-6">
+      
+      <footer className="bg-[#0B0914] border-t border-white/5 py-20 px-6 mt-20">
         <div className="container mx-auto text-center">
-          <div className="text-white font-display font-bold text-xl mb-4 tracking-tighter">VK DIGITALS</div>
-          <p className="text-white/40 text-[0.7rem] uppercase tracking-widest text-center">
+          <div className="text-white font-display font-black text-xl mb-2 tracking-tighter">VK DIGITALS</div>
+          <p className="text-slate-500 text-[0.65rem] uppercase tracking-widest text-center">
             © {new Date().getFullYear()} VK Digitals & Financial Services LLP. All rights reserved.
           </p>
         </div>

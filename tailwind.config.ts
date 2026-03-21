@@ -7,28 +7,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        lavender: {
-          DEFAULT: "#EDE9FE",
-          input: "#F5F3FF",
-        },
-        mint: "#DCFCE7",
-        peach: {
-          cream: "#FFF8F0",
-        },
-        ink: {
-          dark: "#1A0F2E",
-        },
-        forest: {
-          green: "#064E3B",
-        },
-        purple: {
-          DEFAULT: "#7C3AED",
-          dark: "#2E1065",
-          light: "#A78BFA",
-        },
-        green: {
-          DEFAULT: "#A3E635",
-          light: "#D9F99D",
+        dark: "#0B0914",
+        card: "#12101C",
+        neon: {
+          purple: "#9333EA",
+          blue: "#3B82F6",
+          green: "#10B981",
+          pink: "#EC4899"
         },
       },
       fontFamily: {
@@ -36,8 +21,16 @@ export default {
         display: ['Poppins', 'sans-serif'],
         serif: ['Georgia', 'serif'],
       },
+      animation: {
+        'marquee': 'marquee 40s linear infinite',
+      },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        }
+      }
     },
   },
   plugins: [],
 } satisfies import('tailwindcss').Config;
-
