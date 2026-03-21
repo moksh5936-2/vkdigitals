@@ -2,9 +2,11 @@
 
 import { motion } from 'framer-motion';
 import { BarChart3, MonitorSmartphone, Clapperboard, TrendingUp, ArrowUpRight } from 'lucide-react';
+import Link from 'next/link';
 
 const pillars = [
   {
+    id: 'digital-branding',
     title: 'Digital Marketing & Branding',
     icon: BarChart3,
     desc: 'Data-driven campaigns and brand systems that build authority and convert modern audiences.',
@@ -13,6 +15,7 @@ const pillars = [
     bg: 'bg-blue-50'
   },
   {
+    id: 'it-services',
     title: 'IT Services',
     icon: MonitorSmartphone,
     desc: 'High-performance web platforms and custom digital products built for scalability and speed.',
@@ -21,6 +24,7 @@ const pillars = [
     bg: 'bg-emerald-50'
   },
   {
+    id: 'creative-media',
     title: 'Creative & Media',
     icon: Clapperboard,
     desc: 'Visual storytelling and high-impact media production that turns brand messages into memory.',
@@ -29,6 +33,7 @@ const pillars = [
     bg: 'bg-amber-50'
   },
   {
+    id: 'financial-advisory',
     title: 'Financial Advisory',
     icon: TrendingUp,
     desc: 'Professional financial guidance to help businesses plan, manage capital, and scale with clarity.',
@@ -68,34 +73,35 @@ export default function Pillars() {
         {/* Cards Grid - Staggered Waterfall & Pop */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
           {pillars.map((pillar, idx) => (
-            <motion.div 
-               key={idx}
-               initial={{ opacity: 0, y: 40 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true }}
-               transition={{ duration: 0.5, delay: idx * 0.1 }}
-               whileHover={{ y: -8, rotate: idx % 2 === 0 ? 1 : -1, boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.15)' }}
-               className="bg-white border border-slate-100 rounded-3xl p-8 shadow-sm transition-colors relative group flex flex-col"
-            >
-              <div className={`w-12 h-12 ${pillar.bg} ${pillar.color} rounded-2xl flex items-center justify-center mb-8 shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3`}>
-                <pillar.icon size={20} strokeWidth={2.5} />
-              </div>
-              
-              <h3 className="text-xl font-black text-slate-900 mb-3 leading-tight transition-colors group-hover:text-brand-purple">{pillar.title}</h3>
-              <p className="text-slate-500 text-sm leading-relaxed mb-8 flex-1">{pillar.desc}</p>
-              
-              <div className="flex flex-wrap gap-2 mb-8">
-                {pillar.tags.map((tag, i) => (
-                  <span key={i} className={`px-3 py-1 ${tag.color} text-[0.65rem] font-bold uppercase tracking-widest rounded-full`}>
-                    {tag.name}
-                  </span>
-                ))}
-              </div>
-              
-              <div className="mt-auto">
-                 <ArrowUpRight size={20} className={`${pillar.color} group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform`} />
-              </div>
-            </motion.div>
+            <Link href={`/services#${pillar.id}`} key={idx} className="block group">
+              <motion.div 
+                 initial={{ opacity: 0, y: 40 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true }}
+                 transition={{ duration: 0.5, delay: idx * 0.1 }}
+                 whileHover={{ y: -8, rotate: idx % 2 === 0 ? 1 : -1, boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.15)' }}
+                 className="bg-white border border-slate-100 rounded-3xl p-8 shadow-sm transition-colors relative flex flex-col h-full cursor-pointer"
+              >
+                <div className={`w-12 h-12 ${pillar.bg} ${pillar.color} rounded-2xl flex items-center justify-center mb-8 shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3`}>
+                  <pillar.icon size={20} strokeWidth={2.5} />
+                </div>
+                
+                <h3 className="text-xl font-black text-slate-900 mb-3 leading-tight transition-colors group-hover:text-brand-purple">{pillar.title}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed mb-8 flex-1">{pillar.desc}</p>
+                
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {pillar.tags.map((tag, i) => (
+                    <span key={i} className={`px-3 py-1 ${tag.color} text-[0.65rem] font-bold uppercase tracking-widest rounded-full`}>
+                      {tag.name}
+                    </span>
+                  ))}
+                </div>
+                
+                <div className="mt-auto">
+                   <ArrowUpRight size={20} className={`${pillar.color} group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform`} />
+                </div>
+              </motion.div>
+            </Link>
           ))}
         </div>
 

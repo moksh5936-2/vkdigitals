@@ -9,62 +9,7 @@ import { BarChart3, TrendingUp, Clapperboard, MonitorSmartphone, Scale, Sparkles
 
 const categories = ['All Articles', 'Digital', 'Creative', 'Financial'];
 
-const posts = [
-  {
-    title: '5 SEO Strategies That Actually Work for Indian Businesses in 2026',
-    category: 'DIGITAL',
-    date: 'March 15, 2026',
-    readTime: '6 min read',
-    icon: BarChart3,
-    iconColor: 'text-blue-500',
-    headerBg: 'bg-blue-50'
-  },
-  {
-    title: 'How to Structure Your Business Capital for Sustainable Growth',
-    category: 'FINANCIAL',
-    date: 'March 8, 2026',
-    readTime: '8 min read',
-    icon: TrendingUp,
-    iconColor: 'text-emerald-500',
-    headerBg: 'bg-emerald-50'
-  },
-  {
-    title: 'Why Brand Films Generate 3x More Leads Than Static Ads',
-    category: 'CREATIVE',
-    date: 'Feb 28, 2026',
-    readTime: '5 min read',
-    icon: Clapperboard,
-    iconColor: 'text-amber-500',
-    headerBg: 'bg-amber-50'
-  },
-  {
-    title: 'Social Media in 2026: What Brands Must Know About Algorithm Changes',
-    category: 'DIGITAL',
-    date: 'Feb 20, 2026',
-    readTime: '7 min read',
-    icon: MonitorSmartphone,
-    iconColor: 'text-blue-500',
-    headerBg: 'bg-blue-50'
-  },
-  {
-    title: 'LLP vs Pvt Ltd: Which Structure Is Right for Your Startup?',
-    category: 'FINANCIAL',
-    date: 'Feb 12, 2026',
-    readTime: '9 min read',
-    icon: Scale,
-    iconColor: 'text-emerald-500',
-    headerBg: 'bg-emerald-50'
-  },
-  {
-    title: 'Motion Graphics in Marketing: The Complete Guide for 2026',
-    category: 'CREATIVE',
-    date: 'Feb 5, 2026',
-    readTime: '6 min read',
-    icon: Sparkles,
-    iconColor: 'text-amber-500',
-    headerBg: 'bg-amber-50'
-  }
-];
+const posts: any[] = [];
 
 export default function BlogPage() {
   const [activeTab, setActiveTab] = useState('All Articles');
@@ -138,50 +83,60 @@ export default function BlogPage() {
         </div>
 
         {/* Blog Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
-           {filteredPosts.map((post, idx) => (
-              <motion.div 
-                 key={post.title} 
-                 initial={{ opacity: 0, y: 40 }}
-                 whileInView={{ opacity: 1, y: 0 }}
-                 viewport={{ once: true }}
-                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                 whileHover={{ y: -8, boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.1)' }}
-                 className="bg-white border border-slate-100 rounded-3xl shadow-sm overflow-hidden flex flex-col group cursor-pointer"
-              >
-                 {/* Top Image Section */}
-                 <div className={`h-48 ${post.headerBg} w-full flex items-center justify-center transition-colors group-hover:bg-opacity-80`}>
-                    <motion.div
-                       transition={{ duration: 0.3 }}
-                       whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0] }}
-                    >
-                       <post.icon size={48} className={post.iconColor} />
-                    </motion.div>
-                 </div>
-                 
-                 <div className="p-8 flex-1 flex flex-col">
-                    <span className={cn(
-                       "px-3 py-1 text-[0.6rem] font-black uppercase tracking-widest rounded-md self-start mb-4",
-                       post.category === 'DIGITAL' ? 'bg-blue-50 text-blue-600' :
-                       post.category === 'FINANCIAL' ? 'bg-emerald-50 text-emerald-600' :
-                       'bg-amber-50 text-amber-600'
-                    )}>
-                       {post.category}
-                    </span>
-                    
-                    <h2 className="text-xl font-display font-black text-slate-900 mb-6 leading-tight group-hover:text-brand-purple transition-colors">
-                       {post.title}
-                    </h2>
-                    
-                    <div className="flex items-center gap-3 text-xs font-medium text-slate-400 mt-auto">
-                       <span>{post.date}</span>
-                       <span>•</span>
-                       <span>{post.readTime}</span>
-                    </div>
-                 </div>
-              </motion.div>
-           ))}
-        </div>
+        {filteredPosts.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
+             {filteredPosts.map((post, idx) => (
+                <motion.div 
+                   key={post.title} 
+                   initial={{ opacity: 0, y: 40 }}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   viewport={{ once: true }}
+                   transition={{ duration: 0.5, delay: idx * 0.1 }}
+                   whileHover={{ y: -8, boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.1)' }}
+                   className="bg-white border border-slate-100 rounded-3xl shadow-sm overflow-hidden flex flex-col group cursor-pointer"
+                >
+                   {/* Top Image Section */}
+                   <div className={`h-48 ${post.headerBg} w-full flex items-center justify-center transition-colors group-hover:bg-opacity-80`}>
+                      <motion.div
+                         transition={{ duration: 0.3 }}
+                         whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0] }}
+                      >
+                         <post.icon size={48} className={post.iconColor} />
+                      </motion.div>
+                   </div>
+                   
+                   <div className="p-8 flex-1 flex flex-col">
+                      <span className={cn(
+                         "px-3 py-1 text-[0.6rem] font-black uppercase tracking-widest rounded-md self-start mb-4",
+                         post.category === 'DIGITAL' ? 'bg-blue-50 text-blue-600' :
+                         post.category === 'FINANCIAL' ? 'bg-emerald-50 text-emerald-600' :
+                         'bg-amber-50 text-amber-600'
+                      )}>
+                         {post.category}
+                      </span>
+                      
+                      <h2 className="text-xl font-display font-black text-slate-900 mb-6 leading-tight group-hover:text-brand-purple transition-colors">
+                         {post.title}
+                      </h2>
+                      
+                      <div className="flex items-center gap-3 text-xs font-medium text-slate-400 mt-auto">
+                         <span>{post.date}</span>
+                         <span>•</span>
+                         <span>{post.readTime}</span>
+                      </div>
+                   </div>
+                </motion.div>
+             ))}
+          </div>
+        ) : (
+          <div className="flex flex-col items-center justify-center py-24 mb-32 text-center rounded-3xl border border-slate-100 bg-slate-50/50">
+            <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-slate-100">
+              <Sparkles className="text-brand-purple/40" size={32} />
+            </div>
+            <h3 className="text-2xl font-display font-black text-slate-800 mb-2">Articles Coming Soon</h3>
+            <p className="text-slate-500 font-medium max-w-sm">We're currently writing fresh, structured insights. Check back shortly.</p>
+          </div>
+        )}
 
       </section>
 

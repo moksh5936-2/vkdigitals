@@ -10,7 +10,7 @@ export default function ServicesPage() {
     {
       id: 'digital-branding',
       title: 'Digital Marketing & Branding',
-      description: 'Pillar 01 — Strategy-first marketing that builds real audiences and durable brand equity.',
+      description: 'Strategy-first marketing that builds real audiences and durable brand equity.',
       bg: 'bg-slate-50',
       color: 'text-brand-indigo',
       items: [
@@ -33,6 +33,32 @@ export default function ServicesPage() {
         { icon: ShieldCheck, title: 'Infrastructure', desc: 'Ensure your digital assets are secure, fast, and reliable with our comprehensive hosting and security services.' },
       ],
     },
+    {
+      id: 'creative-media',
+      title: 'Creative & Media',
+      description: 'Visual storytelling and high-impact media production that turns brand messages into memory.',
+      bg: 'bg-amber-50/50',
+      color: 'text-amber-500',
+      items: [
+        { icon: PenTool, title: 'Video Production', desc: 'From corporate brand films to hyper-engaging short-form content for social platforms.' },
+        { icon: PenTool, title: 'Graphic Design', desc: 'Systematized visual design languages, marketing collateral, and digital assets.' },
+        { icon: Zap, title: 'Motion Graphics', desc: 'Dynamic animations and 2D/3D sequences that explain complex ideas instantly.' },
+        { icon: BarChart3, title: 'Ad Creatives', desc: 'Data-backed visual structures designed explicitly to maximize conversion rates and ROAS.' },
+      ],
+    },
+    {
+      id: 'financial-advisory',
+      title: 'Financial Advisory',
+      description: 'Professional financial guidance to help businesses plan, manage capital, and scale with clarity.',
+      bg: 'bg-purple-50/50',
+      color: 'text-purple-600',
+      items: [
+        { icon: TrendingUp, title: 'Capital Structuring', desc: 'Optimize your business financial structures for long-term sustainable growth.' },
+        { icon: ShieldCheck, title: 'Compliance & Tax', desc: 'Navigate complex regulatory environments and structure tax-efficient models.' },
+        { icon: BarChart3, title: 'Investment Strategy', desc: 'Data-driven financial models and forecasting to secure and deploy operational capital.' },
+        { icon: Search, title: 'Audit Readiness', desc: 'Comprehensive financial health checks and system restructuring for investment.' },
+      ],
+    }
   ];
 
   return (
@@ -91,7 +117,7 @@ export default function ServicesPage() {
       {/* Services Content Mapping */}
       <section className="py-24 max-w-[1400px] mx-auto px-6 lg:px-12 bg-white">
         {servicesData.map((service, sectionIdx) => (
-         <div key={service.id} className="mb-24">
+         <div key={service.id} id={service.id} className="mb-24 scroll-mt-48">
             <motion.h2 
                initial={{ opacity: 0, y: 20 }}
                whileInView={{ opacity: 1, y: 0 }}
