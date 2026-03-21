@@ -75,128 +75,187 @@
   <div class="hero__bg"></div>
   <div class="hero__grid"></div>
 
-  <div class="container">
+  <div class="container" style="display:flex; align-items:center;">
     <div class="hero__content">
       <div class="hero__badge reveal">
-        Structured · Scalable · Reliable
+        India's Structured Growth Partner
       </div>
 
       <h1 class="hero__title reveal delay-1">
-        Your Growth Partner in<br />
-        <span class="accent">Digital & Financial</span><br />
-        Excellence
+        Where Digital Meets<br />
+        <span class="accent">Financial Excellence</span>
       </h1>
 
-      <blockquote class="hero__philosophy reveal delay-2">
-        "Every brand deserves structure, not shortcuts."
-      </blockquote>
-
-      <p class="hero__lead reveal delay-3">
-        VK Digitals and Financial Services LLP is a multi-disciplinary growth firm combining the power of digital marketing, creative media, and financial advisory under one structured roof.
+      <p class="hero__lead reveal delay-2">
+        We don't just build brands — we build frameworks. VK Digitals combines digital marketing, creative media, and financial advisory to grow your brand with precision and purpose.
       </p>
 
-      <div class="hero__actions reveal delay-4">
+      <div class="hero_actions reveal delay-3">
         <a href="services.html" class="btn btn-primary pulse-anim">Explore Services</a>
-        <a href="contact.html" class="btn btn-outline">Start a Conversation</a>
-      </div>
-
-      <div class="hero__pillars reveal delay-4">
-        <div class="hero__pillar"><span>📊</span> Digital Marketing & Branding</div>
-        <div class="hero__pillar"><span>🎬</span> Creative & Media Production</div>
-        <div class="hero__pillar"><span>💹</span> Financial Services & Advisory</div>
+        <a href="contact.html" class="btn btn-outline" style="color:#fff; border-color:rgba(255,255,255,0.3);">Start a Conversation</a>
       </div>
     </div>
-  </div>
 
-  <div class="hero__scroll" aria-hidden="true">Scroll</div>
-</section>
-
-<!-- ═══ STATS ═══ -->
-<section class="stats" aria-label="Company statistics">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat reveal">
-        <div class="stat__number">150+</div>
-        <div class="stat__label">Brands Served</div>
+    <!-- Performance Snapshot Card -->
+    <div class="hero__stats-card glass-card reveal delay-4">
+      <div style="font-size:0.65rem; color:#94A3B8; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:1.5rem;">Performance Snapshot</div>
+      <div class="stats-grid-hero">
+        <div class="stat-item-hero">
+          <span class="val">150+</span>
+          <span class="lbl">Brands Served</span>
+        </div>
+        <div class="stat-item-hero">
+          <span class="val">3</span>
+          <span class="lbl">Core Pillars</span>
+        </div>
+        <div class="stat-item-hero">
+          <span class="val">4+</span>
+          <span class="lbl">Partners</span>
+        </div>
+        <div class="stat-item-hero">
+          <span class="val">100%</span>
+          <span class="lbl">Structured</span>
+        </div>
       </div>
-      <div class="stat reveal delay-1">
-        <div class="stat__number">3</div>
-        <div class="stat__label">Core Service Pillars</div>
-      </div>
-      <div class="stat reveal delay-2">
-        <div class="stat__number">4+</div>
-        <div class="stat__label">Strategic Partners</div>
-      </div>
-      <div class="stat reveal delay-3">
-        <div class="stat__number">100%</div>
-        <div class="stat__label">Structured Approach</div>
+      <div style="margin-top:1.5rem; display:flex; gap:0.5rem;">
+        <span class="pillar-tag blue">Digital</span>
+        <span class="pillar-tag green">Creative</span>
+        <span class="pillar-tag orange">Financial</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ SERVICES OVERVIEW ═══ -->
-<section class="section-pad" aria-labelledby="services-heading">
+<!-- ═══ BRAND BAR (TICKER) ═══ -->
+<div style="background:var(--green); color:#fff; padding:1.25rem 0; overflow:hidden; white-space:nowrap; font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;">
+  <div style="display:inline-block; animation: ticker 20s linear infinite;">
+    Digital Marketing & Branding &nbsp; • &nbsp; Creative & Media Production &nbsp; • &nbsp; Financial Advisory &nbsp; • &nbsp; IT Services & Platform &nbsp; • &nbsp; LLP & Compliance Consulting &nbsp; • &nbsp; Investment Advisory &nbsp; • &nbsp; Digital Marketing & Branding &nbsp; • &nbsp;
+  </div>
+  <div style="display:inline-block; animation: ticker 20s linear infinite;">
+    Digital Marketing & Branding &nbsp; • &nbsp; Creative & Media Production &nbsp; • &nbsp; Financial Advisory &nbsp; • &nbsp; IT Services & Platform &nbsp; • &nbsp; LLP & Compliance Consulting &nbsp; • &nbsp; Investment Advisory &nbsp; • &nbsp; Digital Marketing & Branding &nbsp; • &nbsp;
+  </div>
+</div>
+
+<style>
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+</style>
+
+<!-- ═══ THREE PILLARS ═══ -->
+<section class="section-pad" id="pillars" aria-labelledby="pillars-heading">
   <div class="container">
-    <div class="tag">What We Do</div>
-    <h2 class="section-title" id="services-heading">Three Pillars of <span class="purple">Structured Growth</span></h2>
-    <p class="section-subtitle">We combine digital expertise with financial intelligence to help brands grow purposefully — not accidentally.</p>
+    <div class="tag reveal">What We Do</div>
+    <h2 class="section-title reveal delay-1" id="pillars-heading">Three Pillars of <br /> <span class="purple">Structured Growth</span></h2>
+    <p class="section-subtitle reveal delay-2">Integrated expertise across digital, creative, and financial domains — designed to work in sync, not in silos.</p>
 
-    <div class="services-grid">
+    <div class="pillars-grid">
+      <!-- Pillar 1 -->
+      <div class="pillar-card reveal">
+        <div class="pillar-icon blue">📊</div>
+        <h3>Digital Marketing & Branding</h3>
+        <p>Data-driven campaigns and brand systems that build authority and convert modern audiences.</p>
+        <div class="pillar-tags">
+          <span class="pillar-tag blue">SEO</span>
+          <span class="pillar-tag blue">Performance</span>
+          <span class="pillar-tag blue">Brand</span>
+        </div>
+        <div style="margin-top:1.5rem; color:var(--purple); font-size:1.2rem;">↗</div>
+      </div>
 
-      <article class="service-card reveal">
-        <div class="service-card__icon">📊</div>
-        <h3 class="service-card__title">Digital Marketing & Branding</h3>
-        <p class="service-card__desc">Data-driven campaigns and brand strategies that build recognition, trust, and sustainable growth in competitive markets.</p>
-        <ul class="service-card__list">
-          <li>SEO & Performance Marketing</li>
-          <li>Brand Identity & Strategy</li>
-          <li>Social Media Management</li>
-          <li>Content Marketing</li>
-        </ul>
-      </article>
+      <!-- Pillar 2 -->
+      <div class="pillar-card reveal delay-1">
+        <div class="pillar-icon green">💻</div>
+        <h3>IT Services</h3>
+        <p>High-performance web platforms and custom digital products built for scalability and speed.</p>
+        <div class="pillar-tags">
+          <span class="pillar-tag green">Web Apps</span>
+          <span class="pillar-tag green">UI/UX</span>
+          <span class="pillar-tag green">Hosting</span>
+        </div>
+        <div style="margin-top:1.5rem; color:var(--green); font-size:1.2rem;">↗</div>
+      </div>
 
-      <article class="service-card reveal">
-        <div class="service-card__icon">💻</div>
-        <h3 class="service-card__title">IT Services</h3>
-        <p class="service-card__desc">Modern technology solutions to build and maintain a professional, high-performance digital presence for your brand.</p>
-        <ul class="service-card__list">
-          <li>Website Development Services</li>
-          <li>Web Designing & UI/UX</li>
-          <li>Custom Web Applications</li>
-          <li>Domain & Hosting Management</li>
-        </ul>
-      </article>
+      <!-- Pillar 3 -->
+      <div class="pillar-card reveal delay-2">
+        <div class="pillar-icon yellow">🎬</div>
+        <h3>Creative & Media</h3>
+        <p>Visual storytelling and high-impact media production that turns brand messages into memory.</p>
+        <div class="pillar-tags">
+          <span class="pillar-tag yellow">Video</span>
+          <span class="pillar-tag yellow">Motion</span>
+          <span class="pillar-tag yellow">Design</span>
+        </div>
+        <div style="margin-top:1.5rem; color:#EAB308; font-size:1.2rem;">↗</div>
+      </div>
 
-      <article class="service-card reveal">
-        <div class="service-card__icon">🎬</div>
-        <h3 class="service-card__title">Creative & Media Production</h3>
-        <p class="service-card__desc">Compelling visual stories and high-impact media assets that communicate your brand message with clarity and style.</p>
-        <ul class="service-card__list">
-          <li>Video Production & Editing</li>
-          <li>Graphic & UI Design</li>
-          <li>Photography & Reels</li>
-          <li>Motion Graphics</li>
-        </ul>
-      </article>
-
-      <article class="service-card reveal">
-        <div class="service-card__icon">💹</div>
-        <h3 class="service-card__title">Financial Services & Advisory</h3>
-        <p class="service-card__desc">Structured financial guidance to help businesses make informed decisions, manage capital, and plan for scalable growth.</p>
-        <ul class="service-card__list">
-          <li>Business Financial Planning</li>
-          <li>Pitch Desk & Startup Funding</li>
-          <li>Investment Advisory</li>
-          <li>LLP & Compliance Consulting</li>
-          <li>Cash Flow Structuring</li>
-        </ul>
-      </article>
-
+      <!-- Pillar 4 (Optional/Combined in screenshot) -->
+      <div class="pillar-card reveal delay-3">
+        <div class="pillar-icon orange">💹</div>
+        <h3>Financial Advisory</h3>
+        <p>Professional financial guidance to help businesses plan, manage capital, and scale with clarity.</p>
+        <div class="pillar-tags">
+          <span class="pillar-tag orange">Funding</span>
+          <span class="pillar-tag orange">Compliance</span>
+          <span class="pillar-tag orange">Planning</span>
+        </div>
+        <div style="margin-top:1.5rem; color:#F97316; font-size:1.2rem;">↗</div>
+      </div>
     </div>
 
-    <div style="text-align:center; margin-top:3rem;">
-      <a href="services.html" class="btn btn-outline">View All Services →</a>
+    <!-- Mini Stats after Pillars -->
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:2rem; margin-top:6rem; border-top:1px solid #F1F5F9; padding-top:4rem; text-align:center;">
+      <div>
+        <div style="font-size:2rem; font-weight:800; color:var(--purple); font-family:var(--font-display);">150+</div>
+        <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-top:0.5rem;">Brands Served</div>
+      </div>
+      <div>
+        <div style="font-size:2rem; font-weight:800; color:var(--purple); font-family:var(--font-display);">3</div>
+        <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-top:0.5rem;">Core Pillars</div>
+      </div>
+      <div>
+        <div style="font-size:2rem; font-weight:800; color:var(--purple); font-family:var(--font-display);">4+</div>
+        <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-top:0.5rem;">Strategic Partners</div>
+      </div>
+      <div>
+        <div style="font-size:2rem; font-weight:800; color:var(--purple); font-family:var(--font-display);">24hr</div>
+        <div style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-top:0.5rem;">Response Pledge</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROCESS FLOW ═══ -->
+<section class="section-pad" style="background:#F8FAFC;" aria-labelledby="process-heading">
+  <div class="container">
+    <div style="text-align:center; max-width:700px; margin:0 auto 4rem;">
+      <div class="tag reveal">Our Process</div>
+      <h2 class="section-title reveal delay-1" id="process-heading">A Process Built for Outcomes</h2>
+      <p class="section-subtitle reveal delay-2" style="margin-inline:auto;">Four deliberate steps — no guesswork, no shortcuts, just structured execution.</p>
+    </div>
+
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <div class="process-num">01</div>
+        <h4>Discovery</h4>
+        <p>Deep dive into your business, goals, audience, and competitive landscape.</p>
+      </div>
+      <div class="process-step reveal delay-1">
+        <div class="process-num" style="background:var(--green);">02</div>
+        <h4>Strategy</h4>
+        <p>A structured roadmap with touchpoints, timelines, KPIs, and resource allocation.</p>
+      </div>
+      <div class="process-step reveal delay-2">
+        <div class="process-num" style="background:#7C4DFF;">03</div>
+        <h4>Execution</h4>
+        <p>Precision delivery across digital, creative, or financial workstreams.</p>
+      </div>
+      <div class="process-step reveal delay-3">
+        <div class="process-num" style="background:var(--purple);">04</div>
+        <h4>Review & Scale</h4>
+        <p>Performance review, learnings applied, optimized for the next phase.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -269,131 +328,109 @@
   </div>
 </section>
 
-<!-- ═══ PARTNERS PREVIEW ═══ -->
-<section class="section-pad" style="background: var(--white);" aria-labelledby="partner-preview-heading">
+<!-- ═══ PARTNERS ECOLOGY ═══ -->
+<section class="section-pad" aria-labelledby="partners-heading">
   <div class="container" style="text-align:center;">
     <div class="tag reveal">Ecosystem</div>
-    <h2 class="section-title reveal" id="partner-preview-heading">Our <span class="purple">Trusted Partners</span></h2>
+    <h2 class="section-title reveal" id="partners-heading">Our <span class="purple">Trusted Partners</span></h2>
     <p class="section-subtitle reveal" style="margin-inline:auto;">Collaborating with verified strategic partners to deliver structured, scalable solutions.</p>
 
-    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:2.5rem; margin-top:2rem; align-items:center;">
-      <div class="reveal" style="background:#fff; border-radius:16px; padding:1.5rem; width:180px; height:100px; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 32px rgba(93,56,145,0.08); border:1px solid rgba(93,56,145,0.05);">
-        <img src="assets/partners/ekara.svg" alt="Ekara Financials" style="max-width:100%; max-height:100%; object-fit:contain;" />
-      </div>
-      <div class="reveal" style="background:#fff; border-radius:16px; padding:1.5rem; width:180px; height:100px; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 32px rgba(93,56,145,0.08); border:1px solid rgba(93,56,145,0.05);">
-        <img src="assets/partners/priyaqubit.svg" alt="PriyaQubit" style="max-width:100%; max-height:100%; object-fit:contain;" />
-      </div>
-      <div class="reveal" style="background:#fff; border-radius:16px; padding:1.5rem; width:180px; height:100px; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 32px rgba(93,56,145,0.08); border:1px solid rgba(93,56,145,0.05);">
-        <img src="assets/partners/mavriq.svg" alt="Mavriq AI" style="max-width:100%; max-height:100%; object-fit:contain;" />
-      </div>
-      <div class="reveal" style="background:#fff; border-radius:16px; padding:1.5rem; width:180px; height:100px; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 32px rgba(93,56,145,0.08); border:1px solid rgba(93,56,145,0.05);">
-        <img src="assets/partners/wpshub.svg" alt="WPS Hub" style="max-width:100%; max-height:100%; object-fit:contain;" />
-      </div>
-    </div>
-
-    <div style="margin-top:2.5rem;" class="reveal">
-      <a href="partners.html" class="btn btn-outline">View All Partners →</a>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:3rem; margin-top:4rem; align-items:center; opacity:0.8;">
+      <div class="reveal"><img src="assets/partners/ekara.svg" alt="Ekara" style="height:40px; filter: grayscale(1);" /></div>
+      <div class="reveal delay-1"><img src="assets/partners/priyaqubit.svg" alt="PriyaQubit" style="height:40px; filter: grayscale(1);" /></div>
+      <div class="reveal delay-2"><img src="assets/partners/mavriq.svg" alt="Mavriq" style="height:40px; filter: grayscale(1);" /></div>
+      <div class="reveal delay-3"><img src="assets/partners/wpshub.svg" alt="WPS Hub" style="height:40px; filter: grayscale(1);" /></div>
     </div>
   </div>
 </section>
 
 <!-- ═══ LATEST INSIGHTS ═══ -->
-<section class="section-pad" aria-labelledby="blog-preview-heading" style="background:var(--bg-subtle);">
+<section class="section-pad" aria-labelledby="blog-heading" style="background:#F8FAFC;">
   <div class="container">
     <div class="tag reveal">From Our Blog</div>
-    <h2 class="section-title reveal" id="blog-preview-heading">Latest <span class="purple">Insights</span></h2>
-    <p class="section-subtitle reveal">Perspectives on digital strategy, creative production, and financial advisory.</p>
-    <div class="blog-grid" id="home-blog-grid">
-      <div style="color:var(--white-dim);font-size:.9rem;">Loading articles…</div>
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:4rem; flex-wrap:wrap; gap:2rem;">
+      <h2 class="section-title reveal" style="margin:0;" id="blog-heading">Latest <span class="purple">Insights</span></h2>
+      <a href="blog.html" class="btn btn-outline reveal">View All Articles →</a>
     </div>
-    <div style="text-align:center;margin-top:2.5rem;" class="reveal">
-      <a href="blog.html" class="btn btn-outline">View All Articles →</a>
+    
+    <div class="blog-grid" id="home-blog-grid">
+      <div style="font-size:0.9rem; color:var(--text-dim);">Fetching latest strategy guides…</div>
     </div>
   </div>
 </section>
 
-<!-- ═══ CTA STRIP ═══ -->
-<section class="cta-strip" aria-labelledby="cta-heading">
-  <div class="container">
-    <div class="tag reveal">Ready to Begin?</div>
-    <h2 class="cta-strip__title reveal" id="cta-heading">Let's Build Something <span class="purple">Structured & Lasting</span></h2>
-    <p class="cta-strip__sub reveal">Talk to our team about your digital, creative, or financial goals.</p>
-    <div class="cta-strip__actions reveal">
-      <a href="contact.html" class="btn btn-primary">Contact Us Today</a>
-      <a href="services.html" class="btn btn-outline">See Our Services</a>
+<!-- ═══ GREEN CTA BANNER ═══ -->
+<div class="container section-pad">
+  <section class="cta-green reveal">
+    <div class="container">
+      <h2>Let's Build Something <br /> Structured & Lasting</h2>
+      <p>Talk to our team about your digital, creative, or financial goals today.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-white">Contact Us Today</a>
+        <a href="services.html" class="btn btn-outline-white">Explore Services</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 
 <!-- ═══ FOOTER ═══ -->
 <footer class="footer" aria-label="Site footer">
   <div class="container">
     <div class="footer__inner">
-
-      <!-- Brand -->
       <div class="footer__brand">
         <div class="footer__logo">
-          <img src="assets/logo.svg" alt="VK Digitals Logo" />
+          <img src="assets/logo.svg" alt="" />
           <div>
             <div class="footer__logo-name">VK Digitals</div>
-            <div class="footer__logo-sub">& Financial Services LLP</div>
+            <div class="footer__logo-sub">And Financial Services LLP</div>
           </div>
         </div>
-        <p class="footer__tagline">
-          Every brand deserves structure, not shortcuts. Your integrated partner for digital growth and financial clarity.
-        </p>
+        <p class="footer__tagline">Every brand deserves structure, not shortcuts. Your integrated partner for digital growth and financial clarity.</p>
       </div>
 
-      <!-- Company -->
       <div>
         <div class="footer__col-title">Company</div>
         <ul class="footer__links">
-          <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="partners.html">Our Trusted Partners</a></li>
+          <li><a href="services.html">Our Services</a></li>
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="blog.html">Resources</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
 
-      <!-- Services -->
       <div>
         <div class="footer__col-title">Services</div>
         <ul class="footer__links">
           <li><a href="services.html#digital">Digital Marketing</a></li>
           <li><a href="services.html#creative">Creative Production</a></li>
           <li><a href="services.html#financial">Financial Advisory</a></li>
+          <li><a href="services.html#it">IT Services</a></li>
         </ul>
       </div>
 
-      <!-- Contact -->
       <div>
         <div class="footer__col-title">Contact</div>
         <div class="footer__contact-item">
           <span class="footer__contact-icon">📧</span>
-          <div><a href="mailto:Sales@VKdigitals.in">Sales@VKdigitals.in</a></div>
+          <a href="mailto:Sales@VKdigitals.in">Sales@VKdigitals.in</a>
         </div>
         <div class="footer__contact-item">
           <span class="footer__contact-icon">📞</span>
-          <div><a href="tel:+918571041192">+91 85710 41192</a></div>
-        </div>
-        <div class="footer__contact-item">
-          <span class="footer__contact-icon">🕒</span>
-          <div>Saturday: 11:00 AM – 3:00 PM</div>
+          <a href="tel:+918571041192">+91 85710 41192</a>
         </div>
         <div class="footer__contact-item">
           <span class="footer__contact-icon">📍</span>
-          <div><a href="https://www.google.com/maps/search/1st+Floor,+Above+HealthKart,+Near+Nehru+Park,+Yamunanagar,+Haryana+135001" target="_blank" rel="noopener noreferrer">1st Floor, Above HealthKart,<br />Near Nehru Park, Yamunanagar – 135001,<br />Haryana, India</a></div>
+          <span>1st Floor, Above HealthKart, Near Nehru Park, Yamunanagar, Haryana 135001</span>
         </div>
       </div>
-
     </div>
 
     <div class="footer__bottom">
-      <span>© 2026 VK Digitals and Financial Services LLP. All rights reserved.</span>
-      <div style="display:flex; gap:1.5rem;">
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms &amp; Conditions</a>
+      <div>© 2026 VK Digitals and Financial Services LLP</div>
+      <div style="display:flex; gap:2rem;">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
       </div>
     </div>
   </div>

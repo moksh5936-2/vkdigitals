@@ -12,8 +12,12 @@ exports.handler = async (event) => {
           const results = await sql`SELECT * FROM blogs WHERE id = ${blogId} LIMIT 1`;
           return { statusCode: 200, body: JSON.stringify(results[0] || null) };
         }
-        // Get all published blogs
-        const blogs = await sql`SELECT * FROM blogs WHERE status = 'published' ORDER BY "createdAt" DESC`;
+        let blogs;
+        if (isAdmin) {
+          blogs = await sql`SELECT * FROM blogs ORDER BY "createdAt" DESC`;
+        } else {
+          blogs = await sql`SELECT * FROM blogs WHERE status = 'published' ORDER BY "createdAt" DESC`;
+        }
         return { statusCode: 200, body: JSON.stringify(blogs) };
 
       case 'POST':

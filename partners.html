@@ -4,81 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Security Headers -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none';" />
-  <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <meta name="theme-color" content="#5D3891" />
-  <title>Our Trusted Partners | VK Digitals and Financial Services LLP</title>
+  <meta name="theme-color" content="#2D1E5F" />
+  <title>Our Partners | VK Digitals and Financial Services LLP</title>
   <meta name="description" content="Meet the trusted strategic partners of VK Digitals and Financial Services LLP — Ekara Financials, PriyaQubit Pvt. Ltd., Mavriq AI, and WPS Hub." />
-  <meta name="keywords" content="VK Digitals partners, Ekara Financials, PriyaQubit, Mavriq AI, WPS Hub, trusted partners" />
-  <meta property="og:title" content="Our Trusted Partners | VK Digitals and Financial Services LLP" />
-  <meta property="og:image" content="https://vkdigitals.com/assets/og-image.png" />
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
   <link rel="stylesheet" href="styles.css" />
-
-  <style>
-    /* Partners-specific partner card with logos */
-    .partner-card-full {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 3rem 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1.5rem;
-      transition: all 0.5s var(--ease-out);
-      border: 1px solid rgba(0,0,0,0.04);
-      box-shadow: var(--shadow);
-      min-height: 220px;
-      position: relative;
-      overflow: hidden;
-    }
-    .partner-card-full::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--purple), var(--purple-light));
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
-    }
-    .partner-card-full:hover {
-      transform: translateY(-8px);
-      border-color: var(--purple);
-      box-shadow: 0 16px 48px rgba(93,56,145,0.15);
-    }
-    .partner-card-full:hover::after { transform: scaleX(1); }
-
-    .partner-logo-img {
-      max-width: 200px;
-      max-height: 90px;
-      object-fit: contain;
-      width: 100%;
-    }
-
-    .partner-name-tag {
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-main);
-      text-align: center;
-    }
-
-    .partner-category {
-      font-size: 0.72rem;
-      color: var(--purple);
-      font-weight: 600;
-      text-align: center;
-      padding: 0.3rem 0.9rem;
-      background: rgba(93,56,145,0.06);
-      border-radius: 999px;
-    }
-  </style>
 </head>
 <body>
 
+<!-- ═══ NAVIGATION ═══ -->
 <nav class="nav" id="main-nav">
   <div class="nav__inner">
     <a href="index.html" class="nav__logo">
@@ -112,156 +46,141 @@
   </nav>
 </nav>
 
-<!-- PAGE HERO -->
+<!-- ═══ PAGE HERO ═══ -->
 <section class="page-hero">
+  <div class="page-hero__bg"></div>
   <div class="container">
-    <div class="page-hero__content">
-      <div class="tag reveal">Our Ecosystem</div>
-      <h1 class="page-hero__title reveal delay-1">Our <span class="purple">Trusted Partners</span></h1>
-      <p class="page-hero__sub reveal delay-2">Collaborating with trusted partners to deliver structured, scalable solutions.</p>
+    <div class="breadcrumb reveal">
+      <a href="index.html">Home</a> <span>/</span> <span>Partners</span>
     </div>
+    <h1 class="reveal delay-1">Our <br /> <span style="color:var(--green);">Trusted Partners</span></h1>
+    <p class="reveal delay-2">We collaborate with a verified ecosystem of strategic partners to deliver integrated, multi-disciplinary solutions for your business.</p>
   </div>
 </section>
 
-<!-- WHY PARTNERS -->
-<section class="section-pad" style="background:var(--bg-subtle);">
-  <div class="container" style="text-align:center; max-width:760px;">
-    <div class="tag reveal">Partnership Philosophy</div>
-    <h2 class="section-title reveal">Strength Through <span class="purple">Verified Collaboration</span></h2>
-    <div class="brand-divider" style="margin:1rem auto 1.5rem;" ></div>
-    <p class="reveal" style="color:var(--white-muted); font-size:0.97rem; line-height:1.8; margin-bottom:0;">
-      At VK Digitals and Financial Services LLP, we believe that the best outcomes for our clients are produced through a carefully curated ecosystem of partners. Every partner in our network has been verified for capability, integrity, and strategic alignment with our mission of delivering structured growth.
-    </p>
-  </div>
-</section>
-
-<!-- PARTNERS GRID -->
+<!-- ─── PARTNERS GRID ─── -->
 <section class="section-pad">
   <div class="container">
-    <div class="tag reveal">Verified Partners</div>
-    <h2 class="section-title reveal">Meet Our <span class="purple">Partners</span></h2>
-    <p class="section-subtitle reveal">Four trusted organisations that complement and extend our capabilities across finance, technology, and business services.</p>
-
-    <div class="partners-grid">
-
-      <!-- Ekara Financials -->
-      <div class="partner-card-full reveal" role="article" aria-label="Ekara Financials">
-        <img
-          src="assets/partners/ekara.svg"
-          alt="Ekara Financials logo"
-          class="partner-logo-img"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-        />
-        <div style="display:none; width:80px; height:80px; background:linear-gradient(135deg,#1a2e5e,#2a4a9e); border-radius:16px; align-items:center; justify-content:center; font-size:2rem; color:#fff;">💰</div>
-        <div class="partner-name-tag">Ekara Financials</div>
-        <div class="partner-category">Financial Services</div>
+    <div class="tag reveal">Ecosystem</div>
+    <h2 class="section-title reveal">Strength Through <span class="purple">Collaboration</span></h2>
+    
+    <div class="partners-grid" style="margin-top:4rem;">
+      <!-- Ekara -->
+      <div class="partner-card reveal">
+        <div class="partner-card__brand">
+          <img src="assets/partners/ekara.svg" alt="Ekara" style="height:40px;" />
+        </div>
+        <h3>Ekara Financials</h3>
+        <p>Specialized financial advisory and wealth management workflows integrated with VK logic.</p>
+        <div class="pillar-tags"><span class="pillar-tag blue">Fintech</span><span class="pillar-tag blue">Verified</span></div>
       </div>
 
       <!-- PriyaQubit -->
-      <div class="partner-card-full reveal" role="article" aria-label="PriyaQubit Pvt. Ltd.">
-        <img
-          src="assets/partners/priyaqubit.svg"
-          alt="PriyaQubit Pvt. Ltd. logo"
-          class="partner-logo-img"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-        />
-        <div style="display:none; width:80px; height:80px; background:linear-gradient(135deg,#0d3b6e,#1a6ea8); border-radius:16px; align-items:center; justify-content:center; font-size:2rem; color:#fff;">⚛️</div>
-        <div class="partner-name-tag">PriyaQubit Pvt. Ltd.</div>
-        <div class="partner-category">Technology & Innovation</div>
+      <div class="partner-card reveal delay-1">
+        <div class="partner-card__brand">
+          <img src="assets/partners/priyaqubit.svg" alt="PriyaQubit" style="height:40px;" />
+        </div>
+        <h3>PriyaQubit Pvt. Ltd.</h3>
+        <p>Advanced technology infrastructure and custom software engineering for scaling brands.</p>
+        <div class="pillar-tags"><span class="pillar-tag blue">Tech</span><span class="pillar-tag blue">Strategy</span></div>
       </div>
 
       <!-- Mavriq AI -->
-      <div class="partner-card-full reveal" role="article" aria-label="Mavriq AI">
-        <img
-          src="assets/partners/mavriq.svg"
-          alt="Mavriq AI logo"
-          class="partner-logo-img"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-        />
-        <div style="display:none; width:80px; height:80px; background:linear-gradient(135deg,#0a1628,#1e3a8a); border-radius:16px; align-items:center; justify-content:center; font-size:2rem; color:#fff;">🤖</div>
-        <div class="partner-name-tag">Mavriq AI</div>
-        <div class="partner-category">Artificial Intelligence</div>
+      <div class="partner-card reveal delay-2">
+        <div class="partner-card__brand">
+          <img src="assets/partners/mavriq.svg" alt="Mavriq" style="height:40px;" />
+        </div>
+        <h3>Mavriq AI</h3>
+        <p>Intelligent automation and AI-driven growth frameworks for modern digital operations.</p>
+        <div class="pillar-tags"><span class="pillar-tag blue">AI</span><span class="pillar-tag blue">Logic</span></div>
       </div>
 
       <!-- WPS Hub -->
-      <div class="partner-card-full reveal" role="article" aria-label="WPS Hub">
-        <img
-          src="assets/partners/wpshub.svg"
-          alt="WPS Hub logo"
-          class="partner-logo-img"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-        />
-        <div style="display:none; width:80px; height:80px; background:linear-gradient(135deg,#1a4a3a,#2e7d5e); border-radius:16px; align-items:center; justify-content:center; font-size:2rem; color:#fff;">🌐</div>
-        <div class="partner-name-tag">WPS Hub</div>
-        <div class="partner-category">Business Platform</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- BECOME A PARTNER -->
-<section class="philosophy">
-  <div class="container">
-    <div class="philosophy__content">
-      <div class="tag reveal">Partnership Enquiry</div>
-      <h2 class="section-title reveal" style="text-align:center; max-width:600px; margin:0 auto;">Interested in Partnering with <span class="purple">VK Digitals</span>?</h2>
-      <p class="reveal" style="color:var(--white-muted); max-width:520px; margin:1.5rem auto 2rem; font-size:0.97rem; text-align:center;">
-        We are always open to exploring strategic partnerships with aligned organisations. Reach out to us to discuss how we can collaborate.
-      </p>
-      <div class="reveal" style="display:flex; justify-content:center;">
-        <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+      <div class="partner-card reveal delay-3">
+        <div class="partner-card__brand">
+          <img src="assets/partners/wpshub.svg" alt="WPS Hub" style="height:40px;" />
+        </div>
+        <h3>WPS Hub</h3>
+        <p>Integrated business platform solutions and digital workspace management for teams.</p>
+        <div class="pillar-tags"><span class="pillar-tag blue">Business</span><span class="pillar-tag blue">Vetted</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer">
+<!-- ═══ GREEN CTA BANNER ═══ -->
+<div class="container section-pad">
+  <section class="cta-green reveal">
+    <div class="container">
+      <h2>Interested in Becoming <br /> a Strategic Partner?</h2>
+      <p>We are always looking for verified partners who share our commitment to structure and excellence.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-white">Enquire Now</a>
+        <a href="about.html" class="btn btn-outline-white">About Us</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer" aria-label="Site footer">
   <div class="container">
     <div class="footer__inner">
       <div class="footer__brand">
         <div class="footer__logo">
-          <img src="assets/logo.svg" alt="VK Digitals Logo" />
-          <div><div class="footer__logo-name">VK Digitals</div><div class="footer__logo-sub">& Financial Services LLP</div></div>
+          <img src="assets/logo.svg" alt="" />
+          <div>
+            <div class="footer__logo-name">VK Digitals</div>
+            <div class="footer__logo-sub">And Financial Services LLP</div>
+          </div>
         </div>
-        <p class="footer__tagline">Every brand deserves structure, not shortcuts.</p>
+        <p class="footer__tagline">Every brand deserves structure, not shortcuts. Your integrated partner for digital growth and financial clarity.</p>
       </div>
+
       <div>
         <div class="footer__col-title">Company</div>
         <ul class="footer__links">
-          <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="partners.html">Our Trusted Partners</a></li>
+          <li><a href="services.html">Our Services</a></li>
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="blog.html">Resources</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
+
       <div>
         <div class="footer__col-title">Services</div>
         <ul class="footer__links">
           <li><a href="services.html#digital">Digital Marketing</a></li>
           <li><a href="services.html#creative">Creative Production</a></li>
           <li><a href="services.html#financial">Financial Advisory</a></li>
+          <li><a href="services.html#it">IT Services</a></li>
         </ul>
       </div>
+
       <div>
         <div class="footer__col-title">Contact</div>
-        <div class="footer__contact-item"><span class="footer__contact-icon">📧</span><div><a href="mailto:Sales@VKdigitals.in">Sales@VKdigitals.in</a></div></div>
-        <div class="footer__contact-item"><span class="footer__contact-icon">📞</span><div><a href="tel:+918571041192">+91 85710 41192</a></div></div>
         <div class="footer__contact-item">
-          <span class="footer__contact-icon">🕒</span>
-          <div>Saturday: 11:00 AM – 3:00 PM</div>
+          <span class="footer__contact-icon">📧</span>
+          <a href="mailto:Sales@VKdigitals.in">Sales@VKdigitals.in</a>
+        </div>
+        <div class="footer__contact-item">
+          <span class="footer__contact-icon">📞</span>
+          <a href="tel:+918571041192">+91 85710 41192</a>
         </div>
         <div class="footer__contact-item">
           <span class="footer__contact-icon">📍</span>
-          <div><a href="https://www.google.com/maps/search/1st+Floor,+Above+HealthKart,+Near+Nehru+Park,+Yamunanagar,+Haryana+135001" target="_blank" rel="noopener noreferrer">1st Floor, Above HealthKart,<br />Near Nehru Park, Yamunanagar – 135001,<br />Haryana, India</a></div>
+          <span>1st Floor, Above HealthKart, Near Nehru Park, Yamunanagar, Haryana 135001</span>
         </div>
       </div>
     </div>
+
     <div class="footer__bottom">
-      <span>© 2026 VK Digitals and Financial Services LLP. All rights reserved.</span>
-      <div style="display:flex; gap:1.5rem;"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a></div>
+      <div>© 2026 VK Digitals and Financial Services LLP</div>
+      <div style="display:flex; gap:2rem;">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
     </div>
   </div>
 </footer>

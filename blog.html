@@ -4,19 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self'; connect-src 'self'; frame-ancestors 'none'; object-src 'none'; base-uri 'self';" />
-  <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <meta name="theme-color" content="#5D3891" />
-  <title>Insights & Articles | VK Digitals and Financial Services LLP</title>
+  <meta name="theme-color" content="#2D1E5F" />
+  <title>Insights | VK Digitals and Financial Services LLP</title>
   <meta name="description" content="Stay updated with the latest in digital marketing, creative production, and financial advisory from VK Digitals and Financial Services LLP." />
-  <meta name="keywords" content="VK Digitals blog, digital marketing insights, financial advisory articles, brand strategy blog" />
-  <meta property="og:title" content="Insights & Articles | VK Digitals and Financial Services LLP" />
-  <meta property="og:image" content="https://vkdigitals.com/assets/og-image.png" />
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
+<!-- ═══ NAVIGATION ═══ -->
 <nav class="nav" id="main-nav">
   <div class="nav__inner">
     <a href="index.html" class="nav__logo">
@@ -46,22 +42,23 @@
     <a href="partners.html">Partners</a>
     <a href="blog.html" class="active">Blog</a>
     <a href="contact.html">Contact</a>
-    <a href="contact.html" class="btn btn-primary" style="align-self:flex-start;margin-top:0.5rem;">Get in Touch</a>
+    <a href="contact.html" class="btn btn-primary" style="align-self:flex-start; margin-top:0.5rem;">Get in Touch</a>
   </nav>
 </nav>
 
-<!-- PAGE HERO -->
+<!-- ═══ PAGE HERO ═══ -->
 <section class="page-hero">
+  <div class="page-hero__bg"></div>
   <div class="container">
-    <div class="page-hero__content">
-      <div class="tag reveal">Insights &amp; Perspectives</div>
-      <h1 class="page-hero__title reveal delay-1">Our <span class="purple">Blog</span></h1>
-      <p class="page-hero__sub reveal delay-2">Strategies, insights, and perspectives on digital marketing, creative production, and financial advisory.</p>
+    <div class="breadcrumb reveal">
+      <a href="index.html">Home</a> <span>/</span> <span>Blog</span>
     </div>
+    <h1 class="reveal delay-1">Latest <br /> <span style="color:var(--green);">Insights</span></h1>
+    <p class="reveal delay-2">Strategies, insights, and perspectives on digital marketing, creative production, and financial advisory.</p>
   </div>
 </section>
 
-<!-- FILTER BAR -->
+<!-- ─── FILTER BAR ─── -->
 <div class="blog-filter-bar">
   <div class="container">
     <div class="blog-filter-inner">
@@ -71,24 +68,22 @@
       </div>
       <div class="blog-tags" id="blog-tags" role="list" aria-label="Filter by tag">
         <button class="blog-tag-btn active" data-tag="all">All</button>
-        <button class="blog-tag-btn" data-tag="digital-marketing">Digital Marketing</button>
-        <button class="blog-tag-btn" data-tag="financial">Financial Advisory</button>
+        <button class="blog-tag-btn" data-tag="digital-marketing">Digital</button>
+        <button class="blog-tag-btn" data-tag="financial">Financial</button>
         <button class="blog-tag-btn" data-tag="creative">Creative</button>
         <button class="blog-tag-btn" data-tag="branding">Branding</button>
-        <button class="blog-tag-btn" data-tag="business">Business</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- BLOG GRID -->
+<!-- ─── BLOG GRID ─── -->
 <section class="section-pad">
   <div class="container">
     <div class="blog-grid" id="blog-grid">
-      <!-- Posts injected by JS -->
       <div class="blog-loading" id="blog-loading">
         <div class="blog-spinner"></div>
-        <p>Loading articles…</p>
+        <p>Fetching latest perspectives…</p>
       </div>
     </div>
     <div id="blog-empty" class="blog-empty" style="display:none;">
@@ -96,72 +91,85 @@
       <h3>No posts found</h3>
       <p>Try a different search or tag filter.</p>
     </div>
-    <!-- Pagination -->
-    <div class="blog-pagination" id="blog-pagination" style="display:none;">
+    <div class="blog-pagination" id="blog-pagination" style="display:none; margin-top:4rem; text-align:center;">
       <button class="btn btn-outline" id="load-more-btn">Load More Articles →</button>
     </div>
   </div>
 </section>
 
-<!-- NEWSLETTER CTA -->
-<section class="cta-strip">
-  <div class="container">
-    <div class="tag reveal">Stay Informed</div>
-    <h2 class="cta-strip__title reveal">Get <span class="purple">Structured Insights</span> in Your Inbox</h2>
-    <p class="cta-strip__sub reveal">Reach out to subscribe to our newsletter on digital strategy and financial thinking.</p>
-    <div class="cta-strip__actions reveal">
-      <a href="contact.html" class="btn btn-primary">Subscribe via Contact →</a>
+<!-- ═══ GREEN CTA BANNER ═══ -->
+<div class="container section-pad">
+  <section class="cta-green reveal">
+    <div class="container">
+      <h2>Stay Ahead with <br /> Structured Insights</h2>
+      <p>Subscribe to our newsletter for deep dives into digital strategy and financial thinking.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-white">Subscribe via Contact</a>
+        <a href="services.html" class="btn btn-outline-white">Explore Services</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 
-<!-- FOOTER -->
-<footer class="footer">
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer" aria-label="Site footer">
   <div class="container">
     <div class="footer__inner">
       <div class="footer__brand">
         <div class="footer__logo">
-          <img src="assets/logo.svg" alt="VK Digitals Logo" />
-          <div><div class="footer__logo-name">VK Digitals</div><div class="footer__logo-sub">& Financial Services LLP</div></div>
+          <img src="assets/logo.svg" alt="" />
+          <div>
+            <div class="footer__logo-name">VK Digitals</div>
+            <div class="footer__logo-sub">And Financial Services LLP</div>
+          </div>
         </div>
-        <p class="footer__tagline">Every brand deserves structure, not shortcuts.</p>
+        <p class="footer__tagline">Every brand deserves structure, not shortcuts. Your integrated partner for digital growth and financial clarity.</p>
       </div>
+
       <div>
         <div class="footer__col-title">Company</div>
         <ul class="footer__links">
-          <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="partners.html">Our Trusted Partners</a></li>
-          <li><a href="blog.html">Blog</a></li>
+          <li><a href="services.html">Our Services</a></li>
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="blog.html">Resources</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
+
       <div>
         <div class="footer__col-title">Services</div>
         <ul class="footer__links">
           <li><a href="services.html#digital">Digital Marketing</a></li>
           <li><a href="services.html#creative">Creative Production</a></li>
           <li><a href="services.html#financial">Financial Advisory</a></li>
+          <li><a href="services.html#it">IT Services</a></li>
         </ul>
       </div>
+
       <div>
         <div class="footer__col-title">Contact</div>
-        <div class="footer__contact-item"><span class="footer__contact-icon">📧</span><div><a href="mailto:Sales@VKdigitals.in">Sales@VKdigitals.in</a></div></div>
-        <div class="footer__contact-item"><span class="footer__contact-icon">📞</span><div><a href="tel:+918571041192">+91 85710 41192</a></div></div>
         <div class="footer__contact-item">
-          <span class="footer__contact-icon">🕒</span>
-          <div>Saturday: 11:00 AM – 3:00 PM</div>
+          <span class="footer__contact-icon">📧</span>
+          <a href="mailto:Sales@VKdigitals.in">Sales@VKdigitals.in</a>
+        </div>
+        <div class="footer__contact-item">
+          <span class="footer__contact-icon">📞</span>
+          <a href="tel:+918571041192">+91 85710 41192</a>
         </div>
         <div class="footer__contact-item">
           <span class="footer__contact-icon">📍</span>
-          <div><a href="https://www.google.com/maps/search/1st+Floor,+Above+HealthKart,+Near+Nehru+Park,+Yamunanagar,+Haryana+135001" target="_blank" rel="noopener noreferrer">1st Floor, Above HealthKart,<br />Near Nehru Park, Yamunanagar – 135001,<br />Haryana, India</a></div>
+          <span>1st Floor, Above HealthKart, Near Nehru Park, Yamunanagar, Haryana 135001</span>
         </div>
       </div>
     </div>
+
     <div class="footer__bottom">
-      <span>© 2026 VK Digitals and Financial Services LLP. All rights reserved.</span>
-      <div style="display:flex;gap:1.5rem;"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a></div>
+      <div>© 2026 VK Digitals and Financial Services LLP</div>
+      <div style="display:flex; gap:2rem;">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
     </div>
   </div>
 </footer>

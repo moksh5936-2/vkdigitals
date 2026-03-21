@@ -14,11 +14,11 @@ exports.handler = async (event) => {
         const status = isAdmin ? requestedStatus : 'approved';
 
         let results;
-        if (blogId && status) {
+        if (blogId && status && status !== 'all') {
           results = await sql`SELECT * FROM comments WHERE "blogId" = ${blogId} AND status = ${status} ORDER BY "createdAt" ASC`;
         } else if (blogId) {
           results = await sql`SELECT * FROM comments WHERE "blogId" = ${blogId} ORDER BY "createdAt" ASC`;
-        } else if (status) {
+        } else if (status && status !== 'all') {
           results = await sql`SELECT * FROM comments WHERE status = ${status} ORDER BY "createdAt" ASC`;
         } else {
           results = await sql`SELECT * FROM comments ORDER BY "createdAt" ASC`;
