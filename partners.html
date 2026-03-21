@@ -19,17 +19,17 @@
   <style>
     /* Partners-specific partner card with logos */
     .partner-card-full {
-      background: #ffffff;
+      background: var(--white);
       border-radius: 20px;
-      padding: 2.5rem 2rem;
+      padding: 3rem 2rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 1.25rem;
-      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-      border: 2px solid transparent;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      gap: 1.5rem;
+      transition: all 0.5s var(--ease-out);
+      border: 1px solid rgba(0,0,0,0.04);
+      box-shadow: var(--shadow);
       min-height: 220px;
       position: relative;
       overflow: hidden;
@@ -58,20 +58,21 @@
     }
 
     .partner-name-tag {
-      font-size: 0.78rem;
+      font-size: 0.85rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #6B7A8D;
+      color: var(--text-main);
       text-align: center;
     }
 
     .partner-category {
       font-size: 0.72rem;
-      color: #9AA5B4;
+      color: var(--purple);
+      font-weight: 600;
       text-align: center;
-      padding: 0.25rem 0.75rem;
-      background: #F0F4F8;
+      padding: 0.3rem 0.9rem;
+      background: rgba(93,56,145,0.06);
       border-radius: 999px;
     }
   </style>
@@ -115,9 +116,9 @@
 <section class="page-hero">
   <div class="container">
     <div class="page-hero__content">
-      <div class="tag">Our Ecosystem</div>
-      <h1 class="page-hero__title">Our <span class="purple">Trusted Partners</span></h1>
-      <p class="page-hero__sub">Collaborating with trusted partners to deliver structured, scalable solutions.</p>
+      <div class="tag reveal">Our Ecosystem</div>
+      <h1 class="page-hero__title reveal delay-1">Our <span class="purple">Trusted Partners</span></h1>
+      <p class="page-hero__sub reveal delay-2">Collaborating with trusted partners to deliver structured, scalable solutions.</p>
     </div>
   </div>
 </section>

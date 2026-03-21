@@ -60,7 +60,7 @@
   const revealObserver = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
+        entry.target.classList.add('active');
         revealObserver.unobserve(entry.target);
       }
     });
@@ -76,7 +76,15 @@
   const nav = document.querySelector('.nav');
   if (!nav) return;
   window.addEventListener('scroll', function () {
-    nav.style.boxShadow = window.scrollY > 40 ? '0 4px 32px rgba(0,0,0,0.45)' : '';
+    if (window.scrollY > 40) {
+      nav.style.background = 'rgba(255, 255, 255, 0.9)';
+      nav.style.boxShadow = '0 8px 32px rgba(93, 56, 145, 0.12)';
+      nav.style.height = '64px';
+    } else {
+      nav.style.background = '';
+      nav.style.boxShadow = '';
+      nav.style.height = '72px';
+    }
   }, { passive: true });
 }());
 
