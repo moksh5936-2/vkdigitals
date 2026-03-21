@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="mavGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8A2BE2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF8C00;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="90" fill="none" stroke="url(#mavGrad)" stroke-width="12" />
+  <path d="M50,140 L50,60 L100,110 L150,60 L150,140" fill="none" stroke="url(#mavGrad)" stroke-width="15" stroke-linejoin="round" stroke-linecap="round" />
+</svg>

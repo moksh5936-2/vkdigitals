@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 140" width="300" height="140">
+  <rect width="300" height="140" rx="8" fill="#F7FAFA"/>
+  <!-- Hub/spoke icon -->
+  <circle cx="60" cy="70" r="10" fill="#E8521A"/>
+  <circle cx="60" cy="70" r="5" fill="#FF7043"/>
+  <!-- Spokes -->
+  <line x1="60" y1="60" x2="60" y2="44" stroke="#008B8B" stroke-width="2"/>
+  <line x1="60" y1="80" x2="60" y2="96" stroke="#008B8B" stroke-width="2"/>
+  <line x1="50" y1="70" x2="34" y2="70" stroke="#008B8B" stroke-width="2"/>
+  <line x1="70" y1="70" x2="86" y2="70" stroke="#008B8B" stroke-width="2"/>
+  <circle cx="60" cy="43" r="4" fill="#008B8B"/>
+  <circle cx="60" cy="97" r="4" fill="#008B8B"/>
+  <circle cx="33" cy="70" r="4" fill="#008B8B"/>
+  <circle cx="87" cy="70" r="4" fill="#008B8B"/>
+  <!-- Outer ring -->
+  <circle cx="60" cy="70" r="28" fill="none" stroke="#00AEAE" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <!-- Text -->
+  <text x="108" y="62" font-family="Arial, sans-serif" font-weight="700" font-size="20" fill="#1C2B36">WPS</text>
+  <text x="108" y="84" font-family="Arial, sans-serif" font-weight="700" font-size="20" fill="#1C2B36">Hub</text>
+  <text x="108" y="102" font-family="Arial, sans-serif" font-size="9" fill="#9AA5B4" letter-spacing="1">BUSINESS PLATFORM</text>
+</svg>

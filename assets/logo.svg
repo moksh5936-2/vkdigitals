@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#5D3891;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7E57C2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#A9C52F;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C5E1A5;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Icon Mark: Modern Abstract "VK" -->
+  <g transform="translate(156, 40)">
+    <!-- The "V" Shape -->
+    <path d="M0,0 L0,120 Q0,140 30,140 L120,140 Q150,140 150,170 L180,170 L180,200 L60,200 Q0,200 0,140 Z" fill="url(#purpleGrad)" />
+    
+    <!-- The Dynamic Arrow completing the "K" -->
+    <path d="M50,110 L200,0 L200,70 L120,140 Z" fill="url(#greenGrad)" />
+    
+    <!-- Arrow Head Detail for premium look -->
+    <path d="M200,0 L225,25 L185,40 Z" fill="#A9C52F" />
+  </g>
+  
+  <!-- Branding Typography -->
+  <g font-family="'Inter', Arial, sans-serif" text-anchor="middle" font-weight="800">
+    <text x="256" y="380" font-size="34" fill="#5D3891" letter-spacing="2">DIGITALS AND FINANCIAL</text>
+    <text x="256" y="440" font-size="48" fill="#A9C52F" letter-spacing="8">SERVICES</text>
+  </g>
+  
+  <!-- Subtle tagline decoration -->
+  <rect x="180" y="460" width="152" height="4" rx="2" fill="rgba(169,197,47,0.3)" />
+</svg>

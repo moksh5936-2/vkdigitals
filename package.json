@@ -1,0 +1,14 @@
+{
+  "name": "vkdigitals-web",
+  "version": "2.1.0",
+  "description": "Official website for VK Digitals and Financial Services LLP — Structured Digital & Financial Growth.",
+  "scripts": {
+    "build": "echo 'No build step required'"
+  },
+  "dependencies": {
+    "mongodb": "^6.3.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

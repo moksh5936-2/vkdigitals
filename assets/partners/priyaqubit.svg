@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Modern Interlocking Infinity/Q Bubbles -->
+  <path d="M70,60 A40,40 0 1,0 130,140 A40,40 0 1,1 70,60" fill="none" stroke="#007BFF" stroke-width="20" stroke-linecap="round" />
+  <circle cx="100" cy="100" r="10" fill="#007BFF" />
+</svg>

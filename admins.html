@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="robots" content="noindex,nofollow"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.quilljs.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.quilljs.com; img-src 'self' data: https: blob:; script-src 'self' https://cdn.quilljs.com https://cdn.jsdelivr.net 'unsafe-inline' 'unsafe-eval'; connect-src 'self'; frame-src 'self' https://www.google.com; frame-ancestors 'none'; object-src 'none';"/>
+<title>Admin Dashboard | VK Digitals</title>
+<meta name="description" content="VK Digitals — Structured Admin Control Center." />
+<meta property="og:title" content="Admin Dashboard | VK Digitals" />
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg"/>
+<link rel="stylesheet" href="https://cdn.quilljs.com/1.3.7/quill.snow.css"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--purple:#5D3891;--purple-l:#7E57C2;--purple-d:#4527A0;--green:#A9C52F;--green-l:#C5E1A5;--white:#FFFFFF;--bg-l:#FBFBFE;--bg-s:#F5F5F9;--text:#2D2E32;--muted:#6B7A8D;--dim:#94A3B8;--red:#E74C3C;--radius:10px;--trans:0.25s ease;--font:'Inter',system-ui,sans-serif;--grad-brand:linear-gradient(135deg,var(--purple) 0%,var(--green) 100%)}
+body{font-family:var(--font);background:var(--bg-l);color:var(--text);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font-family:inherit;border:none;background:none}
+input,textarea,select{font-family:inherit}
+
+/* PIN SCREEN */
+#pin-screen{position:fixed;inset:0;background:var(--bg-l);display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;gap:1.5rem;padding:2rem}
+.pin-logo{display:flex;align-items:center;gap:.75rem}
+.pin-logo img{height:44px;border-radius:6px}
+.pin-logo-name{font-size:1.2rem;font-weight:700;color:var(--purple)}
+.pin-card{background:var(--white);border:1px solid rgba(93,56,145,.15);box-shadow:0 10px 40px rgba(0,0,0,0.05);border-radius:16px;padding:2.5rem;width:100%;max-width:380px;text-align:center}
+.pin-card h2{font-size:1.3rem;margin-bottom:.5rem;color:var(--text)}
+.pin-card p{font-size:.85rem;color:var(--muted);margin-bottom:1.75rem}
+.pin-input{width:100%;background:var(--bg-s);border:1.5px solid rgba(93,56,145,.2);border-radius:var(--radius);padding:.875rem 1rem;color:var(--text);font-size:1rem;text-align:center;letter-spacing:.15em;outline:none;margin-bottom:1rem;transition:border-color var(--trans)}
+.pin-input:focus{border-color:var(--purple)}
+.pin-btn{width:100%;padding:.9rem;background:var(--grad-brand);color:var(--white);border-radius:var(--radius);font-weight:700;font-size:.95rem;transition:opacity var(--trans);box-shadow:0 4px 15px rgba(93,56,145,0.2)}
+.pin-btn:hover{opacity:.9}
+.pin-err{color:var(--red);font-size:.82rem;margin-top:.5rem;display:none}
+
+/* LAYOUT */
+#app{display:none;flex:1}
+.admin-layout{display:grid;grid-template-columns:240px 1fr;min-height:100vh}
+@media(max-width:900px){.admin-layout{grid-template-columns:1fr}.sidebar{display:none}}
+
+/* SIDEBAR */
+.sidebar{background:var(--white);border-right:1px solid rgba(93,56,145,.1);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto}
+.sidebar-logo{padding:1.5rem 1.25rem;border-bottom:1px solid rgba(93,56,145,.1);display:flex;align-items:center;gap:.6rem}
+.sidebar-logo img{height:38px;border-radius:5px}
+.sidebar-brand{font-size:.95rem;font-weight:700;color:var(--purple);line-height:1.2}
+.sidebar-brand small{display:block;font-size:.6rem;color:var(--dim);font-weight:400}
+nav.sidebar-nav{flex:1;padding:1rem .75rem}
+.nav-section{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);padding:.5rem .75rem .35rem;margin-top:.75rem}
+.nav-item{display:flex;align-items:center;gap:.6rem;padding:.65rem .75rem;border-radius:8px;font-size:.88rem;color:var(--muted);transition:all var(--trans);cursor:pointer;margin-bottom:.15rem}
+.nav-item:hover,.nav-item.active{background:rgba(93,56,145,.08);color:var(--text)}
+.nav-item.active{color:var(--purple);background:rgba(93,56,145,.12)}
+.nav-item-icon{font-size:1rem;flex-shrink:0;width:20px;text-align:center}
+.sidebar-footer{padding:1rem 1.25rem;border-top:1px solid rgba(0,0,0,.06);font-size:.78rem;color:var(--dim)}
+
+/* MAIN */
+.admin-main{overflow-y:auto;background:var(--bg-l)}
+.topbar{background:var(--white);border-bottom:1px solid rgba(93,56,145,.1);padding:.875rem 1.75rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.topbar h1{font-size:1.1rem;font-weight:600}
+.topbar-actions{display:flex;gap:.75rem;align-items:center}
+
+/* PANELS */
+.panel{display:none;padding:1.75rem;animation:fadeIn .2s ease}
+.panel.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* CARDS */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-bottom:2rem}
+.stat-card{background:var(--white);border:1px solid rgba(93,56,145,.1);box-shadow:0 4px 12px rgba(0,0,0,0.03);border-radius:14px;padding:1.5rem;transition:transform var(--trans)}
+.stat-card:hover{transform:translateY(-3px)}
+.stat-card-icon{font-size:1.6rem;margin-bottom:.75rem}
+.stat-card-val{font-size:2rem;font-weight:700;color:var(--purple);line-height:1}
+.stat-card-label{font-size:.78rem;color:var(--muted);margin-top:.35rem}
+
+/* TABLE */
+.data-table-wrap{background:var(--white);border:1px solid rgba(93,56,145,.1);box-shadow:0 10px 30px rgba(0,0,0,0.04);border-radius:14px;overflow:hidden}
+.data-table-head{padding:1rem 1.25rem;border-bottom:1px solid rgba(0,0,0,.05);display:flex;align-items:center;justify-content:space-between}
+.data-table-head h3{font-size:.95rem;font-weight:600}
+table.dtable{width:100%;border-collapse:collapse;font-size:.85rem}
+table.dtable thead th{padding:.75rem 1rem;text-align:left;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);border-bottom:1px solid rgba(0,0,0,.05)}
+table.dtable tbody tr{border-bottom:1px solid rgba(0,0,0,.03);transition:background var(--trans)}
+table.dtable tbody tr:hover{background:var(--bg-s)}
+table.dtable tbody td{padding:.75rem 1rem;color:var(--muted);vertical-align:middle}
+table.dtable tbody td:first-child{color:var(--text);font-weight:600}
+
+/* BADGES */
+.badge{display:inline-block;padding:.2rem .65rem;border-radius:999px;font-size:.7rem;font-weight:600;letter-spacing:.04em}
+.badge-published{background:rgba(169,197,47,.15);color:var(--green)}
+.badge-draft{background:rgba(93,56,145,.1);color:var(--purple)}
+.badge-pending{background:rgba(93,56,145,0.2);color:#E74C3C}
+.badge-approved{background:rgba(169,197,47,.15);color:var(--green)}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1.1rem;border-radius:8px;font-size:.82rem;font-weight:600;transition:all var(--trans);cursor:pointer;border:none}
+.btn-brand{background:var(--grad-brand);color:var(--white)}
+.btn-brand:hover{opacity:.9;transform:translateY(-1px)}
+.btn-outline{border:1.5px solid rgba(93,56,145,.4);color:var(--purple);background:transparent}
+.btn-outline:hover{background:rgba(93,56,145,.08)}
+.btn-danger{border:1.5px solid rgba(231,76,60,.4);color:#E74C3C;background:transparent}
+.btn-danger:hover{background:rgba(231,76,60,.08)}
+.btn-sm{padding:.35rem .75rem;font-size:.75rem}
+.btn-success{border:1.5px solid rgba(169,197,47,.4);color:var(--green);background:transparent}
+.btn-success:hover{background:rgba(169,197,47,.08)}
+
+/* FORM ELEMENTS */
+.field{margin-bottom:1.1rem}
+.field label{display:block;font-size:.78rem;font-weight:600;color:var(--muted);letter-spacing:.03em;margin-bottom:.4rem}
+.field input,.field textarea,.field select{width:100%;background:var(--white);border:1.5px solid rgba(93,56,145,.15);border-radius:8px;padding:.75rem .875rem;color:var(--text);font-size:.88rem;outline:none;transition:border-color var(--trans)}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--purple)}
+.field textarea{resize:vertical;min-height:80px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:600px){.field-row{grid-template-columns:1fr}}
+.toggle-wrap{display:flex;align-items:center;gap:.75rem}
+input[type=checkbox]{width:36px;height:20px;appearance:none;background:var(--bg-s);border:1px solid rgba(0,0,0,.1);border-radius:999px;cursor:pointer;position:relative;transition:background var(--trans)}
+input[type=checkbox]:checked{background:var(--purple)}
+input[type=checkbox]::after{content:'';position:absolute;top:3px;left:3px;width:14px;height:14px;border-radius:50%;background:#fff;transition:transform var(--trans)}
+input[type=checkbox]:checked::after{transform:translateX(16px)}
+
+/* EDITOR AREA */
+.editor-form{background:var(--white);border:1px solid rgba(93,56,145,.1);box-shadow:0 10px 40px rgba(0,0,0,0.04);border-radius:14px;padding:1.5rem}
+#quill-editor{background:var(--white);border:1.5px solid rgba(93,56,145,.15);border-radius:8px;min-height:320px;color:var(--text)}
+#quill-editor .ql-editor{min-height:300px;color:var(--text)}
+.ql-toolbar.ql-snow{border:none!important;border-bottom:1px solid rgba(93,56,145,.1)!important;background:var(--bg-s);border-radius:8px 8px 0 0}
+.ql-container.ql-snow{border:none!important}
+.ql-snow .ql-stroke{stroke:var(--muted)!important}
+.ql-snow .ql-fill{fill:var(--muted)!important}
+.ql-snow .ql-picker{color:var(--muted)!important}
+
+/* TOAST */
+#toast{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--white);border:1px solid rgba(93,56,145,.2);box-shadow:0 8px 24px rgba(0,0,0,0.1);border-radius:10px;padding:.875rem 1.25rem;font-size:.85rem;display:none;z-index:9998;max-width:300px;color:var(--text)}
+#toast.show{display:block;animation:fadeIn .2s ease}
+#toast.ok{border-color:var(--green);color:var(--green)}
+#toast.err{border-color:var(--red);color:var(--red)}
+
+/* MISC */
+.section-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem}
+.section-hd h2{font-size:1.05rem;font-weight:600}
+.mb-1{margin-bottom:1rem}
+.mt-1{margin-top:1rem}
+.divider{border:none;border-top:1px solid rgba(0,0,0,.06);margin:1.5rem 0}
+.empty-state{text-align:center;padding:3rem;color:var(--dim);font-size:.9rem}
+.chart-wrap{background:var(--white);border:1px solid rgba(93,56,145,.1);box-shadow:0 4px 12px rgba(0,0,0,0.02);border-radius:14px;padding:1.25rem;margin-bottom:1.5rem}
+select option{background:var(--white)}
+.tag-preview{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem}
+.tag-chip{background:rgba(93,56,145,.1);color:var(--purple);border-radius:999px;padding:.2rem .65rem;font-size:.72rem;font-weight:600}
+</style>
+</head>
+<body>
+
+<!-- PHONE OTP AUTH SCREEN -->
+<div id="pin-screen">
+  <div class="pin-logo">
+    <img src="assets/logo.svg" alt="Logo" />
+    <span class="pin-logo-name">VK Digitals Admin</span>
+  </div>
+
+  <!-- Step 1: Phone number entry -->
+  <div class="pin-card" id="step-phone">
+    <div style="font-size:2rem;margin-bottom:.75rem">🔐</div>
+    <h2>Admin Access</h2>
+    <p>Enter your phone number to receive a one-time SMS verification code</p>
+        <input type="tel" class="pin-input" id="phone-input" placeholder="+91 98765 43210" autocomplete="tel" style="letter-spacing:.05em" />
+    <button class="pin-btn" id="send-otp-btn">Send OTP via SMS →</button>
+    <div class="pin-err" id="phone-err" style="display:none"></div>
+  </div>
+
+  <!-- Step 2: OTP verification -->
+  <div class="pin-card" id="step-otp" style="display:none">
+    <div style="font-size:2rem;margin-bottom:.75rem">📱</div>
+    <h2>Enter Verification Code</h2>
+    <p id="otp-hint">A 4-digit code has been sent to your phone</p>
+    <input type="text" class="pin-input" id="otp-input" placeholder="• • • •" maxlength="4" inputmode="numeric" autocomplete="one-time-code" style="font-size:1.5rem;letter-spacing:.3em" />
+    <button class="pin-btn" id="verify-otp-btn">Verify &amp; Enter →</button>
+    <div class="pin-err" id="otp-err" style="display:none"></div>
+    <button id="back-to-phone-btn" style="background:none;border:none;color:var(--dim);font-size:.78rem;cursor:pointer;margin-top:.75rem;font-family:inherit;display:block;width:100%;text-align:center">← Change phone number</button>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+<div class="admin-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img src="assets/logo.svg" alt="VK Digitals Logo" />
+      <div class="sidebar-brand">VK Digitals <small>Admin Panel</small></div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">Main</div>
+      <div class="nav-item active" data-panel="dashboard"><span class="nav-item-icon">📊</span>Dashboard</div>
+
+      <div class="nav-section">Blog</div>
+      <div class="nav-item" data-panel="posts"><span class="nav-item-icon">📝</span>All Posts</div>
+      <div class="nav-item" data-panel="editor"><span class="nav-item-icon">✏️</span>New Post</div>
+      <div class="nav-item" data-panel="comments"><span class="nav-item-icon">💬</span>Comments</div>
+
+      <div class="nav-section">Config</div>
+      <div class="nav-item" data-panel="settings"><span class="nav-item-icon">⚙️</span>Site Settings</div>
+
+      <div class="nav-section">Site</div>
+      <div class="nav-item" onclick="window.open('index.html','_blank')"><span class="nav-item-icon">🌐</span>View Website</div>
+      <div class="nav-item" onclick="window.open('blog.html','_blank')"><span class="nav-item-icon">📰</span>View Blog</div>
+    </nav>
+    <div class="sidebar-footer">
+      Logged in as <strong style="color:var(--purple)" id="admin-phone">Admin</strong><br/>
+      <span style="font-size:.7rem">VK Digitals LLP</span>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="admin-main">
+    <div class="topbar">
+      <h1 id="topbar-title">Dashboard</h1>
+      <div class="topbar-actions">
+        <button class="btn btn-brand" onclick="showPanel('editor');resetEditor()">+ New Post</button>
+        <button class="btn btn-outline btn-sm" onclick="handleSignOut()">Sign Out</button>
+      </div>
+    </div>
+
+    <!-- ── DASHBOARD ── -->
+    <div class="panel active" id="panel-dashboard">
+      <div class="stat-grid" id="stat-grid">
+        <div class="stat-card"><div class="stat-card-icon">📝</div><div class="stat-card-val" id="s-total">—</div><div class="stat-card-label">Total Posts</div></div>
+        <div class="stat-card"><div class="stat-card-icon">✅</div><div class="stat-card-val" id="s-pub">—</div><div class="stat-card-label">Published</div></div>
+        <div class="stat-card"><div class="stat-card-icon">💬</div><div class="stat-card-val" id="s-comments">—</div><div class="stat-card-label">Total Comments</div></div>
+        <div class="stat-card"><div class="stat-card-icon">⏳</div><div class="stat-card-val" id="s-pending">—</div><div class="stat-card-label">Pending Review</div></div>
+        <div class="stat-card"><div class="stat-card-icon">👁️</div><div class="stat-card-val" id="s-views">—</div><div class="stat-card-label">Total Views</div></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem">
+        <div class="data-table-wrap">
+          <div class="data-table-head"><h3>Recent Posts</h3></div>
+          <table class="dtable"><thead><tr><th>Title</th><th>Status</th><th>Date</th></tr></thead>
+          <tbody id="dash-posts-tbody"><tr><td colspan="3" class="empty-state">Loading…</td></tr></tbody></table>
+        </div>
+        <div class="data-table-wrap">
+          <div class="data-table-head"><h3>Recent Comments</h3><button class="btn btn-outline btn-sm" onclick="showPanel('comments')">View All</button></div>
+          <table class="dtable"><thead><tr><th>Name</th><th>Post</th><th>Status</th></tr></thead>
+          <tbody id="dash-comments-tbody"><tr><td colspan="3" class="empty-state">Loading…</td></tr></tbody></table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ALL POSTS ── -->
+    <div class="panel" id="panel-posts">
+      <div class="section-hd">
+        <h2>All Posts</h2>
+        <div style="display:flex;gap:.5rem">
+          <select id="posts-filter" style="background:var(--white);border:1px solid rgba(93,56,145,.2);border-radius:8px;padding:.4rem .75rem;color:var(--white);font-size:.82rem">
+            <option value="all">All Status</option>
+            <option value="published">Published</option>
+            <option value="draft">Draft</option>
+          </select>
+          <button class="btn btn-brand" onclick="showPanel('editor');resetEditor()">+ New Post</button>
+        </div>
+      </div>
+      <div class="data-table-wrap">
+        <table class="dtable"><thead><tr><th>Title</th><th>Tags</th><th>Status</th><th>Views</th><th>Date</th><th style="text-align:right">Actions</th></tr></thead>
+        <tbody id="posts-tbody"><tr><td colspan="6" class="empty-state">Loading…</td></tr></tbody></table>
+      </div>
+    </div>
+
+    <!-- ── POST EDITOR ── -->
+    <div class="panel" id="panel-editor">
+      <div class="section-hd">
+        <h2 id="editor-heading">New Post</h2>
+        <div style="display:flex;gap:.5rem">
+          <button class="btn btn-outline" onclick="showPanel('posts')">← Back</button>
+          <button class="btn btn-brand" onclick="savePost(false)">Save Draft</button>
+          <button class="btn btn-brand" onclick="savePost(true)">Publish →</button>
+        </div>
+      </div>
+      <div class="editor-form">
+        <input type="hidden" id="edit-post-id" value="" />
+        <div class="field"><label>Post Title *</label><input type="text" id="ed-title" placeholder="Enter a compelling title…" /></div>
+        <div class="field-row">
+          <div class="field"><label>Author</label><input type="text" id="ed-author" placeholder="VK Digitals Team" /></div>
+          <div class="field"><label>Cover Image URL</label><input type="text" id="ed-cover" placeholder="https://…/image.jpg" /></div>
+        </div>
+        <div class="field"><label>Excerpt (shown in blog listing)</label><textarea id="ed-excerpt" rows="2" placeholder="A short, compelling summary…"></textarea></div>
+        <div class="field">
+          <label>Tags (comma-separated)</label>
+          <input type="text" id="ed-tags" placeholder="digital-marketing, branding, financial" oninput="renderTagPreview()" />
+          <div class="tag-preview" id="tag-preview"></div>
+        </div>
+        <div class="field">
+          <label>Content</label>
+          <div id="quill-editor"></div>
+        </div>
+        <div class="toggle-wrap mt-1">
+          <input type="checkbox" id="ed-published" />
+          <label for="ed-published" style="margin-bottom:0;font-size:.88rem;color:var(--white)">Publish immediately</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── COMMENTS ── -->
+    <div class="panel" id="panel-comments">
+      <div class="section-hd">
+        <h2>Comments</h2>
+        <select id="comments-filter" style="background:var(--white);border:1px solid rgba(93,56,145,.2);border-radius:8px;padding:.4rem .75rem;color:var(--white);font-size:.82rem">
+          <option value="all">All</option>
+          <option value="pending">Pending</option>
+          <option value="approved">Approved</option>
+        </select>
+      </div>
+      <div class="data-table-wrap">
+        <table class="dtable"><thead><tr><th>Name</th><th>Post</th><th>Comment</th><th>Date</th><th>Status</th><th style="text-align:right">Actions</th></tr></thead>
+        <tbody id="comments-tbody"><tr><td colspan="6" class="empty-state">Loading…</td></tr></tbody></table>
+      </div>
+    </div>
+
+    <!-- ── SETTINGS ── -->
+    <div class="panel" id="panel-settings">
+      <div class="section-hd"><h2>Site Settings</h2><button class="btn btn-brand" onclick="saveSettings()">Save Changes</button></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem">
+        <div class="editor-form">
+          <p style="font-size:.8rem;color:var(--purple);margin-bottom:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em">Company Info</p>
+          <div class="field"><label>Formal Entity Name</label><input id="s-name" type="text" placeholder="VK Digitals and Financial Services LLP" /></div>
+          <div class="field"><label>Tagline / Slogan</label><input id="s-tagline" type="text" placeholder="Every brand deserves structure, not shortcuts." /></div>
+          <div class="field"><label>Philosophy Line</label><input id="s-philosophy" type="text" placeholder="Your brand philosophy…" /></div>
+          <hr class="divider"/>
+          <div class="field"><label>Email Address</label><input id="s-email" type="email" placeholder="Sales@VKdigitals.in" /></div>
+          <div class="field"><label>Phone Number</label><input id="s-phone" type="tel" placeholder="+91 85710 41192" /></div>
+          <div class="field"><label>Office Address</label><textarea id="s-address" rows="3" placeholder="1st Floor, Above HealthKart…"></textarea></div>
+        </div>
+        <div class="editor-form">
+          <p style="font-size:.8rem;color:var(--purple);margin-bottom:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em">Social Media Links</p>
+          <div class="field"><label>LinkedIn URL</label><input id="s-linkedin" type="url" placeholder="https://linkedin.com/company/…" /></div>
+          <div class="field"><label>Instagram URL</label><input id="s-instagram" type="url" placeholder="https://instagram.com/…" /></div>
+          <div class="field"><label>Facebook URL</label><input id="s-facebook" type="url" placeholder="https://facebook.com/…" /></div>
+          <div class="field"><label>X / Twitter URL</label><input id="s-twitter" type="url" placeholder="https://x.com/…" /></div>
+          <hr class="divider"/>
+          <div style="background:rgba(46,204,113,.06);border:1px solid rgba(46,204,113,.2);border-radius:8px;padding:1rem;font-size:.82rem;color:#2ECC71;text-align:left;line-height:1.6">
+            ✓ <strong>Authentication via Firebase Phone OTP.</strong><br/>Your registered phone number is your access key. No static password needed.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+</div>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<script type="module">
+'use strict';
+
+// ── CONFIG ───────────────────────────────────────────────────────────────────
+// ── SESSION & STATE ──────────────────────────────────────────────────────────
+let quill = null;
+let allPosts = [];
+let allComments = [];
+let editingPostId = null;
+let loggedInPhone = '';
+
+// Demo data (fallback when Firebase unavailable)
+const DEMO_POSTS_ADMIN = [
+  { id:'demo-1', title:'Why Every Brand Needs a Structured Digital Strategy', excerpt:'Most businesses jump into digital marketing without a plan.', tags:['digital-marketing','branding'], status:'published', author:'VK Digitals Team', views:142, coverImage:'', createdAt:{seconds:1741900000} },
+  { id:'demo-2', title:'Financial Planning for Small Businesses in India', excerpt:'Managing cash flow and structuring capital — a practical guide.', tags:['financial','business'], status:'published', author:'VK Digitals Team', views:98, coverImage:'', createdAt:{seconds:1741800000} },
+  { id:'demo-3', title:'Draft: SEO Trends for 2026', excerpt:'Coming soon...', tags:['digital-marketing'], status:'draft', author:'VK Digitals Team', views:0, coverImage:'', createdAt:{seconds:1741700000} },
+];
+const DEMO_COMMENTS_ADMIN = [
+  { id:'dc-1', blogId:'demo-1', blogTitle:'Why Every Brand Needs a Structured Digital Strategy', name:'Rahul Sharma', email:'r@example.com', message:'Great insights! Very practical guide.', status:'pending', createdAt:{seconds:1741950000} },
+  { id:'dc-2', blogId:'demo-2', blogTitle:'Financial Planning for Small Businesses', name:'Priya Mehta', email:'p@example.com', message:'This was very helpful for my startup!', status:'approved', createdAt:{seconds:1741860000} },
+];
+
+// ── PHONE OTP AUTHENTICATION ──────────────────────────────────────────────────
+const phoneInput = document.getElementById('phone-input');
+const otpInput   = document.getElementById('otp-input');
+const sendBtn    = document.getElementById('send-otp-btn');
+const verifyBtn  = document.getElementById('verify-otp-btn');
+const backBtn    = document.getElementById('back-to-phone-btn');
+const phoneErr   = document.getElementById('phone-err');
+const otpErr     = document.getElementById('otp-err');
+
+function setBtn(btn, loading, label) {
+  btn.disabled = loading;
+  btn.style.opacity = loading ? '0.65' : '1';
+  btn.textContent = loading ? 'Please wait…' : label;
+}
+function showErrMsg(el, msg) { el.textContent = msg; el.style.display = msg ? 'block' : 'none'; }
+
+function unlockAdmin(phone) {
+  document.getElementById('pin-screen').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  const el = document.getElementById('admin-phone');
+  if(el) el.textContent = phone || 'Admin';
+  initAdmin();
+}
+
+// Send OTP
+sendBtn.addEventListener('click', async () => {
+  const rawPhone = phoneInput.value.trim();
+  const phone = rawPhone.replace(/\s/g, '');
+  if(!phone || !phone.startsWith('+')) {
+    return showErrMsg(phoneErr, 'Include country code, e.g. +91 98765 43210');
+  }
+
+  showErrMsg(phoneErr, '');
+  setBtn(sendBtn, true, 'Sending code…');
+  
+  try {
+    const response = await fetch('/api/send-otp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ phone })
+    });
+    
+    // Log content for debugging
+    const contentType = response.headers.get("content-type");
+    let data;
+    try {
+      if (contentType && contentType.indexOf("application/json") !== -1) {
+        data = await response.json();
+      } else {
+        const text = await response.text();
+        console.error('Non-JSON response:', text);
+        // If it's a 500 error from Netlify it might be HTML, show a snippet
+        const snippet = text.length > 100 ? text.substring(0, 100) + '...' : text;
+        throw new Error('Server error (Non-JSON): ' + snippet);
+      }
+    } catch (parseErr) {
+      console.error('Data parsing error:', parseErr);
+      throw new Error('Failed to parse server response. ' + parseErr.message);
+    }
+    
+    if(!response.ok) {
+      throw new Error(data.error || 'Failed to send OTP (Status ' + response.status + ')');
+    }
+
+    loggedInPhone = rawPhone;
+    document.getElementById('step-phone').style.display = 'none';
+    const stepOtp = document.getElementById('step-otp');
+    stepOtp.style.display = 'block';
+    document.getElementById('otp-hint').textContent = `Code sent to ${loggedInPhone}`;
+    otpInput.focus();
+    console.log('Transitioned to OTP step');
+  } catch(err) {
+    console.error('OTP send error:', err);
+    showErrMsg(phoneErr, err.message);
+  } finally { setBtn(sendBtn, false, 'Send OTP via SMS →'); }
+});
+
+// Verify OTP
+async function verifyOTP() {
+  const code = otpInput.value.replace(/\s/g, '');
+  if(!code || code.length < 4) return showErrMsg(otpErr, 'Enter the full 4-digit code');
+  showErrMsg(otpErr, '');
+  setBtn(verifyBtn, true, 'Verifying…');
+  try {
+    const response = await fetch('/api/verify-otp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ phone: loggedInPhone, code })
+    });
+    
+    // Data parsing with better error reporting
+    const contentType = response.headers.get("content-type");
+    let data;
+    try {
+      if (contentType && contentType.indexOf("application/json") !== -1) {
+        data = await response.json();
+      } else {
+        const text = await response.text();
+        console.error('Non-JSON response:', text);
+        const snippet = text.length > 100 ? text.substring(0, 100) + '...' : text;
+        throw new Error('Server error (Non-JSON): ' + snippet);
+      }
+    } catch (parseErr) {
+      console.error('Data parsing error:', parseErr);
+      throw new Error('Failed to parse server response. ' + parseErr.message);
+    }
+    
+    if(!response.ok) {
+      throw new Error(data.error || 'Verification failed (Status ' + response.status + ')');
+    }
+
+    // Save token for authorizing subsequent API calls
+    localStorage.setItem('adminToken', data.token);
+    unlockAdmin(loggedInPhone);
+  } catch(err) {
+    showErrMsg(otpErr, err.message);
+  } finally { setBtn(verifyBtn, false, 'Verify & Enter →'); }
+}
+verifyBtn.addEventListener('click', verifyOTP);
+otpInput.addEventListener('keydown', e => { if(e.key === 'Enter') verifyOTP(); });
+
+// Back to phone step
+backBtn.addEventListener('click', () => {
+  document.getElementById('step-otp').style.display = 'none';
+  document.getElementById('step-phone').style.display = 'block';
+  otpInput.value = ''; showErrMsg(otpErr, '');
+});
+
+// ── NAVIGATION ───────────────────────────────────────────────────────────────
+window.showPanel = function(id) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(n => {
+    n.classList.toggle('active', n.dataset.panel === id);
+  });
+  const titles = {dashboard:'Dashboard',posts:'All Posts',editor:editingPostId?'Edit Post':'New Post',comments:'Comments',settings:'Site Settings'};
+  document.getElementById('topbar-title').textContent = titles[id] || id;
+};
+document.querySelectorAll('.nav-item[data-panel]').forEach(n => {
+  n.addEventListener('click', () => { showPanel(n.dataset.panel); if(n.dataset.panel==='posts') loadPosts(); if(n.dataset.panel==='comments') loadComments(); if(n.dataset.panel==='dashboard') loadDashboard(); if(n.dataset.panel==='settings') loadSettings(); });
+});
+
+// ── QUILL INIT ───────────────────────────────────────────────────────────────
+async function initQuill() {
+  if(quill) return;
+  await loadScript('https://cdn.quilljs.com/1.3.7/quill.min.js');
+  quill = new Quill('#quill-editor', {
+    theme:'snow',
+    placeholder:'Write your article here…',
+    modules:{ toolbar:[
+      [{ header:[1,2,3,false] }],
+      ['bold','italic','underline','strike'],
+      [{ list:'ordered' },{ list:'bullet' }],
+      ['blockquote','code-block'],
+      ['link','image'],
+      [{ color:[] },{ background:[] }],
+      ['clean']
+    ]}
+  });
+}
+function loadScript(src) {
+  return new Promise(res => {
+    if(document.querySelector(`script[src="${src}"]`)) return res();
+    const s = document.createElement('script'); s.src = src; s.onload = res; document.head.appendChild(s);
+  });
+}
+
+// ── TOAST ────────────────────────────────────────────────────────────────────
+function toast(msg, type='ok') {
+  const t = document.getElementById('toast');
+  t.textContent = (type==='ok'?'✓ ':'✗ ') + msg;
+  t.className = 'show ' + type;
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.className = '', 3000);
+}
+
+// ── HELPERS ───────────────────────────────────────────────────────────────────
+function fmtDate(ts) {
+  const d = ts && ts.seconds ? new Date(ts.seconds*1000) : new Date(ts||Date.now());
+  return d.toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});
+}
+function tagLabel(tag) {
+  const M={'digital-marketing':'Digital Mktg','financial':'Financial','creative':'Creative','branding':'Branding','business':'Business','strategy':'Strategy','advisory':'Advisory','video':'Video'};
+  return M[tag]||tag;
+}
+
+// ── LOAD DATA ─────────────────────────────────────────────────────────────────
+async function fetchPosts() {
+  try {
+    const response = await fetch('/.netlify/functions/blogs');
+    allPosts = await response.json();
+  } catch(e) { 
+    console.warn('API fetch failed, using demo posts:', e);
+    allPosts = [...DEMO_POSTS_ADMIN]; 
+  }
+}
+async function fetchComments() {
+  try {
+    const headers = { 'admin-token': localStorage.getItem('adminToken') };
+    const response = await fetch('/.netlify/functions/comments?status=all', { headers });
+    allComments = await response.json();
+  } catch(e) { 
+    console.warn('API fetch failed, using demo comments:', e);
+    allComments = [...DEMO_COMMENTS_ADMIN]; 
+  }
+}
+
+// ── DASHBOARD ─────────────────────────────────────────────────────────────────
+async function loadDashboard() {
+  await fetchPosts(); await fetchComments();
+  const pub = allPosts.filter(p=>p.status==='published').length;
+  const pending = allComments.filter(c=>c.status==='pending').length;
+  const views = allPosts.reduce((s,p)=>s+(p.views||0),0);
+  document.getElementById('s-total').textContent = allPosts.length;
+  document.getElementById('s-pub').textContent = pub;
+  document.getElementById('s-comments').textContent = allComments.length;
+  document.getElementById('s-pending').textContent = pending;
+  document.getElementById('s-views').textContent = views.toLocaleString();
+
+  const recentPosts = allPosts.slice(0,5);
+  document.getElementById('dash-posts-tbody').innerHTML = recentPosts.length
+    ? recentPosts.map(p=>`<tr>
+        <td><a href="#" onclick="editPost('${p.id}');return false" style="color:var(--purple)">${p.title}</a></td>
+        <td><span class="badge badge-${p.status}">${p.status}</span></td>
+        <td style="white-space:nowrap">${fmtDate(p.createdAt)}</td>
+      </tr>`).join('')
+    : '<tr><td colspan="3" class="empty-state">No posts yet</td></tr>';
+
+  const recentComments = allComments.slice(0,5);
+  document.getElementById('dash-comments-tbody').innerHTML = recentComments.length
+    ? recentComments.map(c=>`<tr>
+        <td>${c.name}</td>
+        <td style="max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${c.blogTitle||'—'}</td>
+        <td><span class="badge badge-${c.status}">${c.status}</span></td>
+      </tr>`).join('')
+    : '<tr><td colspan="3" class="empty-state">No comments yet</td></tr>';
+}
+
+// ── POSTS LIST ────────────────────────────────────────────────────────────────
+async function loadPosts() {
+  await fetchPosts();
+  renderPostsTable(allPosts);
+  document.getElementById('posts-filter').onchange = e => {
+    const f = e.target.value;
+    renderPostsTable(f==='all' ? allPosts : allPosts.filter(p=>p.status===f));
+  };
+}
+function renderPostsTable(posts) {
+  const tbody = document.getElementById('posts-tbody');
+  if(!posts.length) { tbody.innerHTML = '<tr><td colspan="6" class="empty-state">No posts found.</td></tr>'; return; }
+  tbody.innerHTML = posts.map(p=>`<tr>
+    <td style="max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${p.title}">
+      <a href="blog-post.html?id=${p.id}" target="_blank" style="color:var(--purple)">${p.title}</a>
+    </td>
+    <td>${(p.tags||[]).slice(0,2).map(t=>`<span class="tag-chip">${tagLabel(t)}</span>`).join(' ')}</td>
+    <td><span class="badge badge-${p.status}">${p.status}</span></td>
+    <td>${(p.views||0).toLocaleString()}</td>
+    <td style="white-space:nowrap">${fmtDate(p.createdAt)}</td>
+    <td style="text-align:right;white-space:nowrap">
+      <button class="btn btn-outline btn-sm" onclick="editPost('${p.id}')">Edit</button>
+      <button class="btn btn-danger btn-sm" onclick="deletePost('${p.id}','${p.title.replace(/'/g,"\\'")}')">Delete</button>
+    </td>
+  </tr>`).join('');
+}
+
+// ── POST EDITOR ───────────────────────────────────────────────────────────────
+window.resetEditor = async function() {
+  editingPostId = null;
+  document.getElementById('edit-post-id').value = '';
+  document.getElementById('ed-title').value = '';
+  document.getElementById('ed-author').value = '';
+  document.getElementById('ed-cover').value = '';
+  document.getElementById('ed-excerpt').value = '';
+  document.getElementById('ed-tags').value = '';
+  document.getElementById('ed-published').checked = false;
+  document.getElementById('editor-heading').textContent = 'New Post';
+  document.getElementById('tag-preview').innerHTML = '';
+  await initQuill();
+  quill.setContents([]);
+};
+
+window.editPost = async function(id) {
+  const post = allPosts.find(p=>p.id===id);
+  if(!post) { toast('Post not found','err'); return; }
+  editingPostId = id;
+  await initQuill();
+  document.getElementById('edit-post-id').value = id;
+  document.getElementById('ed-title').value = post.title || '';
+  document.getElementById('ed-author').value = post.author || '';
+  document.getElementById('ed-cover').value = post.coverImage || '';
+  document.getElementById('ed-excerpt').value = post.excerpt || '';
+  document.getElementById('ed-tags').value = (post.tags||[]).join(', ');
+  document.getElementById('ed-published').checked = post.status === 'published';
+  document.getElementById('editor-heading').textContent = 'Edit Post';
+  quill.clipboard.dangerouslyPasteHTML(post.content || '');
+  renderTagPreview();
+  showPanel('editor');
+};
+
+window.renderTagPreview = function() {
+  const raw = document.getElementById('ed-tags').value;
+  const tags = raw.split(',').map(t=>t.trim()).filter(Boolean);
+  document.getElementById('tag-preview').innerHTML = tags.map(t=>`<span class="tag-chip">${t}</span>`).join('');
+};
+
+window.savePost = async function(publish) {
+  const title   = document.getElementById('ed-title').value.trim();
+  const author  = document.getElementById('ed-author').value.trim() || 'VK Digitals Team';
+  const cover   = document.getElementById('ed-cover').value.trim();
+  const excerpt = document.getElementById('ed-excerpt').value.trim();
+  const rawTags = document.getElementById('ed-tags').value;
+  const tags    = rawTags.split(',').map(t=>t.trim()).filter(Boolean);
+  const content = quill ? quill.root.innerHTML : '';
+  const status  = (publish || document.getElementById('ed-published').checked) ? 'published' : 'draft';
+
+  if(!title) { toast('Please enter a post title','err'); return; }
+
+  const data = { id: editingPostId || Date.now().toString(), title, author, excerpt, tags, content, status, coverImage:cover };
+
+  try {
+    const headers = { 
+      'Content-Type': 'application/json',
+      'admin-token': localStorage.getItem('adminToken') 
+    };
+    const response = await fetch('/.netlify/functions/blogs', {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(data)
+    });
+
+    if(!response.ok) throw new Error('API saving failed');
+
+    toast(editingPostId ? 'Post updated!' : 'Post published!');
+    showPanel('posts');
+    await loadPosts();
+  } catch(e) { toast('Error saving post: '+e.message,'err'); }
+};
+
+window.deletePost = async function(id, title) {
+  if(!confirm(`Delete "${title}"? This cannot be undone.`)) return;
+  try {
+    const headers = { 'admin-token': localStorage.getItem('adminToken') };
+    const response = await fetch(`/.netlify/functions/blogs?id=${id}`, {
+      method: 'DELETE',
+      headers
+    });
+    if(!response.ok) throw new Error('Delete failed');
+    toast('Post deleted.');
+    await loadPosts();
+  } catch(e) { toast('Error: '+e.message,'err'); }
+};
+
+// ── COMMENTS ──────────────────────────────────────────────────────────────────
+async function loadComments() {
+  await fetchComments();
+  renderCommentsTable(allComments);
+  document.getElementById('comments-filter').onchange = e => {
+    const f = e.target.value;
+    renderCommentsTable(f==='all' ? allComments : allComments.filter(c=>c.status===f));
+  };
+}
+function renderCommentsTable(comments) {
+  const tbody = document.getElementById('comments-tbody');
+  if(!comments.length) { tbody.innerHTML = '<tr><td colspan="6" class="empty-state">No comments found.</td></tr>'; return; }
+  tbody.innerHTML = comments.map(c=>`<tr>
+    <td>${c.name}<br/><span style="font-size:.72rem;color:var(--dim)">${c.email||''}</span></td>
+    <td style="max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${c.blogTitle||'—'}</td>
+    <td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${c.message}</td>
+    <td style="white-space:nowrap">${fmtDate(c.createdAt)}</td>
+    <td><span class="badge badge-${c.status}">${c.status}</span></td>
+    <td style="text-align:right;white-space:nowrap">
+      ${c.status==='pending'?`<button class="btn btn-success btn-sm" onclick="approveComment('${c.id}')">Approve</button>`:''}
+      <button class="btn btn-danger btn-sm" onclick="deleteComment('${c.id}')">Delete</button>
+    </td>
+  </tr>`).join('');
+}
+
+window.approveComment = async function(id) {
+  try {
+    const headers = { 
+      'Content-Type': 'application/json',
+      'admin-token': localStorage.getItem('adminToken') 
+    };
+    const response = await fetch('/.netlify/functions/comments', {
+      method: 'PATCH',
+      headers,
+      body: JSON.stringify({ id, updates: { status: 'approved' } })
+    });
+    if(!response.ok) throw new Error('API failed');
+    toast('Comment approved!'); await loadComments();
+  } catch(e) { toast('Error','err'); }
+};
+window.deleteComment = async function(id) {
+  if(!confirm('Delete this comment?')) return;
+  try {
+    const headers = { 'admin-token': localStorage.getItem('adminToken') };
+    const response = await fetch(`/.netlify/functions/comments?id=${id}`, {
+      method: 'DELETE',
+      headers
+    });
+    if(!response.ok) throw new Error('Delete failed');
+    toast('Comment deleted.'); await loadComments();
+  } catch(e) { toast('Error','err'); }
+};
+
+// ── SETTINGS ──────────────────────────────────────────────────────────────────
+async function loadSettings() {
+  try {
+    const response = await fetch('/.netlify/functions/settings');
+    const d = await response.json();
+    if(d) {
+      ['name','tagline','philosophy','email','phone','address','linkedin','instagram','facebook','twitter']
+        .forEach(k => { const el=document.getElementById('s-'+k); if(el) el.value=d[k]||''; });
+    }
+  } catch(e) { console.warn('Settings load failed:', e); }
+}
+
+window.saveSettings = async function() {
+  const data = {
+    name:         document.getElementById('s-name').value.trim(),
+    tagline:      document.getElementById('s-tagline').value.trim(),
+    philosophy:   document.getElementById('s-philosophy').value.trim(),
+    email:        document.getElementById('s-email').value.trim(),
+    phone:        document.getElementById('s-phone').value.trim(),
+    address:      document.getElementById('s-address').value.trim(),
+    linkedin:     document.getElementById('s-linkedin').value.trim(),
+    instagram:    document.getElementById('s-instagram').value.trim(),
+    facebook:     document.getElementById('s-facebook').value.trim(),
+    twitter:      document.getElementById('s-twitter').value.trim(),
+  };
+
+  try {
+    const headers = { 
+      'Content-Type': 'application/json',
+      'admin-token': localStorage.getItem('adminToken') 
+    };
+    const response = await fetch('/.netlify/functions/settings', {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(data)
+    });
+    if(!response.ok) throw new Error('API failed');
+    toast('Settings saved!');
+  } catch(e) { toast('Error saving: '+e.message,'err'); }
+};
+
+window.handleSignOut = async function() {
+  if(!confirm('Sign out of admin panel?')) return;
+  localStorage.removeItem('adminToken');
+  location.reload();
+};
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+async function initAdmin() {
+  await loadDashboard();
+  await initQuill();
+}
+</script>
+</body>
+</html>
