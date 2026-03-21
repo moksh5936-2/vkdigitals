@@ -7,17 +7,17 @@
 
 /* ─── CSS Variables ─── */
 :root {
-  --purple:       #5D3891;
-  --purple-light: #8E6BCB;
-  --purple-dark:  #2D1E5F;
-  --green:        #A9C52F;
-  --green-light:  #C5E1A5;
-  --indigo-deep:  #1A1245;
+  --purple:       #7C3AED; 
+  --purple-light: #A78BFA;
+  --purple-dark:  #2E1065;
+  --green:        #A3E635;
+  --green-light:  #D9F99D;
+  --indigo-deep:  #1E1B4B;
   --white:        #FFFFFF;
   --bg-light:     #FBFBFE;
   --bg-subtle:    #F5F5F9;
   --text-main:    #1A1A1E;
-  --text-muted:   #6B7A8D;
+  --text-muted:   #64748B;
   --text-dim:     #94A3B8;
 
   --font-body:    'Inter', system-ui, sans-serif;
@@ -32,20 +32,19 @@
   --max-w: 1240px;
   --gutter: clamp(1.25rem, 5vw, 4rem);
 
-  /* New Saturated Gradients */
-  --grad-hero: radial-gradient(circle at 0% 0%, rgba(93,56,145,0.15) 0%, transparent 50%),
-               radial-gradient(circle at 100% 100%, rgba(169,197,47,0.1) 0%, transparent 50%);
-  --grad-brand: linear-gradient(135deg, var(--purple) 0%, #7C4DFF 100%);
-  --grad-dark: linear-gradient(135deg, #0F071F 0%, #1A0B2E 100%);
-  --grad-green: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  /* New Ultra-Saturated Gradients */
+  --grad-hero: radial-gradient(circle at 0% 0%, rgba(124, 58, 237, 0.2) 0%, transparent 50%),
+               radial-gradient(circle at 100% 100%, rgba(163, 230, 53, 0.15) 0%, transparent 50%);
+  --grad-brand: linear-gradient(135deg, #7C3AED 0%, #C026D3 100%);
+  --grad-dark: linear-gradient(135deg, #0F071F 0%, #1A1245 100%);
+  --grad-green: linear-gradient(135deg, #A3E635 0%, #65A30D 100%);
   --grad-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
   
   --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
-  --shadow-md: 0 4px 12px rgba(93,56,145,0.08);
-  --shadow-lg: 0 12px 32px rgba(93,56,145,0.12);
-  --shadow-xl: 0 24px 64px rgba(93,56,145,0.16);
+  --shadow-md: 0 4px 12px rgba(124, 58, 237, 0.08);
+  --shadow-lg: 0 12px 32px rgba(124, 58, 237, 0.12);
+  --shadow-xl: 0 24px 64px rgba(124, 58, 237, 0.2);
   
-  /* Animation Tokens */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --anim-slow: 0.8s var(--ease-out);
   --anim-fast: 0.4s var(--ease-out);
@@ -132,13 +131,53 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .reveal {
   opacity: 0;
-  transition: opacity 1s var(--ease-out), transform 1s var(--ease-out);
+  transition: opacity 1.2s var(--ease-out), transform 1.2s var(--ease-out);
   transform: translateY(40px);
+  will-change: opacity, transform;
 }
 
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ─── BRAND TICKER ─── */
+.brand-ticker {
+  background: var(--bg-subtle);
+  padding-block: 2.5rem;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+  border-bottom: 1px solid rgba(124, 58, 237, 0.08);
+}
+
+.ticker-track {
+  display: inline-flex;
+  gap: 4rem;
+  animation: ticker-move 40s linear infinite;
+  padding-left: 100%; /* Ensure seamless loop start */
+}
+
+.ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.4;
+  transition: opacity 0.3s;
+}
+
+.ticker-item:hover { opacity: 0.8; }
+.ticker-item i { color: var(--purple); font-size: 1.25rem; }
+
+@keyframes ticker-move {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
 
 .delay-1 { transition-delay: 0.1s; }
@@ -318,7 +357,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   align-items: center;
   position: relative;
   overflow: hidden;
-  padding-top: 70px;
+  padding-top: 80px;
 }
 
 .hero__bg {
@@ -1326,15 +1365,6 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   50%       { opacity: 0.5; transform: scale(0.75); }
 }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 /* ─── Scroll margin for anchor sections (compensate fixed nav) ─── */
 [id] { scroll-margin-top: 80px; }
@@ -1351,10 +1381,10 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
    Breakpoints: 1024 | 900 | 768 | 640 | 480 | 375
    ================================================================= */
 
-.pillar-icon.blue { color: #3B82F6; background: #EFF6FF; }
-.pillar-icon.green { color: #22C55E; background: #F0FDF4; }
-.pillar-icon.yellow { color: #EAB308; background: #FEFCE8; }
-.pillar-icon.orange { color: #F97316; background: #FFF7ED; }
+.pillar-icon.blue { color: #2563EB; background: rgba(37, 99, 235, 0.08); }
+.pillar-icon.green { color: #10B981; background: rgba(16, 185, 129, 0.08); }
+.pillar-icon.yellow { color: #F59E0B; background: rgba(245, 158, 11, 0.08); }
+.pillar-icon.orange { color: #EA580C; background: rgba(234, 88, 12, 0.08); }
 
 /* ── 1024px — Tablet Landscape ── */
 @media (max-width: 1240px) {
