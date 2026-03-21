@@ -1,3 +1,5 @@
+'use client';
+
 import Navbar from '@/components/Navbar';
 import CTASection from '@/components/CTASection';
 import { motion } from 'framer-motion';
