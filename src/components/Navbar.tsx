@@ -27,18 +27,8 @@ export default function Navbar() {
           <div className="flex items-center justify-between">
             
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-brand-violet to-[#4c1d95] rounded-xl flex items-center justify-center text-white font-black text-sm shadow-md">
-                VK
-              </div>
-              <div className="flex flex-col">
-                <span className="font-display font-black text-lg text-slate-900 leading-none">
-                  VK Digitals
-                </span>
-                <span className="text-[0.55rem] text-slate-500 font-bold uppercase tracking-widest mt-0.5">
-                  & Financial Services LLP
-                </span>
-              </div>
+            <Link href="/" className="flex items-center">
+              <img src="/assets/Logo.svg" alt="VK Digitals and Financial Services" className="h-[3.25rem] w-auto" />
             </Link>
 
             {/* Desktop Links */}
