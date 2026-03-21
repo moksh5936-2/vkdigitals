@@ -43,8 +43,14 @@ export default function Pillars() {
     <section className="py-24 bg-white relative">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         
-        {/* Header */}
-        <div className="mb-16 max-w-2xl">
+        {/* Header - Smooth scroll entrance */}
+        <motion.div 
+           initial={{ opacity: 0, y: 30 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           transition={{ duration: 0.6 }}
+           className="mb-16 max-w-2xl"
+        >
           <div className="flex items-center gap-4 mb-4">
              <div className="h-[1px] w-8 bg-brand-purple/30" />
              <span className="text-[0.65rem] font-bold text-brand-purple uppercase tracking-[0.2em]">What We Do</span>
@@ -57,17 +63,25 @@ export default function Pillars() {
           <p className="text-slate-500 text-lg leading-relaxed">
             Integrated expertise across digital, creative, and financial domains — designed to work in sync, not in silos.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Cards Grid */}
+        {/* Cards Grid - Staggered Waterfall & Pop */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
           {pillars.map((pillar, idx) => (
-            <div key={idx} className="bg-white border border-slate-100 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow relative group flex flex-col">
-              <div className={`w-12 h-12 ${pillar.bg} ${pillar.color} rounded-2xl flex items-center justify-center mb-8 shadow-sm`}>
+            <motion.div 
+               key={idx}
+               initial={{ opacity: 0, y: 40 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.5, delay: idx * 0.1 }}
+               whileHover={{ y: -8, rotate: idx % 2 === 0 ? 1 : -1, boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.15)' }}
+               className="bg-white border border-slate-100 rounded-3xl p-8 shadow-sm transition-colors relative group flex flex-col"
+            >
+              <div className={`w-12 h-12 ${pillar.bg} ${pillar.color} rounded-2xl flex items-center justify-center mb-8 shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3`}>
                 <pillar.icon size={20} strokeWidth={2.5} />
               </div>
               
-              <h3 className="text-xl font-black text-slate-900 mb-3 leading-tight">{pillar.title}</h3>
+              <h3 className="text-xl font-black text-slate-900 mb-3 leading-tight transition-colors group-hover:text-brand-purple">{pillar.title}</h3>
               <p className="text-slate-500 text-sm leading-relaxed mb-8 flex-1">{pillar.desc}</p>
               
               <div className="flex flex-wrap gap-2 mb-8">
@@ -81,7 +95,7 @@ export default function Pillars() {
               <div className="mt-auto">
                  <ArrowUpRight size={20} className={`${pillar.color} group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform`} />
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 

@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar';
 import CTASection from '@/components/CTASection';
+import { motion } from 'framer-motion';
 import { BarChart3, Clapperboard, TrendingUp } from 'lucide-react';
 
 export default function AboutPage() {
@@ -9,22 +10,40 @@ export default function AboutPage() {
       
       {/* Light Theme Purple Hero */}
       <section className="hero-gradient pt-32 pb-40 px-6 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-white/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+        <motion.div 
+           animate={{ scale: [1, 1.1, 1], rotate: [0, 90, 0] }}
+           transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
+           className="absolute top-0 right-0 w-[800px] h-[800px] bg-white/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4 pointer-events-none" 
+        />
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
           <div className="flex items-center gap-3 text-xs font-bold text-white/50 mb-6 uppercase tracking-widest">
             <a href="/" className="hover:text-white transition-colors">Home</a>
             <span>/</span>
             <span className="text-white">About Us</span>
           </div>
-          <div className="inline-block px-4 py-1.5 bg-white/10 border border-white/20 text-white text-[0.65rem] font-bold uppercase tracking-widest rounded-full mb-8">
+          <motion.div 
+             initial={{ opacity: 0, y: 20 }}
+             animate={{ opacity: 1, y: 0 }}
+             className="inline-block px-4 py-1.5 bg-white/10 border border-white/20 text-white text-[0.65rem] font-bold uppercase tracking-widest rounded-full mb-8"
+          >
             Founded in Yamunanagar • Serving India
-          </div>
-          <h1 className="text-5xl md:text-7xl font-display font-black text-white mb-6 tracking-tighter max-w-2xl">
+          </motion.div>
+          <motion.h1 
+             initial={{ opacity: 0, y: 20 }}
+             animate={{ opacity: 1, y: 0 }}
+             transition={{ delay: 0.1 }}
+             className="text-5xl md:text-7xl font-display font-black text-white mb-6 tracking-tighter max-w-2xl"
+          >
             Where Strategy Meets Structure
-          </h1>
-          <p className="text-white/80 text-xl font-medium max-w-2xl leading-relaxed">
+          </motion.h1>
+          <motion.p 
+             initial={{ opacity: 0, y: 20 }}
+             animate={{ opacity: 1, y: 0 }}
+             transition={{ delay: 0.2 }}
+             className="text-white/80 text-xl font-medium max-w-2xl leading-relaxed"
+          >
             Built on one principle — every brand deserves structure, not shortcuts.
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -34,7 +53,13 @@ export default function AboutPage() {
             <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 mb-32">
                
                {/* Left Description */}
-               <div className="flex-1">
+               <motion.div 
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="flex-1"
+               >
                   <div className="flex items-center gap-4 mb-4">
                      <div className="h-[1px] w-8 bg-brand-purple/30" />
                      <span className="text-[0.65rem] font-bold text-brand-purple uppercase tracking-[0.2em]">Who We Are</span>
@@ -48,28 +73,49 @@ export default function AboutPage() {
                   <p className="text-slate-600 text-sm leading-relaxed font-medium">
                      Our evolution into Financial Services & Advisory reflects a simple truth: a brand's story cannot be separated from its financial foundations. True, lasting growth needs both powerful communication and sound economic decisions.
                   </p>
-               </div>
+               </motion.div>
 
                {/* Right Mission/Vision/Values boxes */}
                <div className="flex-1 space-y-4">
-                  <div className="p-8 border-l-4 border-brand-purple bg-white border border-slate-100 rounded-r-3xl shadow-sm">
+                  <motion.div 
+                     initial={{ opacity: 0, x: 30 }}
+                     whileInView={{ opacity: 1, x: 0 }}
+                     viewport={{ once: true }}
+                     transition={{ duration: 0.5, delay: 0.1 }}
+                     whileHover={{ x: -10 }}
+                     className="p-8 border-l-4 border-brand-purple bg-white border border-slate-100 rounded-r-3xl shadow-sm"
+                  >
                      <h3 className="font-bold text-slate-900 mb-2">Our Mission</h3>
                      <p className="text-slate-500 font-medium text-xs leading-relaxed">
                         Empower businesses with structured strategies that drive measurable, sustainable growth — digitally and financially.
                      </p>
-                  </div>
-                  <div className="p-8 border-l-4 border-brand-green bg-white border border-slate-100 rounded-r-3xl shadow-sm">
+                  </motion.div>
+                  <motion.div 
+                     initial={{ opacity: 0, x: 30 }}
+                     whileInView={{ opacity: 1, x: 0 }}
+                     viewport={{ once: true }}
+                     transition={{ duration: 0.5, delay: 0.2 }}
+                     whileHover={{ x: -10 }}
+                     className="p-8 border-l-4 border-brand-green bg-white border border-slate-100 rounded-r-3xl shadow-sm"
+                  >
                      <h3 className="font-bold text-slate-900 mb-2">Our Vision</h3>
                      <p className="text-slate-500 font-medium text-xs leading-relaxed">
                         Become India's most trusted integrated digital-financial growth partner for emerging and scaling brands.
                      </p>
-                  </div>
-                  <div className="p-8 border-l-4 border-amber-400 bg-white border border-slate-100 rounded-r-3xl shadow-sm">
+                  </motion.div>
+                  <motion.div 
+                     initial={{ opacity: 0, x: 30 }}
+                     whileInView={{ opacity: 1, x: 0 }}
+                     viewport={{ once: true }}
+                     transition={{ duration: 0.5, delay: 0.3 }}
+                     whileHover={{ x: -10 }}
+                     className="p-8 border-l-4 border-amber-400 bg-white border border-slate-100 rounded-r-3xl shadow-sm"
+                  >
                      <h3 className="font-bold text-slate-900 mb-2">Our Values</h3>
                      <p className="text-slate-500 font-medium text-xs leading-relaxed">
                         Structure over shortcuts. Clarity over chaos. Long-term thinking over short-term wins. Accountability in every engagement.
                      </p>
-                  </div>
+                  </motion.div>
                </div>
             </div>
 
@@ -85,7 +131,14 @@ export default function AboutPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-               <div className="bg-white border border-slate-100 rounded-3xl p-10 shadow-lg shadow-black/5 text-center flex flex-col items-center">
+               <motion.div 
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  whileHover={{ y: -8, boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.1)' }}
+                  className="bg-white border border-slate-100 rounded-3xl p-10 shadow-lg shadow-black/5 text-center flex flex-col items-center"
+               >
                   <div className="w-12 h-12 bg-blue-50 text-blue-500 rounded-2xl flex items-center justify-center mb-6">
                      <BarChart3 size={24} />
                   </div>
@@ -93,9 +146,16 @@ export default function AboutPage() {
                   <p className="text-slate-500 text-[0.8rem] leading-relaxed">
                      Strategy-first execution that builds real audiences. Brand identities that carry authority and campaigns that convert.
                   </p>
-               </div>
+               </motion.div>
                
-               <div className="bg-white border border-slate-100 rounded-3xl p-10 shadow-lg shadow-black/5 text-center flex flex-col items-center">
+               <motion.div 
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  whileHover={{ y: -8, boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.1)' }}
+                  className="bg-white border border-slate-100 rounded-3xl p-10 shadow-lg shadow-black/5 text-center flex flex-col items-center"
+               >
                   <div className="w-12 h-12 bg-amber-50 text-amber-500 rounded-2xl flex items-center justify-center mb-6">
                      <Clapperboard size={24} />
                   </div>
@@ -103,9 +163,16 @@ export default function AboutPage() {
                   <p className="text-slate-500 text-[0.8rem] leading-relaxed">
                      Creative storytelling combined with data-driven performance — ensuring clients are seen, heard, and remembered.
                   </p>
-               </div>
+               </motion.div>
 
-               <div className="bg-white border border-slate-100 rounded-3xl p-10 shadow-lg shadow-black/5 text-center flex flex-col items-center">
+               <motion.div 
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  whileHover={{ y: -8, boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.1)' }}
+                  className="bg-white border border-slate-100 rounded-3xl p-10 shadow-lg shadow-black/5 text-center flex flex-col items-center"
+               >
                   <div className="w-12 h-12 bg-emerald-50 text-emerald-500 rounded-2xl flex items-center justify-center mb-6">
                      <TrendingUp size={24} />
                   </div>
@@ -113,7 +180,7 @@ export default function AboutPage() {
                   <p className="text-slate-500 text-[0.8rem] leading-relaxed">
                      Credible registered LLP advisory from business planning and compliance to investment-readiness and capital strategy.
                   </p>
-               </div>
+               </motion.div>
             </div>
          </div>
       </section>

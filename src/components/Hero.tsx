@@ -6,10 +6,22 @@ import Link from 'next/link';
 export default function Hero() {
   return (
     <section className="relative overflow-hidden hero-gradient">
-      {/* Abstract Circles matching image */}
-      <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-white/5 rounded-full blur-[100px] -translate-y-1/2 -translate-x-1/4 pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-brand-green/20 rounded-full blur-[100px] translate-y-1/4 translate-x-1/4 pointer-events-none" />
-      <div className="absolute top-0 right-[10%] w-[400px] h-[400px] bg-brand-indigo/30 rounded-full mix-blend-overlay -translate-y-1/2 pointer-events-none" />
+      {/* Abstract Circles matching image - Animated for dynamic breathing */}
+      <motion.div 
+         animate={{ scale: [1, 1.1, 1], rotate: [0, 90, 0] }}
+         transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
+         className="absolute top-0 left-0 w-[800px] h-[800px] bg-white/5 rounded-full blur-[100px] -translate-y-1/2 -translate-x-1/4 pointer-events-none" 
+      />
+      <motion.div 
+         animate={{ y: [0, -30, 0], scale: [1, 1.2, 1] }}
+         transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
+         className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-brand-green/20 rounded-full blur-[100px] translate-y-1/4 translate-x-1/4 pointer-events-none" 
+      />
+      <motion.div 
+         animate={{ x: [0, -20, 0], y: [0, 20, 0] }}
+         transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
+         className="absolute top-0 right-[10%] w-[400px] h-[400px] bg-brand-indigo/30 rounded-full mix-blend-overlay -translate-y-1/2 pointer-events-none" 
+      />
       
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 pt-24 pb-32 relative z-10 flex flex-col lg:flex-row items-center gap-16">
         
@@ -51,29 +63,37 @@ export default function Hero() {
             transition={{ delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
           >
-            <Link 
-              href="/services" 
-              className="px-8 py-3.5 bg-brand-green text-white font-bold rounded-full hover:bg-emerald-400 transition-colors shadow-lg shadow-brand-green/20"
-            >
-              Explore Services
-            </Link>
-            <Link 
-              href="/contact" 
-              className="px-8 py-3.5 bg-transparent border border-white/30 text-white font-bold rounded-full hover:bg-white/10 transition-colors"
-            >
-              Start a Conversation
-            </Link>
+            <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
+               <Link 
+                 href="/services" 
+                 className="block px-8 py-3.5 bg-brand-green text-white font-bold rounded-full hover:bg-emerald-400 transition-colors shadow-lg shadow-brand-green/30"
+               >
+                 Explore Services
+               </Link>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
+               <Link 
+                 href="/contact" 
+                 className="block px-8 py-3.5 bg-transparent border border-white/30 text-white font-bold rounded-full hover:bg-white/10 transition-colors"
+               >
+                 Start a Conversation
+               </Link>
+            </motion.div>
           </motion.div>
         </div>
 
-        {/* Right Stats Card */}
+        {/* Right Stats Card - Set to gently float up and down */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           className="w-full lg:w-auto relative"
         >
-          <div className="bg-[#4E6287]/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 max-w-sm mx-auto shadow-2xl">
+          <motion.div 
+             animate={{ y: [0, -15, 0] }}
+             transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+             className="bg-[#4E6287]/40 backdrop-blur-xl border border-white/10 rounded-3xl p-8 max-w-sm mx-auto shadow-2xl"
+          >
              <div className="text-[0.65rem] text-white/60 font-black uppercase tracking-[0.2em] mb-8">Performance Snapshot</div>
              
              <div className="grid grid-cols-2 gap-x-8 gap-y-10">
@@ -100,7 +120,7 @@ export default function Hero() {
                 <span className="px-3 py-1 bg-slate-600 rounded-full text-[0.6rem] font-bold text-white uppercase tracking-wider">Creative</span>
                 <span className="px-3 py-1 bg-[#0f766e] rounded-full text-[0.6rem] font-bold text-white uppercase tracking-wider">Financial</span>
              </div>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

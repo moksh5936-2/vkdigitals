@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import CTASection from '@/components/CTASection';
+import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { BarChart3, TrendingUp, Clapperboard, MonitorSmartphone, Scale, Sparkles } from 'lucide-react';
 
@@ -78,22 +79,40 @@ export default function BlogPage() {
       
       {/* Light Theme Purple Hero matching Image 2 */}
       <section className="hero-gradient pt-32 pb-40 px-6 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-white/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+        <motion.div 
+           animate={{ scale: [1, 1.1, 1], rotate: [0, 90, 0] }}
+           transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
+           className="absolute top-0 right-0 w-[800px] h-[800px] bg-white/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4 pointer-events-none" 
+        />
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
           <div className="flex items-center gap-3 text-xs font-bold text-white/50 mb-6 uppercase tracking-widest">
             <a href="/" className="hover:text-white transition-colors">Home</a>
             <span>/</span>
             <span className="text-white">Blog</span>
           </div>
-          <div className="inline-block px-4 py-1.5 bg-white/10 border border-white/20 text-white text-[0.65rem] font-bold uppercase tracking-widest rounded-full mb-8">
+          <motion.div 
+             initial={{ opacity: 0, y: 20 }}
+             animate={{ opacity: 1, y: 0 }}
+             className="inline-block px-4 py-1.5 bg-white/10 border border-white/20 text-white text-[0.65rem] font-bold uppercase tracking-widest rounded-full mb-8"
+          >
             Digital • Creative • Financial Insights
-          </div>
-          <h1 className="text-5xl md:text-7xl font-display font-black text-white mb-6 tracking-tighter">
+          </motion.div>
+          <motion.h1 
+             initial={{ opacity: 0, y: 20 }}
+             animate={{ opacity: 1, y: 0 }}
+             transition={{ delay: 0.1 }}
+             className="text-5xl md:text-7xl font-display font-black text-white mb-6 tracking-tighter"
+          >
             Ideas That Drive Structured<br />Growth
-          </h1>
-          <p className="text-white/80 text-xl font-medium max-w-2xl leading-relaxed">
+          </motion.h1>
+          <motion.p 
+             initial={{ opacity: 0, y: 20 }}
+             animate={{ opacity: 1, y: 0 }}
+             transition={{ delay: 0.2 }}
+             className="text-white/80 text-xl font-medium max-w-2xl leading-relaxed"
+          >
             Fresh perspectives on marketing, media, finance, and building brands with intention.
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -120,11 +139,24 @@ export default function BlogPage() {
 
         {/* Blog Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
-           {filteredPosts.map((post) => (
-              <div key={post.title} className="bg-white border border-slate-100 rounded-3xl shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col group cursor-pointer">
-                 {/* Top Image Section (represented by pastel color with icon in Image 2) */}
-                 <div className={`h-48 ${post.headerBg} w-full flex items-center justify-center`}>
-                    <post.icon size={48} className={post.iconColor} />
+           {filteredPosts.map((post, idx) => (
+              <motion.div 
+                 key={post.title} 
+                 initial={{ opacity: 0, y: 40 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true }}
+                 transition={{ duration: 0.5, delay: idx * 0.1 }}
+                 whileHover={{ y: -8, boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.1)' }}
+                 className="bg-white border border-slate-100 rounded-3xl shadow-sm overflow-hidden flex flex-col group cursor-pointer"
+              >
+                 {/* Top Image Section */}
+                 <div className={`h-48 ${post.headerBg} w-full flex items-center justify-center transition-colors group-hover:bg-opacity-80`}>
+                    <motion.div
+                       transition={{ duration: 0.3 }}
+                       whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0] }}
+                    >
+                       <post.icon size={48} className={post.iconColor} />
+                    </motion.div>
                  </div>
                  
                  <div className="p-8 flex-1 flex flex-col">
@@ -147,7 +179,7 @@ export default function BlogPage() {
                        <span>{post.readTime}</span>
                     </div>
                  </div>
-              </div>
+              </motion.div>
            ))}
         </div>
 
