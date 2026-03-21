@@ -1,27 +1,12 @@
-const { MongoClient } = require('mongodb');
+const { neon } = require('@neondatabase/serverless');
 
-let client;
-let clientPromise;
+const sql = neon(process.env.DATABASE_URL);
 
-const uri = process.env.MONGODB_URI;
-const options = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-};
-
-if (!uri) {
-  throw new Error('Please add your Mongo URI to Netlify environment variables');
-}
-
-if (!global._mongoClientPromise) {
-  client = new MongoClient(uri, options);
-  global._mongoClientPromise = client.connect();
-}
-clientPromise = global._mongoClientPromise;
-
+/**
+ * Helper to interact with the database using simple SQL
+ */
 async function getDb() {
-  const client = await clientPromise;
-  return client.db('vkdigitals'); // Target database name
+  return sql;
 }
 
-module.exports = { getDb };
+module.exports = { getDb, sql };
