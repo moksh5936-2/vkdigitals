@@ -27,20 +27,8 @@ export default function Navbar() {
           <div className="flex items-center justify-between">
             
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3">
-              <svg viewBox="0 15 100 90" className="w-[3rem] h-[2.7rem] shrink-0">
-                <path d="M 0,20 L 23,43 L 23,83 C 23,100 10,105 0,105 Z" fill="#7C3AED" />
-                <path d="M 37,85 C 55,65 75,75 100,105 L 70,105 C 55,95 45,95 37,97 Z" fill="#7C3AED" />
-                <path d="M 100,20 L 100,60 L 87,47 L 37,97 L 23,83 L 73,33 L 60,20 Z" fill="#A4C639" />
-              </svg>
-              <div className="flex flex-col justify-center">
-                <span className="font-display font-black text-white text-[1.15rem] leading-none tracking-wide drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
-                  DIGITALS <span className="text-[0.65em] uppercase relative -top-0.5">and</span> FINANCIAL
-                </span>
-                <span className="font-display font-black text-[#A4C639] text-[0.95rem] leading-[1.1] tracking-[0.12em] mt-[3px] drop-shadow-[0_0_8px_rgba(164,198,57,0.4)]">
-                  SERVICES
-                </span>
-              </div>
+            <Link href="/" className="flex items-center">
+              <img src="/assets/Logo.jpg" alt="VK Digitals & Financial Services" className="h-14 w-auto object-contain rounded-md" />
             </Link>
 
             {/* Desktop Links */}
