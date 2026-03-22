@@ -142,7 +142,18 @@ export default function Home() {
                     <li><a href="mailto:Sales@VKdigitals.in" className="hover:text-white transition-colors">Sales@VKdigitals.in</a></li>
                     <li><a href="tel:+918571041192" className="hover:text-white transition-colors">+91 85710 41192</a></li>
                     <li><span className="block mt-2">Mon - Fri: 10AM - 6PM</span></li>
-                    <li><span className="block mt-2">Yamunanagar - 135001</span></li>
+                    <li>
+                      <a 
+                        href="https://www.google.com/maps/search/?api=1&query=1st+floor+above+healthkart+near+nehru+park+model+town+Yamunanagar" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="block mt-2 hover:text-white transition-colors leading-relaxed"
+                      >
+                        1st floor above healthkart<br />
+                        near nehru park model town<br />
+                        Yamunanagar - 135001
+                      </a>
+                    </li>
                  </ul>
               </div>
            </div>

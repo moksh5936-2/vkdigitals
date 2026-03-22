@@ -59,7 +59,16 @@ export default function ContactPage() {
                   <h3 className="text-lg font-black text-white mb-2">Visit Us</h3>
                   <p className="text-slate-400 text-sm mb-4 leading-relaxed">
                      VK Digitals & Financial Services LLP<br />
-                     Yamunanagar, Haryana 135001<br />
+                     <a 
+                       href="https://www.google.com/maps/search/?api=1&query=1st+floor+above+healthkart+near+nehru+park+model+town+Yamunanagar" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       className="hover:text-white transition-colors"
+                     >
+                       1st floor above healthkart<br />
+                       near nehru park model town<br />
+                       Yamunanagar - 135001
+                     </a><br />
                      India
                   </p>
                </div>
@@ -128,7 +137,15 @@ export default function ContactPage() {
 
       {/* Basic Dark Footer */}
       <footer className="bg-brand-dark py-12 text-sm text-center border-t border-white/5 mt-24">
-        <div className="container mx-auto">
+        <div className="container mx-auto flex flex-col items-center gap-4">
+          <a 
+             href="https://www.google.com/maps/search/?api=1&query=1st+floor+above+healthkart+near+nehru+park+model+town+Yamunanagar" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             className="text-white/40 text-xs hover:text-white transition-colors"
+          >
+             1st floor above healthkart, near nehru park model town, Yamunanagar
+          </a>
           <p className="text-white/40 text-xs">© {new Date().getFullYear()} VK Digitals and Financial Services LLP. All rights reserved.</p>
         </div>
       </footer>

@@ -182,7 +182,15 @@ export default function ServicesPage() {
       <CTASection />
       
       <footer className="bg-brand-dark py-12 text-sm text-center border-t border-white/5">
-        <div className="container mx-auto">
+        <div className="container mx-auto flex flex-col items-center gap-4">
+          <a 
+             href="https://www.google.com/maps/search/?api=1&query=1st+floor+above+healthkart+near+nehru+park+model+town+Yamunanagar" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             className="text-white/40 text-xs hover:text-white transition-colors"
+          >
+             1st floor above healthkart, near nehru park model town, Yamunanagar
+          </a>
           <p className="text-white/40 text-xs">© {new Date().getFullYear()} VK Digitals and Financial Services LLP. All rights reserved.</p>
         </div>
       </footer>
