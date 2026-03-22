@@ -30,7 +30,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3">
               <Image
-                src="/assets/Logo-new.jpg"
+                src="/assets/Logo.jpg"
                 alt="VK Digitals Logo"
                 width={48}
                 height={48}
