@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
@@ -28,11 +29,14 @@ export default function Navbar() {
             
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3">
-              <svg viewBox="0 15 100 90" className="w-[3rem] h-[2.7rem] shrink-0">
-                <path d="M 0,20 L 43,63 L 23,83 C 23,100 10,105 0,105 Z" fill="#7C3AED" />
-                <path d="M 37,85 C 55,65 75,75 100,105 L 70,105 C 55,95 45,95 37,97 Z" fill="#7C3AED" />
-                <path d="M 100,20 L 100,60 L 87,47 L 37,97 L 23,83 L 73,33 L 60,20 Z" fill="#A4C639" />
-              </svg>
+              <Image
+                src="/assets/Logo-new.jpg"
+                alt="VK Digitals Logo"
+                width={48}
+                height={48}
+                className="w-[3rem] h-auto object-contain shrink-0 rounded-[2px]"
+                priority
+              />
               <div className="flex flex-col justify-center">
                 <span className="font-display font-black text-white text-[1.15rem] leading-none tracking-wide drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
                   DIGITALS <span className="text-[0.65em] uppercase relative -top-0.5">and</span> FINANCIAL
